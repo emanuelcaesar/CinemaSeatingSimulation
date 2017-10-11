@@ -33,11 +33,20 @@
             // 
             // button1
             // 
+<<<<<<< HEAD
             this.button1.Location = new System.Drawing.Point(94, 191);
+=======
+            this.button1.Location = new System.Drawing.Point(117, 65);
+>>>>>>> ff0dd27cc6c7930d08df775a7175b61130b1b7c2
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(127, 23);
             this.button1.TabIndex = 0;
+<<<<<<< HEAD
             this.button1.Text = "Ejbutton";
+=======
+            this.button1.Text = "Caesar Button";
+>>>>>>> ff0dd27cc6c7930d08df775a7175b61130b1b7c2
             this.button1.UseVisualStyleBackColor = true;
             // 
             // FormSimulation
