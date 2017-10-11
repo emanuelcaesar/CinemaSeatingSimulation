@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -60,15 +61,23 @@
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 3;
             // 
+=======
+            this.SuspendLayout();
+            // 
+>>>>>>> b50ec4d293de1863c68f2c112a95109e52e845ba
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(581, 379);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.ClientSize = new System.Drawing.Size(282, 253);
+>>>>>>> b50ec4d293de1863c68f2c112a95109e52e845ba
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -77,10 +86,13 @@
         }
 
         #endregion
+<<<<<<< HEAD
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+=======
+>>>>>>> b50ec4d293de1863c68f2c112a95109e52e845ba
     }
 }
 
