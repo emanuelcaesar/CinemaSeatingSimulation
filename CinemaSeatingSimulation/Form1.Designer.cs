@@ -1,6 +1,6 @@
 ﻿namespace CinemaSeatingSimulation
 {
-    partial class Form1
+    partial class FormSimulation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+=======
+>>>>>>> d1298e7bd6f794c1c861fc5374263836cbe087d1
             this.SuspendLayout();
             // 
-            // button1
+            // FormSimulation
             // 
+<<<<<<< HEAD
             this.button1.Location = new System.Drawing.Point(82, 49);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
@@ -72,16 +76,20 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+=======
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1082, 628);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "FormSimulation";
+            this.Text = "FormSimulation";
+>>>>>>> d1298e7bd6f794c1c861fc5374263836cbe087d1
             this.ResumeLayout(false);
 
         }
 
         #endregion
-<<<<<<< HEAD
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
 =======
 >>>>>>> b50ec4d293de1863c68f2c112a95109e52e845ba
     }
