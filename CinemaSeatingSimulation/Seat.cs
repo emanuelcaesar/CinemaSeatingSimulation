@@ -8,5 +8,8 @@ namespace CinemaSeatingSimulation
 {
     class Seat
     {
+        int seatId;
+        int posX;
+        int posY;
     }
 }

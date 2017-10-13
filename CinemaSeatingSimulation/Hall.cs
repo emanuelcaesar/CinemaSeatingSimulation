@@ -8,5 +8,7 @@ namespace CinemaSeatingSimulation
 {
     class Hall
     {
+        int hallNum;
+        int seatingConfNum;
     }
 }

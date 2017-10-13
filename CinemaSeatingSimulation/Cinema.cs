@@ -8,5 +8,7 @@ namespace CinemaSeatingSimulation
 {
     class Cinema
     {
+        string name;
+        string location;
     }
 }

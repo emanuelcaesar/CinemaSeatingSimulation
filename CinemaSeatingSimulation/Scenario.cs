@@ -8,5 +8,9 @@ namespace CinemaSeatingSimulation
 {
     class Scenario
     {
+        int scenarioId;
+        string genre;
+        DateTime time;
+        int ageRating;
     }
 }

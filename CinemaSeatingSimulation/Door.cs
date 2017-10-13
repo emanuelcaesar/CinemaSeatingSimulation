@@ -8,5 +8,8 @@ namespace CinemaSeatingSimulation
 {
     class Door
     {
+        int Width;
+        int posX;
+        int posY;
     }
 }

@@ -8,5 +8,6 @@ namespace CinemaSeatingSimulation
 {
     class Function
     {
+        
     }
 }

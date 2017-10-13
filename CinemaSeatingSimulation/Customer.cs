@@ -8,5 +8,8 @@ namespace CinemaSeatingSimulation
 {
     class Customer
     {
+        int customerId;
+        string demographic;
+
     }
 }
