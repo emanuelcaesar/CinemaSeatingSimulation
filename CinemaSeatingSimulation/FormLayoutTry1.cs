@@ -42,6 +42,7 @@ namespace CinemaSeatingSimulation
             //users[0].Left--;
             if(users[0].Top < seatA1.Top)
                 users[0].Top++;
+
             else if(users[0].Top == seatA1.Top)
             {
                 if (users[0].Left < seatA1.Left)
