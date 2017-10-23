@@ -8,6 +8,9 @@ namespace CinemaSeatingSimulation
 {
     class Function
     {
-        
+        public void StartSimulation()
+        {
+            
+        }
     }
 }

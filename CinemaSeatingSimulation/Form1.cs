@@ -27,5 +27,14 @@ namespace CinemaSeatingSimulation
         {
 
         }
+
+        private void btnSimulate_Click(object sender, EventArgs e)
+        {
+            //Call Form Layout
+            FormLayoutTry1 formTry1 = new FormLayoutTry1();
+            
+            //this.pnlLayout1.Controls.Add(formTry1);
+            formTry1.Show();
+        }
     }
 }
