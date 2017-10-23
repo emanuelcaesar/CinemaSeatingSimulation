@@ -30,12 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlScreen = new System.Windows.Forms.Panel();
-            this.seatA1 = new System.Windows.Forms.Panel();
-            this.seatA2 = new System.Windows.Forms.Panel();
-            this.seatA4 = new System.Windows.Forms.Panel();
-            this.seatA3 = new System.Windows.Forms.Panel();
             this.doorExit1 = new System.Windows.Forms.Panel();
             this.timerSimulation = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // pnlScreen
@@ -45,38 +43,6 @@
             this.pnlScreen.Name = "pnlScreen";
             this.pnlScreen.Size = new System.Drawing.Size(853, 17);
             this.pnlScreen.TabIndex = 0;
-            // 
-            // seatA1
-            // 
-            this.seatA1.BackColor = System.Drawing.Color.Maroon;
-            this.seatA1.Location = new System.Drawing.Point(294, 142);
-            this.seatA1.Name = "seatA1";
-            this.seatA1.Size = new System.Drawing.Size(30, 30);
-            this.seatA1.TabIndex = 1;
-            // 
-            // seatA2
-            // 
-            this.seatA2.BackColor = System.Drawing.Color.Maroon;
-            this.seatA2.Location = new System.Drawing.Point(340, 142);
-            this.seatA2.Name = "seatA2";
-            this.seatA2.Size = new System.Drawing.Size(30, 30);
-            this.seatA2.TabIndex = 2;
-            // 
-            // seatA4
-            // 
-            this.seatA4.BackColor = System.Drawing.Color.Maroon;
-            this.seatA4.Location = new System.Drawing.Point(434, 142);
-            this.seatA4.Name = "seatA4";
-            this.seatA4.Size = new System.Drawing.Size(30, 30);
-            this.seatA4.TabIndex = 4;
-            // 
-            // seatA3
-            // 
-            this.seatA3.BackColor = System.Drawing.Color.Maroon;
-            this.seatA3.Location = new System.Drawing.Point(385, 142);
-            this.seatA3.Name = "seatA3";
-            this.seatA3.Size = new System.Drawing.Size(30, 30);
-            this.seatA3.TabIndex = 3;
             // 
             // doorExit1
             // 
@@ -88,8 +54,21 @@
             // 
             // timerSimulation
             // 
-            this.timerSimulation.Interval = 20;
             this.timerSimulation.Tick += new System.EventHandler(this.timerSimulation_Tick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(39, 634);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1172, 38);
+            this.textBox1.TabIndex = 6;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(39, 567);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(30, 30);
+            this.panel1.TabIndex = 7;
             // 
             // FormLayoutTry1
             // 
@@ -97,11 +76,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1465, 717);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.doorExit1);
-            this.Controls.Add(this.seatA4);
-            this.Controls.Add(this.seatA2);
-            this.Controls.Add(this.seatA3);
-            this.Controls.Add(this.seatA1);
             this.Controls.Add(this.pnlScreen);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -109,17 +86,16 @@
             this.Text = "FormLayoutTry1";
             this.Load += new System.EventHandler(this.FormLayoutTry1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel pnlScreen;
-        private System.Windows.Forms.Panel seatA1;
-        private System.Windows.Forms.Panel seatA2;
-        private System.Windows.Forms.Panel seatA4;
-        private System.Windows.Forms.Panel seatA3;
         private System.Windows.Forms.Panel doorExit1;
         public System.Windows.Forms.Timer timerSimulation;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

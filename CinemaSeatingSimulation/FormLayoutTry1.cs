@@ -18,20 +18,53 @@ namespace CinemaSeatingSimulation
         }
 
         List<Panel> users = new List<Panel>();
+        List<Panel> seats = new List<Panel>();
+        int seatpointLeft = 100;
+        int seatpointTop = 110;
+        int userspointLeft = 0;
+        int userspointTop = 0;
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
-           
-            //Adding Users
             
-            Panel pnlUser = new Panel();
-            users.Add(pnlUser);
-            //Point UsersLocation;
-            //UsersLocation.X = 0;
-            users[0].Location = new Point(0, 0);
-            users[0].BackColor = Color.White;
-            users[0].Size = new Size(10, 10);
-            this.Controls.Add(users[0]);
+            textBox1.Text = Convert.ToString(panel1.Size);
+
+            
+            //Adding Panels
+            for (int i = 0; i <= 10; i++)
+            {
+                Panel pnlSeats = new Panel();
+                seats.Add(pnlSeats);
+                //Point UsersLocation;
+                //UsersLocation.X = 0;
+
+                seats[i].Left = seatpointLeft;
+                seats[i].Top = seatpointTop;
+                seats[i].Location = new Point(seatpointLeft, seatpointTop);
+                
+
+                seats[i].BackColor = Color.Red;
+                seats[i].Size = new Size(11,13);
+                this.Controls.Add(seats[i]);
+                seatpointLeft += 30;
+            }
+
+            //Adding Users
+            for (int i=0; i<=10; i++)
+            {
+                Panel pnlUser = new Panel();
+                users.Add(pnlUser);
+                //Point UsersLocation;
+                //UsersLocation.X = 0;
+                users[i].Location = new Point(userspointLeft, userspointTop);
+                users[i].BackColor = Color.White;
+                users[i].Size = new Size(10, 10);
+                this.Controls.Add(users[i]);
+                //userspointTop += 11;
+                //userspointTop += 0;
+            }
+           
+           
 
             //Simulation Start
             timerSimulation.Start();
@@ -39,22 +72,28 @@ namespace CinemaSeatingSimulation
 
         private void timerSimulation_Tick(object sender, EventArgs e)
         {
-            //users[0].Left--;
-            if(users[0].Top < seatA1.Top)
-                users[0].Top++;
-
-            else if(users[0].Top == seatA1.Top)
+            //Try1 Caesar
+            for(int i=0; i<=10; i++)
             {
-                if (users[0].Left < seatA1.Left)
-                    users[0].Left++;
-                else if (users[0].Left == seatA1.Left)
+                if (users[i].Top < seats[i].Top)
                 {
-                    timerSimulation.Stop();
-                    seatA1.BackColor = Color.Green;
+                    users[i].Top++;
                 }
-                    
+                else if (users[i].Top == seats[i].Top)
+                {
+                    if (users[i].Left < seats[i].Left)
+                        users[i].Left++;
+                    else if (users[i].Left == seats[i].Left)
+                    {
+                        //timerSimulation.Stop();
+                        seats[i].BackColor = Color.Green;
+                    }
+
+                }
             }
-                
+            userspointTop += 11;
+
+
         }
     }
 }
