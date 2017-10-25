@@ -89,15 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1467, 717);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.doorExit1);
-            this.Controls.Add(this.pnlScreen);
-            this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-=======
+
             this.ClientSize = new System.Drawing.Size(511, 301);
 
             this.Controls.Add(this.doorExit1);
@@ -106,11 +98,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 
             this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-<<<<<<< HEAD
->>>>>>> Laras
-=======
 
->>>>>>> Laras
             this.Name = "FormLayoutTry1";
             this.Text = "FormLayoutTry1";
             this.Load += new System.EventHandler(this.FormLayoutTry1_Load);

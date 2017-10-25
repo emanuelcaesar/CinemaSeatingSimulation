@@ -17,10 +17,7 @@ namespace CinemaSeatingSimulation
             InitializeComponent();
         }
 
-<<<<<<< HEAD
-       
 
-=======
         List<Panel> users = new List<Panel>();
         //List<Seat> seatList = new List<Seat>();
         Seat[,] seatList2;
@@ -364,7 +361,7 @@ namespace CinemaSeatingSimulation
             p.Size = new Size(10, 10);
             p.BackColor = Color.Maroon;
             this.Controls.Add(p);
->>>>>>> Laras
+
         }
         */
     }
