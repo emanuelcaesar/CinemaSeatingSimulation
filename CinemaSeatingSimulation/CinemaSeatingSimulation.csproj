@@ -72,6 +72,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLayoutTry1.resx">
       <DependentUpon>FormLayoutTry1.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

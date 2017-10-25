@@ -39,6 +39,15 @@
             // pnlScreen
             // 
             this.pnlScreen.BackColor = System.Drawing.Color.Chartreuse;
+            // 
+            // doorExit1
+            // 
+            this.doorExit1.BackColor = System.Drawing.Color.Aquamarine;
+            this.doorExit1.Location = new System.Drawing.Point(702, 7);
+            this.doorExit1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.doorExit1.Name = "doorExit1";
+            this.doorExit1.Size = new System.Drawing.Size(24, 59);
+
             this.pnlScreen.Location = new System.Drawing.Point(110, 5);
             this.pnlScreen.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pnlScreen.Name = "pnlScreen";
@@ -52,6 +61,7 @@
             this.doorExit1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.doorExit1.Name = "doorExit1";
             this.doorExit1.Size = new System.Drawing.Size(18, 48);
+
             this.doorExit1.TabIndex = 5;
             // 
             // timerSimulation
@@ -75,6 +85,7 @@
             // 
             // FormLayoutTry1
             // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -88,11 +99,17 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 =======
             this.ClientSize = new System.Drawing.Size(511, 301);
+
             this.Controls.Add(this.doorExit1);
             this.Controls.Add(this.pnlScreen);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+
             this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+<<<<<<< HEAD
+>>>>>>> Laras
+=======
+
 >>>>>>> Laras
             this.Name = "FormLayoutTry1";
             this.Text = "FormLayoutTry1";
