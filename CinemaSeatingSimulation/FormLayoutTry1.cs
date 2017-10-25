@@ -349,6 +349,7 @@ namespace CinemaSeatingSimulation
 
         }
 
+        /*
         private void SeatPlacement(Seat s, Panel p)
         {
             p = new Panel();
@@ -357,5 +358,6 @@ namespace CinemaSeatingSimulation
             p.BackColor = Color.Maroon;
             this.Controls.Add(p);
         }
+        */
     }
 }
