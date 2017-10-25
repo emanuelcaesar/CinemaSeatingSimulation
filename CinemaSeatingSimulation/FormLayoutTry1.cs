@@ -19,12 +19,16 @@ namespace CinemaSeatingSimulation
 
 
         List<Panel> users = new List<Panel>();
+        List<Customer> custs = new List<Customer>();
         //List<Seat> seatList = new List<Seat>();
         Seat[,] seatList2;
         private int x, y, height, width, row, col;
         private string alp;
         Random rand = new Random();
         public int randRow, randCol;
+        int amount = 100 - 1;
+        int userspointLeft = 0;
+        int userspointTop = 0;
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
@@ -302,12 +306,12 @@ namespace CinemaSeatingSimulation
             SeatPlacement(seatE19, new Panel());
             SeatPlacement(seatE20, new Panel());
             */
-            //Adding Users
 
+            //Adding Users
+            /*
             Panel pnlUser = new Panel();
-            
-           // for (int i = 0; i < 20; i++) {
-                randRow = rand.Next(0, row);
+            //for (int i = 0; i < 20; i++) {
+            randRow = rand.Next(0, row);
             randCol = rand.Next(0, col);
 
             users.Add(new Panel());
@@ -319,17 +323,42 @@ namespace CinemaSeatingSimulation
                 //Simulation Start
                 //z = i;
                 timerSimulation.Start();
-           // };
+            // };
             //Point UsersLocation;
             //UsersLocation.X = 0;
-            
+            */
+            //AddingUser
+            for (int i = 0; i <= amount; i++)
+            {
+                randRow = rand.Next(0, row);
+                randCol = rand.Next(0, col);
+                custs.Add(new Customer(randRow, randCol));
+            }
+
+            for (int i = 0; i <= amount; i++)
+            {
+                Panel pnlUser = new Panel();
+                users.Add(pnlUser);
+                //Point UsersLocation;
+                //UsersLocation.X = 0;
+                //Random rnd = new Random();
+                users[i].Location = new Point(userspointLeft, userspointTop);
+                users[i].BackColor = Color.White;
+                users[i].Size = new Size(9, 9);
+                this.Controls.Add(users[i]);
+                userspointTop -= 11;
+                //userspointTop += 0;
+            }
+
+
+            timerSimulation.Start();
 
         }
 
         private void timerSimulation_Tick(object sender, EventArgs e)
         {
             //users[0].Left--;
-            
+            /*
             if (users[0].Top < seatList2[randRow, randCol].PosY - seatList2[randRow, randCol].SHeight)
                 users[0].Top++;
 
@@ -348,6 +377,37 @@ namespace CinemaSeatingSimulation
                             timerSimulation.Stop();
                         }
                     }
+                }
+            }
+            */
+
+            //Try1 Caesar
+            for (int i = 0; i <= amount; i++)
+            {
+                
+                if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                {
+                    users[i].Top++;
+                }
+                else if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                {
+                    if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                        users[i].Left++;
+
+                    else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                    {
+                        //timerSimulation.Stop();
+                        while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                        {
+                            users[i].Top++;
+                            if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                            {
+                                users[i].BringToFront();
+                                //timerSimulation.Stop();
+                            }
+                        }
+                    }
+
                 }
             }
 
