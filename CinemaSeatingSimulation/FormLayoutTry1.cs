@@ -120,10 +120,13 @@ namespace CinemaSeatingSimulation
 
             x = 120;
             y = 90;
+
             height = 10;
             width = 10;
+
             row = 10;
             col = 22;
+
             alp = "";
             seatList2 = new Seat[row, col];
 

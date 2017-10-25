@@ -8,6 +8,7 @@ namespace CinemaSeatingSimulation
 {
     class Seat
     {
+<<<<<<< HEAD
         private string seatId;
         private int posX, posY, sHeight, sWidth;
         private System.Drawing.Color seatColor;
@@ -61,4 +62,12 @@ namespace CinemaSeatingSimulation
             set { seatColor = value; }
         }
     }   
+=======
+        int seatId;
+        int posX;
+        int posY;
+
+
+    }
+>>>>>>> caffd1ca5ecbd7737a407e4128467e6cb9850cc0
 }
