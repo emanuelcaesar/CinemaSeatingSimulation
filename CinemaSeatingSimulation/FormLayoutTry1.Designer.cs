@@ -54,18 +54,19 @@
             // 
             // timerSimulation
             // 
+            this.timerSimulation.Interval = 20;
             this.timerSimulation.Tick += new System.EventHandler(this.timerSimulation_Tick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(39, 634);
+            this.textBox1.Location = new System.Drawing.Point(27, 650);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1172, 38);
+            this.textBox1.Size = new System.Drawing.Size(1408, 38);
             this.textBox1.TabIndex = 6;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(39, 567);
+            this.panel1.Location = new System.Drawing.Point(27, 614);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(30, 30);
             this.panel1.TabIndex = 7;
@@ -75,13 +76,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1465, 717);
+            this.ClientSize = new System.Drawing.Size(1467, 717);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.doorExit1);
             this.Controls.Add(this.pnlScreen);
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLayoutTry1";
             this.Text = "FormLayoutTry1";
             this.Load += new System.EventHandler(this.FormLayoutTry1_Load);
