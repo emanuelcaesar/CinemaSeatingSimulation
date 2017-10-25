@@ -357,34 +357,14 @@ namespace CinemaSeatingSimulation
 
         private void timerSimulation_Tick(object sender, EventArgs e)
         {
-            //users[0].Left--;
-            /*
-            if (users[0].Top < seatList2[randRow, randCol].PosY - seatList2[randRow, randCol].SHeight)
-                users[0].Top++;
+            UserGoToSeats(); //Laras & Caesar
+        }
 
-            else if (users[0].Top == seatList2[randRow, randCol].PosY - seatList2[randRow, randCol].SHeight)
-            {
-                if (users[0].Left < seatList2[randRow, randCol].PosX)
-                    users[0].Left++;
-                else if (users[0].Left == seatList2[randRow, randCol].PosX)
-                {
-                    while (users[0].Top < seatList2[randRow, randCol].PosY)
-                    {
-                        users[0].Top++;
-                        if (users[0].Top == seatList2[randRow, randCol].PosY)
-                        {
-                            users[0].BringToFront();
-                            timerSimulation.Stop();
-                        }
-                    }
-                }
-            }
-            */
-
-            //Try1 Caesar
+        public void UserGoToSeats()
+        {
             for (int i = 0; i <= amount; i++)
             {
-                
+
                 if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                 {
                     users[i].Top++;
@@ -410,7 +390,6 @@ namespace CinemaSeatingSimulation
 
                 }
             }
-
         }
 
         /*
