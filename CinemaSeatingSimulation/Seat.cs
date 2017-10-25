@@ -11,5 +11,7 @@ namespace CinemaSeatingSimulation
         int seatId;
         int posX;
         int posY;
+
+
     }
 }
