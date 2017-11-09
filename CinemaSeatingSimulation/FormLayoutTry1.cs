@@ -27,8 +27,9 @@ namespace CinemaSeatingSimulation
         Random rand = new Random();
         public int randRow, randCol;
         int amount = 100 - 1;
-        int userspointLeft = 0;
-        int userspointTop = 0;
+        //int userspointLeft = 5;
+        //int userspointTop = 0;
+        private Door doorA;
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
@@ -135,6 +136,13 @@ namespace CinemaSeatingSimulation
             alp = "";
             seatList2 = new Seat[row, col];
 
+            doorA = new Door(25, 9, 5, 0);
+            Panel pDoorA = new Panel();
+            pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
+            pDoorA.Size = new Size(doorA.DWidth, doorA.DHeight);
+            pDoorA.BackColor = Color.Blue;
+            this.Controls.Add(pDoorA);
+
             for (int i = 0; i < row; i++)
             {
                 for(int j = 0; j < col; j++)
@@ -179,6 +187,7 @@ namespace CinemaSeatingSimulation
                     //seatList.Add(new Seat(alp+""+(j + 1), x, y, height, width, seatColor));
                     seatList2[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width, Color.Maroon);
                     x = x + 13;
+                    Console.WriteLine(seatList2[i, j]);
                 }
                 x = 120;
                 y = y + 20;
@@ -342,11 +351,13 @@ namespace CinemaSeatingSimulation
                 //Point UsersLocation;
                 //UsersLocation.X = 0;
                 //Random rnd = new Random();
-                users[i].Location = new Point(userspointLeft, userspointTop);
+                users[i].Location = new Point((doorA.PosX + doorA.DWidth)/2, doorA.PosY);
+                //users[i].Location = new Point(userspointLeft, userspointTop);
                 users[i].BackColor = Color.White;
                 users[i].Size = new Size(9, 9);
                 this.Controls.Add(users[i]);
-                userspointTop -= 11;
+                //userspointTop -= 11;
+                doorA.PosY -= 11;
                 //userspointTop += 0;
             }
 
@@ -360,8 +371,13 @@ namespace CinemaSeatingSimulation
             UserGoToSeats(); //Laras & Caesar
         }
 
+<<<<<<< HEAD
         public void UserGoToSeats()
         {
+=======
+            //Try1 Caesar
+            /*
+>>>>>>> Laras
             for (int i = 0; i <= amount; i++)
             {
 
@@ -390,6 +406,76 @@ namespace CinemaSeatingSimulation
 
                 }
             }
+<<<<<<< HEAD
+=======
+            */
+            
+
+            for (int i = 0; i <= amount; i++)
+            {
+                if(users[i].Top < 50)
+                {
+                    users[i].Top++;
+                }
+                else
+                {
+                    if (seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId.Substring(0, 1).Equals("A"))
+                    {
+                        if(users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                        {
+                            users[i].Left++;
+                        }
+                        else
+                        {
+                            if(users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                            {
+                                users[i].Top++;
+                            }
+                            else
+                            {
+                                users[i].BringToFront();
+                            }
+                        }
+                    }
+                    else if (users[i].Left < 268 && users[i].Top == 50)
+                    {
+                        users[i].Left++;
+                    }
+                    else
+                    {
+                        if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                        {
+                            users[i].Top++;
+                        }
+                        else
+                        {
+                            if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                                users[i].Left++;
+                            else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            {
+                                users[i].Left--;
+                            }
+                            else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            {
+                                //timerSimulation.Stop();
+                                while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                {
+                                    users[i].Top++;
+                                    if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                    {
+                                        users[i].BringToFront();
+                                        //timerSimulation.Stop();
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+                
+            }
+
+>>>>>>> Laras
         }
 
         /*
