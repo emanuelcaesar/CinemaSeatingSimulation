@@ -30,6 +30,7 @@ namespace CinemaSeatingSimulation
         int userspointLeft = 0;
         int userspointTop = 0;
 
+        
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
             //Adding Seats Position
@@ -328,32 +329,71 @@ namespace CinemaSeatingSimulation
             //UsersLocation.X = 0;
             */
             //AddingUser
-            for (int i = 0; i <= amount; i++)
-            {
-                randRow = rand.Next(0, row);
-                randCol = rand.Next(0, col);
-                custs.Add(new Customer(randRow, randCol));
-            }
+       
+
+
+            
+
 
             for (int i = 0; i <= amount; i++)
             {
+                //userspointTop += 0;
                 Panel pnlUser = new Panel();
                 users.Add(pnlUser);
-                //Point UsersLocation;
-                //UsersLocation.X = 0;
-                //Random rnd = new Random();
+                    //Point UsersLocation;
+                    //UsersLocation.X = 0;
+                    //Random rnd = new Random();;
                 users[i].Location = new Point(userspointLeft, userspointTop);
                 users[i].BackColor = Color.White;
                 users[i].Size = new Size(9, 9);
                 this.Controls.Add(users[i]);
                 userspointTop -= 11;
-                //userspointTop += 0;
+                
             }
 
-
+            newCustomer();
             timerSimulation.Start();
 
         }
+
+        private void newCustomer()
+        {
+
+            Customer customers = new Customer(randRow, randCol);
+
+
+            int filler;
+            //List<int> availableCol = new List<int>(amount);
+            //List<int> availableRow = new List<int>(amount);
+
+            //var setCol = new HashSet<int>();
+            //var setRow = new HashSet<int>();
+            //var nums = new List<int>();
+
+            int j;
+            for (int i = 0; i <= amount; i++)
+            {
+                randCol = rand.Next(0, col);
+
+                randRow = rand.Next(0, row);
+                custs.Add(new Customer(randRow, randCol));
+                
+                for (j = 0; j < custs.Count(); j++) {
+                    if (custs[i].SeatRow == custs[j].SeatRow && custs[i].SeatCol == custs[j].SeatCol && i != j) {
+
+                        randCol = rand.Next(0, col);
+                        randRow = rand.Next(0, row);
+                        //custs.Add(new Customer(randRow, randCol));
+                        custs[i].SeatRow = randRow;
+                        custs[i].SeatCol = randCol;
+                        j = -1;
+                    }
+                }
+                
+            }
+        }
+
+
 
         private void timerSimulation_Tick(object sender, EventArgs e)
         {
@@ -364,7 +404,7 @@ namespace CinemaSeatingSimulation
         {
             for (int i = 0; i <= amount; i++)
             {
-
+          
                 if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                 {
                     users[i].Top++;
@@ -376,15 +416,20 @@ namespace CinemaSeatingSimulation
 
                     else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                     {
+
+                     
                         //timerSimulation.Stop();
                         while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                         {
                             users[i].Top++;
                             if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                             {
+                         
                                 users[i].BringToFront();
+
                                 //timerSimulation.Stop();
                             }
+                           
                         }
                     }
 

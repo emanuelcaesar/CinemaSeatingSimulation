@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cinema.cs" />
+    <Compile Include="Compare.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Form1.cs">
