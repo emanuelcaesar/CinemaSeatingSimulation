@@ -25,9 +25,10 @@ namespace CinemaSeatingSimulation
         private int x, y, height, width, row, col;
         private string alp;
         Random rand = new Random();
-        public int randRow, randCol;
 
-		int amount = 100 - 1;
+        public int randRow, randCol, randSpace;
+        int amount = 100 - 1;
+
         //int userspointLeft = 5;
         //int userspointTop = 0;
         private Door doorA;
@@ -138,6 +139,7 @@ namespace CinemaSeatingSimulation
             alp = "";
             seatList2 = new Seat[row, col];
 
+            //Adding Door
             doorA = new Door(25, 9, 5, 0);
             Panel pDoorA = new Panel();
             pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
@@ -353,7 +355,8 @@ namespace CinemaSeatingSimulation
                 users[i].Size = new Size(9, 9);
                 this.Controls.Add(users[i]);
                 //userspointTop -= 11;
-                doorA.PosY -= 11;
+                randSpace = rand.Next(11, 40);
+                doorA.PosY -= randSpace;
                 //userspointTop += 0;
             }
             newCustomer();
