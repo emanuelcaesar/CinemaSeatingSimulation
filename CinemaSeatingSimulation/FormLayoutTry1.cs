@@ -32,6 +32,7 @@ namespace CinemaSeatingSimulation
         //int userspointTop = 0;
         private Door doorA;
 
+        
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
             //Adding Seats Position
@@ -337,19 +338,10 @@ namespace CinemaSeatingSimulation
             //Point UsersLocation;
             //UsersLocation.X = 0;
             */
-			//AddingUser
-			//bookedSeats = new Seat[row, col];
-			//fillingSeats = new Seat[row, col];
-			int filler;
-            for (filler = 0; filler <= amount; filler++)
-            {
-				randRow = rand.Next(0, row);
-				randCol = rand.Next(0, col);
-				custs.Add(new Customer(randRow, randCol));
-            }
 
             for (int i = 0; i <= amount; i++)
             {
+                //userspointTop += 0;
                 Panel pnlUser = new Panel();
                 users.Add(pnlUser);
                 //Point UsersLocation;
@@ -364,25 +356,52 @@ namespace CinemaSeatingSimulation
                 doorA.PosY -= 11;
                 //userspointTop += 0;
             }
-
-
+            newCustomer();
             timerSimulation.Start();
 
         }
 
-		//private bool IsDup(Seat filling, Seat booked)
-		//{
-		//	foreach (var item in booked)
-		//	{
-		//		if (item.Equals(filling))
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
+        private void newCustomer()
+        {
 
-		private void timerSimulation_Tick(object sender, EventArgs e)
+            Customer customers = new Customer(randRow, randCol);
+
+
+            int filler;
+            //List<int> availableCol = new List<int>(amount);
+            //List<int> availableRow = new List<int>(amount);
+
+            //var setCol = new HashSet<int>();
+            //var setRow = new HashSet<int>();
+            //var nums = new List<int>();
+
+            int j;
+            for (int i = 0; i <= amount; i++)
+            {
+                randCol = rand.Next(0, col);
+
+                randRow = rand.Next(0, row);
+                custs.Add(new Customer(randRow, randCol));
+                
+                for (j = 0; j < custs.Count(); j++) {
+                    if (custs[i].SeatRow == custs[j].SeatRow && custs[i].SeatCol == custs[j].SeatCol && i != j) {
+
+                        randCol = rand.Next(0, col);
+                        randRow = rand.Next(0, row);
+                        //custs.Add(new Customer(randRow, randCol));
+                        custs[i].SeatRow = randRow;
+                        custs[i].SeatCol = randCol;
+                        j = -1;
+                    }
+                }
+                
+            }
+        }
+
+
+
+        private void timerSimulation_Tick(object sender, EventArgs e)
+
         {
             UserGoToSeats(); //Laras & Caesar
         }
@@ -405,15 +424,20 @@ namespace CinemaSeatingSimulation
 
                     else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                     {
+
+                     
                         //timerSimulation.Stop();
                         while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                         {
                             users[i].Top++;
                             if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                             {
+                         
                                 users[i].BringToFront();
+
                                 //timerSimulation.Stop();
                             }
+                           
                         }
                     }
 
