@@ -362,8 +362,7 @@ namespace CinemaSeatingSimulation
                 doorA.PosY -= randSpace;
                 //userspointTop += 0;
             }
-
-
+            
             timerSimulation.Start();
 
         }
@@ -372,10 +371,7 @@ namespace CinemaSeatingSimulation
         {
             UserGoToSeats(); //Laras & Caesar
         }
-
-
-            
-
+        
         public void UserGoToSeats()
         {
             //Try1 Caesar
@@ -474,6 +470,8 @@ namespace CinemaSeatingSimulation
                 }
                 
             }
+
+
             
         }
 

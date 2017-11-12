@@ -29,10 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.pnlScreen = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // pnlScreen
+            // 
+            this.pnlScreen.BackColor = System.Drawing.Color.Chartreuse;
+            this.pnlScreen.Location = new System.Drawing.Point(146, 6);
+            this.pnlScreen.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.pnlScreen.Name = "pnlScreen";
+            this.pnlScreen.Size = new System.Drawing.Size(426, 9);
+            this.pnlScreen.TabIndex = 1;
+            // 
+            // Form2
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(682, 371);
+            this.Controls.Add(this.pnlScreen);
+            this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlScreen;
+        private System.Windows.Forms.Timer timer1;
     }
 }

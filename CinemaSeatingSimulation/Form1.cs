@@ -36,5 +36,11 @@ namespace CinemaSeatingSimulation
             //this.pnlLayout1.Controls.Add(formTry1);
             formTry1.Show();
         }
+
+        private void btnEmergency_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
     }
 }
