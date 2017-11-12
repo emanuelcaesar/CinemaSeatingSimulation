@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,18 @@ namespace CinemaSeatingSimulation
     {
 
         private string seatId;
-        private int posX, posY, sHeight, sWidth;
+        private int posX, posY, sHeight, sWidth, position=-1;
         private System.Drawing.Color seatColor;
 
         public Seat()
         {
         }
+
+		public Seat(int posX, int posY)
+		{
+			this.posX = posX;
+			this.posY = posY;
+		}
 
         public Seat(string seatId, int posX, int posY, int height, int width, System.Drawing.Color seatColor)
         {
@@ -61,6 +68,6 @@ namespace CinemaSeatingSimulation
             get { return this.seatColor; }
             set { seatColor = value; }
         }
-    }   
+	}   
 
 }
