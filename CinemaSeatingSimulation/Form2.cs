@@ -23,6 +23,9 @@ namespace CinemaSeatingSimulation
         Seat[,] seatList2;
         private int x, y, height, width, row, col;
         private string alp;
+
+        
+
         Random rand = new Random();
         public int randRow, randCol, randSpace;
         int amount = 100 - 1;
@@ -112,12 +115,7 @@ namespace CinemaSeatingSimulation
                 }
             }
 
-            for (int i = 0; i <= amount; i++)
-            {
-                randRow = rand.Next(0, row);
-                randCol = rand.Next(0, col);
-                custs.Add(new Customer(randRow, randCol));
-            }
+            newCustomer();
 
             for (int i = 0; i <= amount; i++)
             {
@@ -132,17 +130,138 @@ namespace CinemaSeatingSimulation
                 
                 this.Controls.Add(users[i]);
                 users[i].BringToFront();
-                //randSpace = rand.Next(11, 40);
-                //doorA.PosY -= randSpace;
+
+                pDoorA.BringToFront();
             }
 
-
+            
             timer1.Start();
+        }
+
+        private void newCustomer()
+        {
+
+            Customer customers = new Customer(randRow, randCol);
+
+            //List<int> availableCol = new List<int>(amount);
+            //List<int> availableRow = new List<int>(amount);
+
+            //var setCol = new HashSet<int>();
+            //var setRow = new HashSet<int>();
+            //var nums = new List<int>();
+
+            int filling, j;
+            for (filling = 0; filling <= amount; filling++)
+            {
+                //randCol = rand.Next(0, col);
+                //randRow = rand.Next(0, row);
+                //custs.Add(new Customer(randRow, randCol));
+
+                if (filling < 8)
+                {
+                    randRow = rand.Next(middleRow1(), middleRow2());
+                    randCol = rand.Next(middleCol1(), middleCol2());
+                    custs.Add(new Customer(randRow, randCol));
+                }
+                else if (filling < 44)
+                {
+                    randRow = rand.Next(4, 6);
+                    randCol = rand.Next(0, col);
+                    if (randCol < 10) randCol = rand.Next(0, 9);
+                    else if (randCol > 13) randCol = rand.Next(13, 22);
+                    custs.Add(new Customer(randRow, randCol));
+                }
+                else if (filling < 88)
+                {
+                    randRow = rand.Next(6, 8);
+                    randCol = rand.Next(0, col);
+                    if (randCol < 10) randCol = rand.Next(0, 9);
+                    else if (randCol > 13) randCol = rand.Next(13, 22);
+                    custs.Add(new Customer(randRow, randCol));
+                }
+                else
+                {
+                    randRow = rand.Next(0, row);
+                    randCol = rand.Next(0, col);
+                    //fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
+                    //while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
+                    //{
+                    //	randRow = rand.Next(0, row);
+                    //	randCol = rand.Next(0, col);
+                    //}
+                    custs.Add(new Customer(randRow, randCol));
+                }
+
+                for (j = 0; j < custs.Count(); j++)
+                {
+                    if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j)
+                    {
+                        if (filling < 8)
+                        {
+                            randRow = rand.Next(middleRow1(), middleRow2());
+                            randCol = rand.Next(middleCol1(), middleCol2());
+                        }
+                        else if (filling < 44)
+                        {
+                            randRow = rand.Next(4, 6);
+                            randCol = rand.Next(0, col);
+                            if (randCol < 10) randCol = rand.Next(0, 9);
+                            else if (randCol > 13) randCol = rand.Next(13, 22);
+                        }
+                        else
+                        {
+                            randCol = rand.Next(0, col);
+                            randRow = rand.Next(0, row);
+                        }
+                        //custs.Add(new Customer(randRow, randCol));
+                        custs[filling].SeatRow = randRow;
+                        custs[filling].SeatCol = randCol;
+                        j = -1;
+                    }
+                }
+
+            }
+        }
+
+        private int middleRow1()
+        {
+            return (row / 2) - 1;
+        }
+        private int middleRow2()
+        {
+            return (row / 2) + 1;
+        }
+        private int middleCol1()
+        {
+            return (col / 2) - 2;
+        }
+
+        private int middleCol2()
+        {
+            return (col / 2) + 2;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            for (int i = 0; i <= amount; i++)
+            {
+                
+                if(users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight))
+                {
+                    users[i].Top--;
+                }
+                else
+                {
+                    if(users[i].Left > (doorA.PosX + doorA.DWidth) / 2)
+                    {
+                        users[i].Left--;
+                    }
+                    else
+                    {
+                        users[i].Top--;
+                    }
+                }
+            }
         }
     }
 }

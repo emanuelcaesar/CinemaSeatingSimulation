@@ -42,6 +42,11 @@
             this.pnlScreen.Size = new System.Drawing.Size(426, 9);
             this.pnlScreen.TabIndex = 1;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 5;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -59,6 +64,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlScreen;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
     }
 }
