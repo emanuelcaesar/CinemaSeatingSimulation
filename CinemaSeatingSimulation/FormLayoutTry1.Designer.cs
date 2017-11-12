@@ -39,7 +39,8 @@
             // pnlScreen
             // 
             this.pnlScreen.BackColor = System.Drawing.Color.Chartreuse;
-            this.pnlScreen.Location = new System.Drawing.Point(294, 13);
+            this.pnlScreen.Location = new System.Drawing.Point(293, 12);
+            this.pnlScreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlScreen.Name = "pnlScreen";
             this.pnlScreen.Size = new System.Drawing.Size(853, 17);
             this.pnlScreen.TabIndex = 0;
@@ -47,25 +48,27 @@
             // doorExit1
             // 
             this.doorExit1.BackColor = System.Drawing.Color.Aquamarine;
-            this.doorExit1.Location = new System.Drawing.Point(1405, 13);
+            this.doorExit1.Location = new System.Drawing.Point(1405, 12);
+            this.doorExit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.doorExit1.Name = "doorExit1";
-            this.doorExit1.Size = new System.Drawing.Size(48, 115);
+            this.doorExit1.Size = new System.Drawing.Size(48, 114);
             this.doorExit1.TabIndex = 5;
             // 
             // timerSimulation
             // 
+            this.timerSimulation.Interval = 10;
             this.timerSimulation.Tick += new System.EventHandler(this.timerSimulation_Tick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(39, 634);
+            this.textBox1.Location = new System.Drawing.Point(27, 650);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1172, 38);
+            this.textBox1.Size = new System.Drawing.Size(1408, 38);
             this.textBox1.TabIndex = 6;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(39, 567);
+            this.panel1.Location = new System.Drawing.Point(27, 614);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(30, 30);
             this.panel1.TabIndex = 7;
@@ -75,18 +78,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1465, 717);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1363, 718);
             this.Controls.Add(this.doorExit1);
             this.Controls.Add(this.pnlScreen);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLayoutTry1";
             this.Text = "FormLayoutTry1";
             this.Load += new System.EventHandler(this.FormLayoutTry1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
