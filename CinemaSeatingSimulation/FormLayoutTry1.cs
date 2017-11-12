@@ -373,13 +373,13 @@ namespace CinemaSeatingSimulation
             UserGoToSeats(); //Laras & Caesar
         }
 
-<<<<<<< HEAD
-            //Try1 Caesar
-            /*
-=======
+
+            
+
         public void UserGoToSeats()
         {
->>>>>>> origin/Feter2
+            //Try1 Caesar
+            /*
             for (int i = 0; i <= amount; i++)
             {
 
@@ -408,9 +408,8 @@ namespace CinemaSeatingSimulation
 
                 }
             }
-<<<<<<< HEAD
             */
-            
+
 
             for (int i = 0; i <= amount; i++)
             {
@@ -475,9 +474,7 @@ namespace CinemaSeatingSimulation
                 }
                 
             }
-
-=======
->>>>>>> origin/Feter2
+            
         }
 
         /*
