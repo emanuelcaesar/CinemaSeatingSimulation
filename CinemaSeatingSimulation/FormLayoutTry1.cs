@@ -26,6 +26,7 @@ namespace CinemaSeatingSimulation
         private string alp;
         Random rand = new Random();
         public int randRow, randCol;
+        public int randRow, randCol, randSpace;
         int amount = 100 - 1;
         //int userspointLeft = 5;
         //int userspointTop = 0;
@@ -136,6 +137,7 @@ namespace CinemaSeatingSimulation
             alp = "";
             seatList2 = new Seat[row, col];
 
+            //Adding Door
             doorA = new Door(25, 9, 5, 0);
             Panel pDoorA = new Panel();
             pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
@@ -358,6 +360,8 @@ namespace CinemaSeatingSimulation
                 this.Controls.Add(users[i]);
                 //userspointTop -= 11;
                 doorA.PosY -= 11;
+                randSpace = rand.Next(11, 40);
+                doorA.PosY -= randSpace;
                 //userspointTop += 0;
             }
 
@@ -372,9 +376,16 @@ namespace CinemaSeatingSimulation
         }
 
 
+<<<<<<< HEAD
         public void UserGoToSeats()
         {
 
+=======
+            
+
+        public void UserGoToSeats()
+        {
+>>>>>>> Laras
             //Try1 Caesar
             
             /*
@@ -407,9 +418,14 @@ namespace CinemaSeatingSimulation
                 }
             }
             */
+<<<<<<< HEAD
           
             
             //Laras from Center
+=======
+
+
+>>>>>>> Laras
             for (int i = 0; i <= amount; i++)
             {
                 if(users[i].Top < 50)
@@ -473,8 +489,12 @@ namespace CinemaSeatingSimulation
                 }
                 
             }
+<<<<<<< HEAD
 
 
+=======
+            
+>>>>>>> Laras
         }
 
         /*
