@@ -21,13 +21,17 @@ namespace CinemaSeatingSimulation
         List<Panel> users = new List<Panel>();
         List<Customer> custs = new List<Customer>();
         //List<Seat> seatList = new List<Seat>();
-        Seat[,] seatList2, bookedSeats, fillingSeats;
+        Seat[,] seatList2;
         private int x, y, height, width, row, col;
         private string alp;
         Random rand = new Random();
 
         public int randRow, randCol, randSpace;
-        int amount = 100 - 1;
+
+        //int amount = 100 - 1;
+
+
+        double amount;
 
         //int userspointLeft = 5;
         //int userspointTop = 0;
@@ -35,6 +39,7 @@ namespace CinemaSeatingSimulation
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
+
             //Adding Seats Position
             /*
             Seat seatB1 = new Seat("B1", 120, 120);
@@ -126,6 +131,8 @@ namespace CinemaSeatingSimulation
             Seat seatE20 = new Seat("E20", 380, 180);
             */
 
+            
+
             x = 120;
             y = 90;
 
@@ -134,6 +141,7 @@ namespace CinemaSeatingSimulation
 
             row = 10;
             col = 22;
+            amount = FormSimulation.customerCount * col * row;
 
             alp = "";
             seatList2 = new Seat[row, col];
@@ -457,9 +465,12 @@ namespace CinemaSeatingSimulation
         {
             UserGoToSeats(); //Laras & Caesar
         }
+
         public void UserGoToSeats()
         {
+
             //Try1 Caesar
+            
             /*
             for (int i = 0; i <= amount; i++)
             {
@@ -489,6 +500,8 @@ namespace CinemaSeatingSimulation
                 }
             }
             */
+
+
 
 
             for (int i = 0; i <= amount; i++)
