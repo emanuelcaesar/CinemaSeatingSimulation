@@ -142,20 +142,10 @@ namespace CinemaSeatingSimulation
         {
 
             Customer customers = new Customer(randRow, randCol);
-
-            //List<int> availableCol = new List<int>(amount);
-            //List<int> availableRow = new List<int>(amount);
-
-            //var setCol = new HashSet<int>();
-            //var setRow = new HashSet<int>();
-            //var nums = new List<int>();
-
+            
             int filling, j;
             for (filling = 0; filling <= amount; filling++)
             {
-                //randCol = rand.Next(0, col);
-                //randRow = rand.Next(0, row);
-                //custs.Add(new Customer(randRow, randCol));
 
                 if (filling < 8)
                 {
@@ -183,12 +173,6 @@ namespace CinemaSeatingSimulation
                 {
                     randRow = rand.Next(0, row);
                     randCol = rand.Next(0, col);
-                    //fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
-                    //while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
-                    //{
-                    //	randRow = rand.Next(0, row);
-                    //	randCol = rand.Next(0, col);
-                    //}
                     custs.Add(new Customer(randRow, randCol));
                 }
 
@@ -213,7 +197,7 @@ namespace CinemaSeatingSimulation
                             randCol = rand.Next(0, col);
                             randRow = rand.Next(0, row);
                         }
-                        //custs.Add(new Customer(randRow, randCol));
+
                         custs[filling].SeatRow = randRow;
                         custs[filling].SeatCol = randCol;
                         j = -1;
