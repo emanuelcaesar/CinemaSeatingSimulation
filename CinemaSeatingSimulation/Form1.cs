@@ -12,7 +12,7 @@ namespace CinemaSeatingSimulation
 {
     public partial class FormSimulation : Form
     {
-        private double customerCount;
+        public static double customerCount;
 
 
         public FormSimulation()

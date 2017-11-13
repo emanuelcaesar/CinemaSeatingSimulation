@@ -26,13 +26,14 @@ namespace CinemaSeatingSimulation
         private string alp;
         Random rand = new Random();
         public int randRow, randCol, randSpace;
-        int amount = 100 - 1;
+        double amount;
         //int userspointLeft = 5;
         //int userspointTop = 0;
         private Door doorA;
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
+
             //Adding Seats Position
             /*
             Seat seatB1 = new Seat("B1", 120, 120);
@@ -124,6 +125,8 @@ namespace CinemaSeatingSimulation
             Seat seatE20 = new Seat("E20", 380, 180);
             */
 
+            
+
             x = 120;
             y = 90;
 
@@ -132,6 +135,7 @@ namespace CinemaSeatingSimulation
 
             row = 10;
             col = 22;
+            amount = FormSimulation.customerCount * col * row;
 
             alp = "";
             seatList2 = new Seat[row, col];
