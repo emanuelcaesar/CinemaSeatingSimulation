@@ -29,8 +29,7 @@ namespace CinemaSeatingSimulation
         public int randRow, randCol, randSpace;
 
         //int amount = 100 - 1;
-
-
+        
         double amount;
 
         //int userspointLeft = 5;
