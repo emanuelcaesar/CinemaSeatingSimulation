@@ -38,13 +38,13 @@ namespace CinemaSeatingSimulation
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
-            if (comboBox3.SelectedText == "Evening(18:00)" && comboBox3.SelectedText == "Night(21:00)")
+            if (comboBox3.Text == "Evening (18:00)" || comboBox3.Text == "Night (21:00)")
             {
-                if (comboBox1.SelectedText == "Horror" && comboBox2.SelectedText == "18 +")
+                if (comboBox1.Text == "Horror" && comboBox2.Text == "18+")
                 {
                     customerCount = GetRandomNumber(0.7, 0.75);
                 }
-                else if (comboBox1.SelectedText == "Romance")
+                else if (comboBox1.Text == "Romance")
                 {
                     customerCount = GetRandomNumber(0.6, 0.8);
                 }
@@ -55,11 +55,11 @@ namespace CinemaSeatingSimulation
             }
             else
             {
-                if (comboBox1.SelectedText == "Horror") 
+                if (comboBox1.Text == "Horror") 
                 {
                     customerCount = GetRandomNumber(0, 0.1);
                 }
-                else if (comboBox1.SelectedText == "Animation")
+                else if (comboBox1.Text == "Animation")
                 {
                     customerCount = GetRandomNumber(0.4, 0.6);
                 }
@@ -80,10 +80,16 @@ namespace CinemaSeatingSimulation
             formTry1.Show();
         }
 
+
         private void btnEmergency_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

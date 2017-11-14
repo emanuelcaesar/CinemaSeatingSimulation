@@ -24,11 +24,9 @@ namespace CinemaSeatingSimulation
         private int x, y, height, width, row, col;
         private string alp;
 
-        
-
         Random rand = new Random();
         public int randRow, randCol, randSpace;
-        int amount = 100 - 1;
+        double amount;
 
         private Door doorA;
 
@@ -42,6 +40,7 @@ namespace CinemaSeatingSimulation
 
             row = 10;
             col = 22;
+            amount = FormSimulation.customerCount * row * col;
 
             alp = "";
             seatList2 = new Seat[row, col];

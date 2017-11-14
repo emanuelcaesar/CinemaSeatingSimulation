@@ -55,6 +55,9 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.gbScreeningPanel = new System.Windows.Forms.GroupBox();
             this.panel129 = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnTime = new System.Windows.Forms.Button();
             this.btnAge = new System.Windows.Forms.Button();
             this.btnGenre = new System.Windows.Forms.Button();
@@ -89,11 +92,7 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
-
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-
+            
             this.panelHeader.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabLayout.SuspendLayout();
@@ -478,6 +477,49 @@
             this.panel129.Size = new System.Drawing.Size(213, 237);
 
             this.panel129.TabIndex = 140;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Morning (10:00)",
+            "Afternoon (14:00)",
+            "Evening (18:00)",
+            "Night (21:00)"});
+            this.comboBox3.Location = new System.Drawing.Point(50, 146);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 20);
+            this.comboBox3.TabIndex = 157;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "AL",
+            "12+",
+            "18+"});
+            this.comboBox2.Location = new System.Drawing.Point(50, 122);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 20);
+            this.comboBox2.TabIndex = 156;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Horror",
+            "Comedy",
+            "Romance",
+            "Action",
+            "Animation"});
+            this.comboBox1.Location = new System.Drawing.Point(50, 97);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 155;
             // 
             // btnTime
             // 
@@ -965,48 +1007,7 @@
             this.label23.TabIndex = 158;
             this.label23.Text = "Copyright EJ-Caesar-Davin-Laras-Feter-Mubashir";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Horror",
-            "Comedy",
-            "Romance",
-            "Action",
-            "Animation"});
-            this.comboBox1.Location = new System.Drawing.Point(50, 97);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 155;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "AL",
-            "12+",
-            "18+"});
-            this.comboBox2.Location = new System.Drawing.Point(50, 122);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 156;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Morning (10:00)",
-            "Afternoon (14:00)",
-            "Evening (18:00)",
-            "Night (21:00)"});
-            this.comboBox3.Location = new System.Drawing.Point(50, 146);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 20);
-            this.comboBox3.TabIndex = 157;
+            
             // 
             // FormSimulation
             // 
