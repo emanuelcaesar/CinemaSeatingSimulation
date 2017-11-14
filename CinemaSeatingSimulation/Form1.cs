@@ -13,13 +13,13 @@ namespace CinemaSeatingSimulation
     public partial class FormSimulation : Form
     {
         public static double customerCount;
-
-
+        private bool btnClicked = false;
+        
         public FormSimulation()
         {
             InitializeComponent();
         }
-
+        
         public double GetRandomNumber(double minimum, double maximum)
         {
             Random random = new Random();
@@ -33,36 +33,47 @@ namespace CinemaSeatingSimulation
 
         private void FormSimulation_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
-
             countCustomer();
             if(!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
             {
+                btnClicked = true;
+
                 //Call Form Layout
                 FormLayoutTry1 formTry1 = new FormLayoutTry1();
 
                 //this.pnlLayout1.Controls.Add(formTry1);
                 formTry1.Show();
             }
-
-            
+            else
+            {
+                MessageBox.Show("Please fill the scenario!");
+            }
         }
 
 
         private void btnEmergency_Click(object sender, EventArgs e)
         {
-            
-            countCustomer();
             if (!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
             {
-                Form2 form2 = new Form2();
-                form2.Show();
+                if (btnClicked)
+                {
+                    Form2 form2 = new Form2();
+                    form2.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Please Simulate first!");
+                }
             }
-                
+            else
+            {
+                MessageBox.Show("Please fill the scenario!");
+            }  
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,6 +113,11 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
+        }
+
+        private void pnlLayout1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

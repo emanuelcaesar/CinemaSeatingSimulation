@@ -395,60 +395,12 @@ namespace CinemaSeatingSimulation
 				//randRow = rand.Next(0, row);
 				//custs.Add(new Customer(randRow, randCol));
 
-				if (filling < 8)
-				{
-					randRow = rand.Next(middleRow1(), middleRow2());
-					randCol = rand.Next(middleCol1(), middleCol2());
-					custs.Add(new Customer(randRow, randCol));
-				}
-				else if (filling < 44)
-				{
-					randRow = rand.Next(4, 6);
-					randCol = rand.Next(0, col);
-					if (randCol < 10) randCol = rand.Next(0, 9);
-					else if (randCol > 13) randCol = rand.Next(13, 22);
-					custs.Add(new Customer(randRow, randCol));
-				}
-				else if (filling < 88)
-				{
-					randRow = rand.Next(6, 8);
-					randCol = rand.Next(0, col);
-					if (randCol < 10) randCol = rand.Next(0, 9);
-					else if (randCol > 13) randCol = rand.Next(13, 22);
-					custs.Add(new Customer(randRow, randCol));
-				}
-				else
-				{
-					randRow = rand.Next(0, row);
-					randCol = rand.Next(0, col);
-					//fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
-					//while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
-					//{
-					//	randRow = rand.Next(0, row);
-					//	randCol = rand.Next(0, col);
-					//}
-					custs.Add(new Customer(randRow, randCol));
-				}
-                
+				seatArrangement(filling);
+                custs.Add(new Customer(randRow, randCol));
+
                 for (j = 0; j < custs.Count(); j++) {
                     if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j) {
-						if (filling < 8)
-						{
-							randRow = rand.Next(middleRow1(), middleRow2());
-							randCol = rand.Next(middleCol1(), middleCol2());
-						}
-						else if (filling < 44)
-						{
-							randRow = rand.Next(4, 6);
-							randCol = rand.Next(0, col);
-							if (randCol < 10) randCol = rand.Next(0, 9);
-							else if (randCol > 13) randCol = rand.Next(13, 22);
-						}
-						else
-						{
-							randCol = rand.Next(0, col);
-							randRow = rand.Next(0, row);
-						}
+                        seatArrangement(filling);
                         //custs.Add(new Customer(randRow, randCol));
                         custs[filling].SeatRow = randRow;
                         custs[filling].SeatCol = randCol;
@@ -587,6 +539,43 @@ namespace CinemaSeatingSimulation
 		{
 			return (col / 2) + 2;
 		}
+
+        //Filling Seat
+        public void seatArrangement(int filling)
+        {
+            if (filling < 8)
+            {
+                randRow = rand.Next(middleRow1(), middleRow2());
+                randCol = rand.Next(middleCol1(), middleCol2());
+            }
+            else if (filling < 44)
+            {
+                randRow = rand.Next(4, 6);
+                randCol = rand.Next(0, col);
+                if (randCol < 10) randCol = rand.Next(0, 9);
+                else if (randCol > 13) randCol = rand.Next(13, 22);
+            }
+            else if (filling < 88)
+            {
+                randRow = rand.Next(6, 8);
+                randCol = rand.Next(0, col);
+                if (randCol < 10) randCol = rand.Next(0, 9);
+                else if (randCol > 13) randCol = rand.Next(13, 22);
+                
+            }
+            else
+            {
+                randRow = rand.Next(0, row);
+                randCol = rand.Next(0, col);
+                //fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
+                //while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
+                //{
+                //	randRow = rand.Next(0, row);
+                //	randCol = rand.Next(0, col);
+                //}
+                
+            }
+        }
 		//END-----Seat Arrangement
 		/*
         private void SeatPlacement(Seat s, Panel p)
