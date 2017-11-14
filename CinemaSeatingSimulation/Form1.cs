@@ -33,7 +33,14 @@ namespace CinemaSeatingSimulation
 
         private void FormSimulation_Load(object sender, EventArgs e)
         {
-            
+            this.FormClosing += new FormClosingEventHandler(FormSimulation_FormClosing);
+        }
+
+        private void FormSimulation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Things while closing
+            if (MessageBox.Show("Are you sure?", "Exit", MessageBoxButtons.YesNo) == DialogResult.No)
+                e.Cancel = true;
         }
 
         private void btnSimulate_Click(object sender, EventArgs e)
@@ -46,7 +53,7 @@ namespace CinemaSeatingSimulation
                 //Call Form Layout
                 FormLayoutTry1 formTry1 = new FormLayoutTry1();
 
-                //this.pnlLayout1.Controls.Add(formTry1);
+                //pnlLayout1.Controls.Add(formTry1);
                 formTry1.Show();
             }
             else
