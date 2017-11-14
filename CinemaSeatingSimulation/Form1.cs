@@ -38,6 +38,40 @@ namespace CinemaSeatingSimulation
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
+
+            countCustomer();
+            if(!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
+            {
+                //Call Form Layout
+                FormLayoutTry1 formTry1 = new FormLayoutTry1();
+
+                //this.pnlLayout1.Controls.Add(formTry1);
+                formTry1.Show();
+            }
+
+            
+        }
+
+
+        private void btnEmergency_Click(object sender, EventArgs e)
+        {
+            
+            countCustomer();
+            if (!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
+            {
+                Form2 form2 = new Form2();
+                form2.Show();
+            }
+                
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void countCustomer()
+        {
             if (comboBox3.Text == "Evening (18:00)" || comboBox3.Text == "Night (21:00)")
             {
                 if (comboBox1.Text == "Horror" && comboBox2.Text == "18+")
@@ -55,7 +89,7 @@ namespace CinemaSeatingSimulation
             }
             else
             {
-                if (comboBox1.Text == "Horror") 
+                if (comboBox1.Text == "Horror")
                 {
                     customerCount = GetRandomNumber(0, 0.1);
                 }
@@ -68,28 +102,6 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
-
-            //amount = customerCount * col * row
-
-
-
-            //Call Form Layout
-            FormLayoutTry1 formTry1 = new FormLayoutTry1();
-            
-            //this.pnlLayout1.Controls.Add(formTry1);
-            formTry1.Show();
-        }
-
-
-        private void btnEmergency_Click(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2();
-            form2.Show();
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
