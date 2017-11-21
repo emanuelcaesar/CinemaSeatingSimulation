@@ -53,7 +53,7 @@ namespace CinemaSeatingSimulation
             /*
             double middleCol = seatCol / 2;
             double middleRow = seatRow / 2;
-            int from, to, col, row;
+            int from, to, col, row;asdadasds
             */
 
             /* priority check: normal
