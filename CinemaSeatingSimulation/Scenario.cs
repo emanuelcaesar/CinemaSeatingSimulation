@@ -8,32 +8,31 @@ namespace CinemaSeatingSimulation
 {
     class Scenario
     {
-<<<<<<< HEAD
         List<Customer> custs = new List<Customer>();
         Random rand = new Random();
         public int randRow, randCol;
         int row, col;
         int custId;
         double amount;
-        Customer customer = new Customer();
+        Customer[] cu;
 
-        public void AssignCustomer() {
+        public void AssignCustomer()
+        {
             //Customer customers = new Customer(randRow, randCol);
             //custs.Add(new Customer(randRow, randCol));
+            cu = new Customer[Convert.ToInt32(amount)];
             int filling, j;
             for (filling = 0; filling <= amount; filling++)
             {
-                custs.Add(new Customer(custId, Convert.ToInt32(amount)));
-                customer.seatArrangement(filling);
+                
                 for (j = 0; j < custs.Count(); j++)
                 {
-                    if (custs[filling]. == custs[j].SeatRow && 
+                    cu[filling] = new Customer(custId, Convert.ToInt32(amount));
+                    if (cu[filling].SeatRow == custs[j].SeatRow &&
                         custs[filling].SeatCol == custs[j].SeatCol && filling != j)
                     {
                         
-                        //custs.Add(new Customer(randRow, randCol));
-                        //custs[filling].SeatRow = randRow;
-                        //custs[filling].SeatCol = randCol;
+                        cu[filling].SeatArrangement();
                         j = -1;
                     }
                 }
@@ -41,13 +40,7 @@ namespace CinemaSeatingSimulation
             }
 
         }
-        
 
-=======
-        int scenarioId;
-        string genre;
-        DateTime time;
-        int ageRating;
->>>>>>> parent of 8e73fa1... Merge branch 'Laras'
+
     }
 }

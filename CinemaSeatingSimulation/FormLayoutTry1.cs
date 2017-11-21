@@ -377,7 +377,7 @@ namespace CinemaSeatingSimulation
             Scenario scenario = new Scenario();
             scenario.AssignCustomer();
         }
-<<<<<<< HEAD
+
     //    private void newCustomer()
     //    {
 
@@ -409,39 +409,7 @@ namespace CinemaSeatingSimulation
     //                    j = -1;
     //                }
     //            }
-=======
-        private void newCustomer()
-        {
 
-            Customer customers = new Customer(randRow, randCol);
-
-            //List<int> availableCol = new List<int>(amount);
-            //List<int> availableRow = new List<int>(amount);
-
-            //var setCol = new HashSet<int>();
-            //var setRow = new HashSet<int>();
-            //var nums = new List<int>();
-
-            int filling,j;
-            for (filling = 0; filling <= amount; filling++)
-            {
-				//randCol = rand.Next(0, col);
-				//randRow = rand.Next(0, row);
-				//custs.Add(new Customer(randRow, randCol));
-
-				seatArrangement(filling);
-                custs.Add(new Customer(randRow, randCol));
-
-                for (j = 0; j < custs.Count(); j++) {
-                    if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j) {
-                        seatArrangement(filling);
-                        //custs.Add(new Customer(randRow, randCol));
-                        custs[filling].SeatRow = randRow;
-                        custs[filling].SeatCol = randCol;
-                        j = -1;
-                    }
-                }
->>>>>>> parent of 8e73fa1... Merge branch 'Laras'
                 
     //        }
     //    }
