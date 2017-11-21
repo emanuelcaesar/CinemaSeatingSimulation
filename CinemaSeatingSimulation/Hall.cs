@@ -8,7 +8,26 @@ namespace CinemaSeatingSimulation
 {
     class Hall
     {
-        int hallNum;
-        int seatingConfNum;
+        private int seatAmount, doorAmount, startingPosition;
+        private int[,] seats, doors;
+
+        public void ConfigHall()
+        {
+
+        }
+
+        public int GetSeatAmount()
+        {
+            return seatAmount;
+        }
+        public int[,] Seats()
+        {
+            return this.seats;
+        }
+
+        public int[,] Doors()
+        {
+            return this.doors;
+        }
     }
 }
