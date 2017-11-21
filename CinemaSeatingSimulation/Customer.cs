@@ -214,6 +214,11 @@ namespace CinemaSeatingSimulation
 
         }
 
+        public Seat GetSeatID()
+        {
+            return seatID;
+        }
+
         /*
         public int A(int from, int to)
         {
