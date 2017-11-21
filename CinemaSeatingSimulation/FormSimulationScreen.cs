@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CinemaSeatingSimulation
 {
-    public partial class FormLayoutTry1 : Form
+    public partial class FormSimulationScreen : Form
     {
-        public FormLayoutTry1()
+        public FormSimulationScreen()
         {
             InitializeComponent();
         }
@@ -35,6 +35,8 @@ namespace CinemaSeatingSimulation
         //int userspointLeft = 5;
         //int userspointTop = 0;
         private Door doorA;
+        private Door doorB;
+        private Scenario scenarioTest;
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
@@ -144,6 +146,7 @@ namespace CinemaSeatingSimulation
 
             alp = "";
             seatList2 = new Seat[row, col];
+            scenarioTest = new Scenario();
 
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
@@ -152,6 +155,14 @@ namespace CinemaSeatingSimulation
             pDoorA.Size = new Size(doorA.DWidth, doorA.DHeight);
             pDoorA.BackColor = Color.Blue;
             this.Controls.Add(pDoorA);
+
+            //Adding Door 2
+            doorB = new Door(25, 9, 500, 0);
+            Panel pDoorB = new Panel();
+            pDoorB.Location = new Point(doorB.PosX, doorB.PosY);
+            pDoorB.Size = new Size(doorB.DWidth, doorB.DHeight);
+            pDoorB.BackColor = Color.Purple;
+            this.Controls.Add(pDoorB);
 
             for (int i = 0; i < row; i++)
             {
@@ -272,7 +283,7 @@ namespace CinemaSeatingSimulation
                 //userspointTop += 0;
             }
             newCustomer();
-            timerSimulation.Start();
+            
 
         }
         private void newCustomer()
@@ -309,10 +320,18 @@ namespace CinemaSeatingSimulation
                 
             }
         }
-        
+
+        private void timerEmergency_Tick(object sender, EventArgs e)
+        {
+          
+           scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
+           
+        }
+
         private void timerSimulation_Tick(object sender, EventArgs e)
 
         {
+            
             UserGoToSeats(); //Laras & Caesar
         }
 

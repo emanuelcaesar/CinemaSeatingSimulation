@@ -14,7 +14,9 @@ namespace CinemaSeatingSimulation
     {
         public static double customerCount;
         private bool btnClicked = false;
-        
+        FormSimulationScreen formSimulation;
+
+
         public FormSimulation()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace CinemaSeatingSimulation
         private void FormSimulation_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(FormSimulation_FormClosing);
+            ShowFormSimulationScreen();
         }
 
         private void FormSimulation_FormClosing(object sender, FormClosingEventArgs e)
@@ -50,11 +53,10 @@ namespace CinemaSeatingSimulation
             {
                 btnClicked = true;
 
-                //Call Form Layout
-                FormLayoutTry1 formTry1 = new FormLayoutTry1();
+                formSimulation.timerSimulation.Start();
+                formSimulation.timerEmergency.Stop();
 
-                //pnlLayout1.Controls.Add(formTry1);
-                formTry1.Show();
+
             }
             else
             {
@@ -62,6 +64,13 @@ namespace CinemaSeatingSimulation
             }
         }
 
+        private void ShowFormSimulationScreen()
+        {
+            formSimulation = new FormSimulationScreen();
+            formSimulation.TopLevel = false;
+            this.pnlLayout1.Controls.Add(formSimulation);
+            formSimulation.Show();
+        }
 
         private void btnEmergency_Click(object sender, EventArgs e)
         {
@@ -69,8 +78,10 @@ namespace CinemaSeatingSimulation
             {
                 if (btnClicked)
                 {
-                    Form2 form2 = new Form2();
-                    form2.Show();
+                    //FormSimulationScreen fss = new FormSimulationScreen();
+                    formSimulation.timerSimulation.Stop();
+                    formSimulation.timerEmergency.Start();
+                    
                 }
                 else
                 {
@@ -125,6 +136,12 @@ namespace CinemaSeatingSimulation
         private void pnlLayout1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            formSimulation.Close();
+            ShowFormSimulationScreen();
         }
     }
 }

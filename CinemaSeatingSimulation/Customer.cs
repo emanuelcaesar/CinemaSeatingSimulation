@@ -199,9 +199,12 @@ namespace CinemaSeatingSimulation
             
         }
 
-        public void DoorPlacement()
+        public void DoorPlacement(int amount, int topCust)
         {
 
+            
+
+            
         }
 
         /*

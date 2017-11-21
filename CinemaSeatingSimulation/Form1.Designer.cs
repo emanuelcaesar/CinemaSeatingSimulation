@@ -391,6 +391,7 @@
             this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // gbScreeningPanel
             // 
@@ -434,7 +435,7 @@
             "Evening (18:00)",
             "Night (21:00)"});
             this.comboBox3.Location = new System.Drawing.Point(62, 182);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(150, 25);
             this.comboBox3.TabIndex = 157;
@@ -448,7 +449,7 @@
             "12+",
             "18+"});
             this.comboBox2.Location = new System.Drawing.Point(62, 152);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(150, 25);
             this.comboBox2.TabIndex = 156;
@@ -465,7 +466,7 @@
             "Action",
             "Animation"});
             this.comboBox1.Location = new System.Drawing.Point(62, 121);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 25);
             this.comboBox1.TabIndex = 155;

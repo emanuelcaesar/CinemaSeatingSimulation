@@ -30,6 +30,8 @@ namespace CinemaSeatingSimulation
 
         private Door doorA;
 
+        private Scenario scenarioTest;
+
         private void Form2_Load(object sender, EventArgs e)
         {
             x = 120;
@@ -44,6 +46,7 @@ namespace CinemaSeatingSimulation
 
             alp = "";
             seatList2 = new Seat[row, col];
+            scenarioTest = new Scenario();
 
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
@@ -231,35 +234,7 @@ namespace CinemaSeatingSimulation
 
         public void userGetOut()
         {
-            for(int i = 0; i<=amount; i++)
-            {
-                //for (int j = 0; j <= amount; j++)
-                //{
-                //    if (!(users[i].Left == users[j].Right && users[i].Right == users[j].Left && 
-                //        users[i].Top == users[j].Bottom && users[i].Bottom == users[j].Top))
-                //    {
-                        if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, 
-                            custs[i].SeatCol].SHeight))
-                        {
-                            users[i].Top--;
-                        }
-                        else
-                        {
-                            if (users[i].Left > (doorA.PosX + doorA.DWidth) / 2)
-                            {
-                                users[i].Left--;
-                            }
-                            else
-                            {
-                                users[i].Top--;
-                            }
-                        }
-
-                //    }
-
-                //}
-                
-            }
+            scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
         }
     }
 }
