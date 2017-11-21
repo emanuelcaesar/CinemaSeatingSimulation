@@ -372,44 +372,45 @@ namespace CinemaSeatingSimulation
                 doorA.PosY -= randSpace;
                 //userspointTop += 0;
             }
-            newCustomer();
+            //newCustomer();
             timerSimulation.Start();
-
+            Scenario scenario = new Scenario();
+            scenario.AssignCustomer();
         }
-        private void newCustomer()
-        {
+    //    private void newCustomer()
+    //    {
 
-            Customer customers = new Customer(randRow, randCol);
+           
 
-            //List<int> availableCol = new List<int>(amount);
-            //List<int> availableRow = new List<int>(amount);
+    //        //List<int> availableCol = new List<int>(amount);
+    //        //List<int> availableRow = new List<int>(amount);
 
-            //var setCol = new HashSet<int>();
-            //var setRow = new HashSet<int>();
-            //var nums = new List<int>();
+    //        //var setCol = new HashSet<int>();
+    //        //var setRow = new HashSet<int>();
+    //        //var nums = new List<int>();
 
-            int filling,j;
-            for (filling = 0; filling <= amount; filling++)
-            {
-				//randCol = rand.Next(0, col);
-				//randRow = rand.Next(0, row);
-				//custs.Add(new Customer(randRow, randCol));
+    //        int filling,j;
+    //        for (filling = 0; filling <= amount; filling++)
+    //        {
+				////randCol = rand.Next(0, col);
+				////randRow = rand.Next(0, row);
+				////custs.Add(new Customer(randRow, randCol));
 
-				seatArrangement(filling);
-                custs.Add(new Customer(randRow, randCol));
+				//seatArrangement(filling);
+    //            custs.Add(new Customer(randRow, randCol));
 
-                for (j = 0; j < custs.Count(); j++) {
-                    if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j) {
-                        seatArrangement(filling);
-                        //custs.Add(new Customer(randRow, randCol));
-                        custs[filling].SeatRow = randRow;
-                        custs[filling].SeatCol = randCol;
-                        j = -1;
-                    }
-                }
+    //            for (j = 0; j < custs.Count(); j++) {
+    //                if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j) {
+    //                    seatArrangement(filling);
+    //                    //custs.Add(new Customer(randRow, randCol));
+    //                    custs[filling].SeatRow = randRow;
+    //                    custs[filling].SeatCol = randCol;
+    //                    j = -1;
+    //                }
+    //            }
                 
-            }
-        }
+    //        }
+    //    }
         
         private void timerSimulation_Tick(object sender, EventArgs e)
 

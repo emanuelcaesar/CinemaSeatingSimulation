@@ -8,10 +8,14 @@ namespace CinemaSeatingSimulation
 {
     class Customer
     {
-        int customerId, age, speed, seatRow, seatCol;
-        string demographic;
 
-        public Customer() { }
+        int seatRow, seatCol;
+        public int randRow, randCol, randSpace;
+        private int x, y, height, width, row, col;
+
+        public Customer() {
+          
+        }
 
         public Customer(int seatRow, int seatCol)
         {
