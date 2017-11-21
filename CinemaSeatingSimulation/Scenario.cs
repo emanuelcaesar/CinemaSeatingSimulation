@@ -8,6 +8,7 @@ namespace CinemaSeatingSimulation
 {
     class Scenario
     {
+<<<<<<< HEAD
         List<Customer> custs = new List<Customer>();
         Random rand = new Random();
         public int randRow, randCol;
@@ -42,5 +43,11 @@ namespace CinemaSeatingSimulation
         }
         
 
+=======
+        int scenarioId;
+        string genre;
+        DateTime time;
+        int ageRating;
+>>>>>>> parent of 8e73fa1... Merge branch 'Laras'
     }
 }
