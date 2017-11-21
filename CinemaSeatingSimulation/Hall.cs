@@ -9,7 +9,8 @@ namespace CinemaSeatingSimulation
     class Hall
     {
         private int seatAmount, doorAmount, startingPosition;
-        private int[,] seats, doors;
+        private Seat[,] seats;
+        private Door[,] doors;
 
         public void ConfigHall()
         {
@@ -20,12 +21,12 @@ namespace CinemaSeatingSimulation
         {
             return seatAmount;
         }
-        public int[,] Seats()
+        public Seat[,] Seats()
         {
             return this.seats;
         }
 
-        public int[,] Doors()
+        public Door[,] Doors()
         {
             return this.doors;
         }
