@@ -68,9 +68,8 @@ namespace CinemaSeatingSimulation
         public int randRow, randCol, randSpace;
         private int x, y, height, width, row, col;
 
-        public Customer()
-        {
-
+        public Customer() {
+          
         }
 
         public Customer(int seatRow, int seatCol)
@@ -78,6 +77,36 @@ namespace CinemaSeatingSimulation
             this.seatRow = seatRow;
             this.seatCol = seatCol;
         }
+
+        public int SeatRow
+        {
+            get { return this.seatRow; }
+            set { seatRow = value; }
+        }
+
+        public int SeatCol
+        {
+            get { return this.seatCol; }
+            set { seatCol = value; }
+        }
     }
 
+    
+
+    class Child : Customer
+    {
+
+    }
+    class Adult : Customer
+    {
+
+    }
+    class Seniors : Customer
+    {
+
+    }
+    class Teens : Customer
+    {
+
+    }
 }
