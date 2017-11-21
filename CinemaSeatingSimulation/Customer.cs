@@ -11,6 +11,7 @@ namespace CinemaSeatingSimulation
         int customerId, age, speed, seatRow, seatCol;
         string demographic;
 
+
         public Customer() { }
 
         public Customer(int seatRow, int seatCol)
@@ -30,8 +31,15 @@ namespace CinemaSeatingSimulation
             get { return this.seatCol; }
             set { seatCol = value; }
         }
+
+        public int Age
+        {
+            get { return this.age; }
+            set { age = value; }
+        }
     }
 
+    
     
 
     class Child : Customer

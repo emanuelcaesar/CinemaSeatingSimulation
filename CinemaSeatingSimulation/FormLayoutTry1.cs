@@ -146,12 +146,15 @@ namespace CinemaSeatingSimulation
             seatList2 = new Seat[row, col];
 
             //Adding Door
+            ////////////////////////////////////////
             doorA = new Door(25, 9, 5, 0);
             Panel pDoorA = new Panel();
             pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
             pDoorA.Size = new Size(doorA.DWidth, doorA.DHeight);
             pDoorA.BackColor = Color.Blue;
             this.Controls.Add(pDoorA);
+            ////////////////////////////////////////
+
 
             for (int i = 0; i < row; i++)
             {
