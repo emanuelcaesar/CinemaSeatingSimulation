@@ -316,18 +316,10 @@ namespace CinemaSeatingSimulation
             UserGoToSeats(); //Laras & Caesar
         }
 
-<<<<<<< HEAD
-
-
-
         public void UserGoToSeats()
         {
 
-=======
-        public void UserGoToSeats()
-        {
 
->>>>>>> Laras
             //Try1 Caesar
             
             /*
@@ -359,14 +351,12 @@ namespace CinemaSeatingSimulation
                 }
             }
             */
-<<<<<<< HEAD
-
-=======
 
 
 
 
->>>>>>> Laras
+
+
             for (int i = 0; i <= amount; i++)
             {
                 if(users[i].Top < 50)
@@ -430,10 +420,7 @@ namespace CinemaSeatingSimulation
                 }
                 
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> Laras
         }
 
 		//START-----Seats Arrangement
