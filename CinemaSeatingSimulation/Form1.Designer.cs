@@ -55,9 +55,9 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.gbScreeningPanel = new System.Windows.Forms.GroupBox();
             this.panel129 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTime = new System.Windows.Forms.ComboBox();
+            this.cbAge = new System.Windows.Forms.ComboBox();
+            this.cbGenre = new System.Windows.Forms.ComboBox();
             this.btnTime = new System.Windows.Forms.Button();
             this.btnAge = new System.Windows.Forms.Button();
             this.btnGenre = new System.Windows.Forms.Button();
@@ -408,9 +408,9 @@
             // panel129
             // 
             this.panel129.BackColor = System.Drawing.Color.Linen;
-            this.panel129.Controls.Add(this.comboBox3);
-            this.panel129.Controls.Add(this.comboBox2);
-            this.panel129.Controls.Add(this.comboBox1);
+            this.panel129.Controls.Add(this.cbTime);
+            this.panel129.Controls.Add(this.cbAge);
+            this.panel129.Controls.Add(this.cbGenre);
             this.panel129.Controls.Add(this.btnTime);
             this.panel129.Controls.Add(this.btnAge);
             this.panel129.Controls.Add(this.btnGenre);
@@ -424,51 +424,54 @@
             this.panel129.Size = new System.Drawing.Size(266, 296);
             this.panel129.TabIndex = 140;
             // 
-            // comboBox3
+            // cbTime
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbTime.FormattingEnabled = true;
+            this.cbTime.Items.AddRange(new object[] {
             "Morning (10:00)",
             "Afternoon (14:00)",
             "Evening (18:00)",
             "Night (21:00)"});
-            this.comboBox3.Location = new System.Drawing.Point(62, 182);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(150, 25);
-            this.comboBox3.TabIndex = 157;
+            this.cbTime.Location = new System.Drawing.Point(62, 182);
+            this.cbTime.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTime.Name = "cbTime";
+            this.cbTime.Size = new System.Drawing.Size(150, 25);
+            this.cbTime.TabIndex = 157;
             // 
-            // comboBox2
+            // cbAge
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbAge.FormattingEnabled = true;
+            this.cbAge.Items.AddRange(new object[] {
             "AL",
             "12+",
             "18+"});
-            this.comboBox2.Location = new System.Drawing.Point(62, 152);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 25);
-            this.comboBox2.TabIndex = 156;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cbAge.Location = new System.Drawing.Point(62, 152);
+            this.cbAge.Margin = new System.Windows.Forms.Padding(4);
+            this.cbAge.Name = "cbAge";
+            this.cbAge.Size = new System.Drawing.Size(150, 25);
+            this.cbAge.TabIndex = 156;
+            this.cbAge.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbGenre
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGenre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbGenre.FormattingEnabled = true;
+            this.cbGenre.Items.AddRange(new object[] {
             "Horror",
             "Comedy",
             "Romance",
             "Action",
             "Animation"});
-            this.comboBox1.Location = new System.Drawing.Point(62, 121);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 25);
-            this.comboBox1.TabIndex = 155;
+            this.cbGenre.Location = new System.Drawing.Point(62, 121);
+            this.cbGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.cbGenre.Name = "cbGenre";
+            this.cbGenre.Size = new System.Drawing.Size(150, 25);
+            this.cbGenre.TabIndex = 155;
             // 
             // btnTime
             // 
@@ -1004,9 +1007,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel pnlLayout1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTime;
+        private System.Windows.Forms.ComboBox cbAge;
+        private System.Windows.Forms.ComboBox cbGenre;
     }
 }
 
