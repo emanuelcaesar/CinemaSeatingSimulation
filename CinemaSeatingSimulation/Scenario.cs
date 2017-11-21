@@ -26,7 +26,7 @@ namespace CinemaSeatingSimulation
                 customer.seatArrangement(filling);
                 for (j = 0; j < custs.Count(); j++)
                 {
-                    if (custs[filling].SeatRow == custs[j].SeatRow && 
+                    if (custs[filling]. == custs[j].SeatRow && 
                         custs[filling].SeatCol == custs[j].SeatCol && filling != j)
                     {
                         
