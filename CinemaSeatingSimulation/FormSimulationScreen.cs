@@ -430,6 +430,7 @@ namespace CinemaSeatingSimulation
                                     {
                                         users[i].BringToFront();
                                         //timerSimulation.Stop();
+                                        //haga
                                     }
                                 }
                             }
