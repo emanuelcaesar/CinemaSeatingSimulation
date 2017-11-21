@@ -8,6 +8,7 @@ namespace CinemaSeatingSimulation
 {
     class Hall
     {
+<<<<<<< HEAD
         private int seatAmount, doorAmount, startingPosition;
         private Seat[,] seats;
         private Door[,] doors;
@@ -30,5 +31,9 @@ namespace CinemaSeatingSimulation
         {
             return this.doors;
         }
+=======
+        int hallNum;
+        int seatingConfNum;
+>>>>>>> parent of 02f45df... Merge branch 'master' into Greg
     }
 }

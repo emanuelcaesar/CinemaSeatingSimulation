@@ -146,15 +146,12 @@ namespace CinemaSeatingSimulation
             seatList2 = new Seat[row, col];
 
             //Adding Door
-            ////////////////////////////////////////
             doorA = new Door(25, 9, 5, 0);
             Panel pDoorA = new Panel();
             pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
             pDoorA.Size = new Size(doorA.DWidth, doorA.DHeight);
             pDoorA.BackColor = Color.Blue;
             this.Controls.Add(pDoorA);
-            ////////////////////////////////////////
-
 
             for (int i = 0; i < row; i++)
             {
@@ -227,7 +224,108 @@ namespace CinemaSeatingSimulation
                     this.Controls.Add(p);
                 }
             }
-            
+
+
+			//Adding Panel Seats
+			/*
+            Panel pnlB1 = new Panel();
+            Panel pnlB2 = new Panel();
+            Panel pnlB3 = new Panel();
+            Panel pnlB4 = new Panel();
+            Panel pnlB5 = new Panel();
+            */
+
+			//Adding Seat Placement to Form
+			/*
+            SeatPlacement(seatB1, new Panel());
+            SeatPlacement(seatB2, new Panel());
+            SeatPlacement(seatB3, new Panel());
+            SeatPlacement(seatB4, new Panel());
+            SeatPlacement(seatB5, new Panel());
+            SeatPlacement(seatB6, new Panel());
+            SeatPlacement(seatB7, new Panel());
+            SeatPlacement(seatB8, new Panel());
+            SeatPlacement(seatB9, new Panel());
+            SeatPlacement(seatB10, new Panel());
+
+            SeatPlacement(seatB11, new Panel());
+            SeatPlacement(seatB12, new Panel());
+            SeatPlacement(seatB13, new Panel());
+            SeatPlacement(seatB14, new Panel());
+            SeatPlacement(seatB15, new Panel());
+            SeatPlacement(seatB16, new Panel());
+            SeatPlacement(seatB17, new Panel());
+            SeatPlacement(seatB18, new Panel());
+            SeatPlacement(seatB19, new Panel());
+            SeatPlacement(seatB20, new Panel());
+
+            SeatPlacement(seatC1, new Panel());
+            SeatPlacement(seatC2, new Panel());
+            SeatPlacement(seatC3, new Panel());
+            SeatPlacement(seatC4, new Panel());
+            SeatPlacement(seatC5, new Panel());
+            SeatPlacement(seatC6, new Panel());
+            SeatPlacement(seatC7, new Panel());
+            SeatPlacement(seatC8, new Panel());
+            SeatPlacement(seatC9, new Panel());
+            SeatPlacement(seatC10, new Panel());
+
+            SeatPlacement(seatC11, new Panel());
+            SeatPlacement(seatC12, new Panel());
+            SeatPlacement(seatC13, new Panel());
+            SeatPlacement(seatC14, new Panel());
+            SeatPlacement(seatC15, new Panel());
+            SeatPlacement(seatC16, new Panel());
+            SeatPlacement(seatC17, new Panel());
+            SeatPlacement(seatC18, new Panel());
+            SeatPlacement(seatC19, new Panel());
+            SeatPlacement(seatC20, new Panel());
+
+            SeatPlacement(seatD1, new Panel());
+            SeatPlacement(seatD2, new Panel());
+            SeatPlacement(seatD3, new Panel());
+            SeatPlacement(seatD4, new Panel());
+            SeatPlacement(seatD5, new Panel());
+            SeatPlacement(seatD6, new Panel());
+            SeatPlacement(seatD7, new Panel());
+            SeatPlacement(seatD8, new Panel());
+            SeatPlacement(seatD9, new Panel());
+            SeatPlacement(seatD10, new Panel());
+
+            SeatPlacement(seatD11, new Panel());
+            SeatPlacement(seatD12, new Panel());
+            SeatPlacement(seatD13, new Panel());
+            SeatPlacement(seatD14, new Panel());
+            SeatPlacement(seatD15, new Panel());
+            SeatPlacement(seatD16, new Panel());
+            SeatPlacement(seatD17, new Panel());
+            SeatPlacement(seatD18, new Panel());
+            SeatPlacement(seatD19, new Panel());
+            SeatPlacement(seatD20, new Panel());
+
+            SeatPlacement(seatE1, new Panel());
+            SeatPlacement(seatE2, new Panel());
+            SeatPlacement(seatE3, new Panel());
+            SeatPlacement(seatE4, new Panel());
+            SeatPlacement(seatE5, new Panel());
+            SeatPlacement(seatE6, new Panel());
+            SeatPlacement(seatE7, new Panel());
+            SeatPlacement(seatE8, new Panel());
+            SeatPlacement(seatE9, new Panel());
+            SeatPlacement(seatE10, new Panel());
+
+            SeatPlacement(seatE11, new Panel());
+            SeatPlacement(seatE12, new Panel());
+            SeatPlacement(seatE13, new Panel());
+            SeatPlacement(seatE14, new Panel());
+            SeatPlacement(seatE15, new Panel());
+            SeatPlacement(seatE16, new Panel());
+            SeatPlacement(seatE17, new Panel());
+            SeatPlacement(seatE18, new Panel());
+            SeatPlacement(seatE19, new Panel());
+            SeatPlacement(seatE20, new Panel());
+            */
+
 			//Adding Users
 			/*
             Panel pnlUser = new Panel();
@@ -279,7 +377,6 @@ namespace CinemaSeatingSimulation
             Scenario scenario = new Scenario();
             scenario.AssignCustomer();
         }
-<<<<<<< HEAD
     //    private void newCustomer()
     //    {
 
@@ -311,39 +408,6 @@ namespace CinemaSeatingSimulation
     //                    j = -1;
     //                }
     //            }
-=======
-        private void newCustomer()
-        {
-
-            Customer customers = new Customer(randRow, randCol);
-
-            //List<int> availableCol = new List<int>(amount);
-            //List<int> availableRow = new List<int>(amount);
-
-            //var setCol = new HashSet<int>();
-            //var setRow = new HashSet<int>();
-            //var nums = new List<int>();
-
-            int filling;
-            for (filling = 0; filling <= amount; filling++)
-            {
-				//randCol = rand.Next(0, col);
-				//randRow = rand.Next(0, row);
-				//custs.Add(new Customer(randRow, randCol));
-
-				seatArrangement(filling);
-                custs.Add(new Customer(randRow, randCol));
-
-                for (int j = 0; j < custs.Count(); j++) {
-                    if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j) {
-                        seatArrangement(filling);
-                        //custs.Add(new Customer(randRow, randCol));
-                        custs[filling].SeatRow = randRow;
-                        custs[filling].SeatCol = randCol;
-                        j = -1;
-                    }
-                }
->>>>>>> master
                 
     //        }
     //    }

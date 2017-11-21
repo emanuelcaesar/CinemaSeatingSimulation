@@ -8,25 +8,30 @@ namespace CinemaSeatingSimulation
 {
     class Customer
     {
+        private int seatRow, seatCol;
+        public int randRow, randCol, randSpace;
+        private int x, y, height, width, row, col;
+
         Random rand = new Random();
 
         private int middleRow1()
         {
-            return (sea / 2) - 1;
+            return (seatRow / 2) - 1;
         }
         private int middleRow2()
         {
-            return (row / 2) + 1;
+            return (seatRow / 2) + 1;
         }
         private int middleCol1()
         {
-            return (col / 2) - 2;
+            return (seatCol / 2) - 2;
         }
 
         private int middleCol2()
         {
-            return (col / 2) + 2;
+            return (seatCol / 2) + 2;
         }
+
 
             /*
             double middleCol = seatCol / 2;
@@ -141,8 +146,6 @@ namespace CinemaSeatingSimulation
                 }
                 */
 
-            int col, row;
-
 
         //Filling Seat
         public void seatArrangement(int filling)
@@ -180,9 +183,7 @@ namespace CinemaSeatingSimulation
 
             }
         }
-        int seatRow, seatCol;
-        public int randRow, randCol, randSpace;
-        private int x, y, height, width, row, col;
+        
 
         public Customer() {
           
@@ -208,21 +209,4 @@ namespace CinemaSeatingSimulation
     }
 
     
-
-    class Child : Customer
-    {
-
-    }
-    class Adult : Customer
-    {
-
-    }
-    class Seniors : Customer
-    {
-
-    }
-    class Teens : Customer
-    {
-
-    }
 }

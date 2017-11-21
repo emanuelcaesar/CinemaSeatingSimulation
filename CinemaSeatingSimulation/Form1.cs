@@ -46,7 +46,7 @@ namespace CinemaSeatingSimulation
         private void btnSimulate_Click(object sender, EventArgs e)
         {
             countCustomer();
-            if(!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            if(!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
             {
                 btnClicked = true;
 
@@ -65,7 +65,7 @@ namespace CinemaSeatingSimulation
 
         private void btnEmergency_Click(object sender, EventArgs e)
         {
-            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            if (!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
             {
                 if (btnClicked)
                 {
@@ -90,13 +90,13 @@ namespace CinemaSeatingSimulation
 
         public void countCustomer()
         {
-            if (cbTime.Text == "Evening (18:00)" || cbTime.Text == "Night (21:00)")
+            if (comboBox3.Text == "Evening (18:00)" || comboBox3.Text == "Night (21:00)")
             {
-                if (cbGenre.Text == "Horror" && cbAge.Text == "18+")
+                if (comboBox1.Text == "Horror" && comboBox2.Text == "18+")
                 {
                     customerCount = GetRandomNumber(0.7, 0.75);
                 }
-                else if (cbGenre.Text == "Romance")
+                else if (comboBox1.Text == "Romance")
                 {
                     customerCount = GetRandomNumber(0.6, 0.8);
                 }
@@ -107,11 +107,11 @@ namespace CinemaSeatingSimulation
             }
             else
             {
-                if (cbGenre.Text == "Horror")
+                if (comboBox1.Text == "Horror")
                 {
                     customerCount = GetRandomNumber(0, 0.1);
                 }
-                else if (cbGenre.Text == "Animation")
+                else if (comboBox1.Text == "Animation")
                 {
                     customerCount = GetRandomNumber(0.4, 0.6);
                 }
