@@ -55,9 +55,9 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.gbScreeningPanel = new System.Windows.Forms.GroupBox();
             this.panel129 = new System.Windows.Forms.Panel();
-            this.cbTime = new System.Windows.Forms.ComboBox();
-            this.cbAge = new System.Windows.Forms.ComboBox();
-            this.cbGenre = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnTime = new System.Windows.Forms.Button();
             this.btnAge = new System.Windows.Forms.Button();
             this.btnGenre = new System.Windows.Forms.Button();
@@ -408,9 +408,9 @@
             // panel129
             // 
             this.panel129.BackColor = System.Drawing.Color.Linen;
-            this.panel129.Controls.Add(this.cbTime);
-            this.panel129.Controls.Add(this.cbAge);
-            this.panel129.Controls.Add(this.cbGenre);
+            this.panel129.Controls.Add(this.comboBox3);
+            this.panel129.Controls.Add(this.comboBox2);
+            this.panel129.Controls.Add(this.comboBox1);
             this.panel129.Controls.Add(this.btnTime);
             this.panel129.Controls.Add(this.btnAge);
             this.panel129.Controls.Add(this.btnGenre);
@@ -424,58 +424,55 @@
             this.panel129.Size = new System.Drawing.Size(266, 296);
             this.panel129.TabIndex = 140;
             // 
-            // cbTime
+            // comboBox3
             // 
-            this.cbTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbTime.FormattingEnabled = true;
-            this.cbTime.Items.AddRange(new object[] {
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
             "Morning (10:00)",
             "Afternoon (14:00)",
             "Evening (18:00)",
             "Night (21:00)"});
-            this.cbTime.Location = new System.Drawing.Point(64, 133);
-            this.cbTime.Margin = new System.Windows.Forms.Padding(4);
-            this.cbTime.Name = "cbTime";
-            this.cbTime.Size = new System.Drawing.Size(150, 25);
-            this.cbTime.TabIndex = 157;
+            this.comboBox3.Location = new System.Drawing.Point(62, 182);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(150, 25);
+            this.comboBox3.TabIndex = 157;
             // 
-            // cbAge
+            // comboBox2
             // 
-            this.cbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbAge.FormattingEnabled = true;
-            this.cbAge.Items.AddRange(new object[] {
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
             "AL",
             "12+",
             "18+"});
-            this.cbAge.Location = new System.Drawing.Point(64, 103);
-            this.cbAge.Margin = new System.Windows.Forms.Padding(4);
-            this.cbAge.Name = "cbAge";
-            this.cbAge.Size = new System.Drawing.Size(150, 25);
-            this.cbAge.TabIndex = 156;
-            this.cbAge.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox2.Location = new System.Drawing.Point(62, 152);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(150, 25);
+            this.comboBox2.TabIndex = 156;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // cbGenre
+            // comboBox1
             // 
-            this.cbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGenre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbGenre.FormattingEnabled = true;
-            this.cbGenre.Items.AddRange(new object[] {
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
             "Horror",
             "Comedy",
             "Romance",
             "Action",
             "Animation"});
-            this.cbGenre.Location = new System.Drawing.Point(64, 72);
-            this.cbGenre.Margin = new System.Windows.Forms.Padding(4);
-            this.cbGenre.Name = "cbGenre";
-            this.cbGenre.Size = new System.Drawing.Size(150, 25);
-            this.cbGenre.TabIndex = 155;
+            this.comboBox1.Location = new System.Drawing.Point(62, 121);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(150, 25);
+            this.comboBox1.TabIndex = 155;
             // 
             // btnTime
             // 
-            this.btnTime.Location = new System.Drawing.Point(227, 137);
+            this.btnTime.Location = new System.Drawing.Point(225, 186);
             this.btnTime.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime.Name = "btnTime";
             this.btnTime.Size = new System.Drawing.Size(31, 21);
@@ -484,7 +481,7 @@
             // 
             // btnAge
             // 
-            this.btnAge.Location = new System.Drawing.Point(227, 103);
+            this.btnAge.Location = new System.Drawing.Point(225, 152);
             this.btnAge.Margin = new System.Windows.Forms.Padding(2);
             this.btnAge.Name = "btnAge";
             this.btnAge.Size = new System.Drawing.Size(31, 21);
@@ -493,7 +490,7 @@
             // 
             // btnGenre
             // 
-            this.btnGenre.Location = new System.Drawing.Point(227, 75);
+            this.btnGenre.Location = new System.Drawing.Point(225, 124);
             this.btnGenre.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenre.Name = "btnGenre";
             this.btnGenre.Size = new System.Drawing.Size(31, 21);
@@ -504,7 +501,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 139);
+            this.label5.Location = new System.Drawing.Point(5, 188);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 19);
@@ -516,7 +513,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 106);
+            this.label4.Location = new System.Drawing.Point(5, 155);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 19);
@@ -528,7 +525,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 77);
+            this.label3.Location = new System.Drawing.Point(5, 126);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 19);
@@ -540,7 +537,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 9);
+            this.label2.Location = new System.Drawing.Point(2, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 41);
@@ -1007,9 +1004,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel pnlLayout1;
-        private System.Windows.Forms.ComboBox cbTime;
-        private System.Windows.Forms.ComboBox cbAge;
-        private System.Windows.Forms.ComboBox cbGenre;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
