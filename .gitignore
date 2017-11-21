@@ -310,6 +310,6 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
-*.resx
+
 CinemaSeatingSimulation/Form1.Designer.cs
 CinemaSeatingSimulation/Form1.Designer.cs
