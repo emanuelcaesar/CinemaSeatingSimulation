@@ -24,14 +24,14 @@ namespace CinemaSeatingSimulation
 			this.posY = posY;
 		}
 
-        public Seat(string seatId, int posX, int posY, int height, int width, System.Drawing.Color seatColor)
+        public Seat(string seatId, int posX, int posY, int height, int width)
         {
             this.seatId = seatId;
             this.posX = posX;
             this.posY = posY;
             this.sHeight = height;
             this.sWidth = width;
-            this.seatColor = seatColor;
+            this.seatColor = System.Drawing.Color.Maroon;
         }
 
         public string SeatId
