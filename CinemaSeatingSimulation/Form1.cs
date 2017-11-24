@@ -16,7 +16,6 @@ namespace CinemaSeatingSimulation
         private bool btnClicked = false;
         FormSimulationScreen formSimulation;
 
-
         public FormSimulation()
         {
             InitializeComponent();
