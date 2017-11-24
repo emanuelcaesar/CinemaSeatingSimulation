@@ -8,16 +8,19 @@ namespace CinemaSeatingSimulation
 {
     class Customer
     {
-        private int customerID, speed, seatRow, seatCol, scenarioID, seatID;
+        private int customerID, speed, seatRow, seatCol, scenarioID, customerAmount;
         private string demographic;
         private Hall hall;
-        private int[,] seats, doors;
+        private Seat[,] seats;
+        private Door[,] doors;
+        private Seat seatID;
         private Random rand;
 
-        public Customer(int customerID)
+        public Customer(int customerID, int customerAmount)
         {
-            // Customer ID 
+            // Customer ID & Customer Amount
             this.customerID = customerID;
+            this.customerAmount = customerAmount;
 
             // instantiate hall object to access the Seats and Doors
             hall = new Hall();
@@ -29,13 +32,9 @@ namespace CinemaSeatingSimulation
             seatRow = seats.GetLength(1); // get length from the second column [,*]
 
             rand = new Random();
+            seatID = new Seat();
         }
 
-        public Customer(int seatRow, int seatCol)
-        {
-            this.seatRow = seatRow;
-            this.seatCol = seatCol;
-        }
 
         public int SeatRow
         {
@@ -54,7 +53,7 @@ namespace CinemaSeatingSimulation
             /*
             double middleCol = seatCol / 2;
             double middleRow = seatRow / 2;
-            int from, to, col, row;
+            int from, to, col, row;asdadasds
             */
 
             /* priority check: normal
@@ -113,6 +112,7 @@ namespace CinemaSeatingSimulation
             example of 5*5 grid
             1 st priority: [1,3] -> col = i+1; row = Math.ceiling(seatRow/2)
             2 nd priority: 
+
                 -> col = (i+1) + (method a); row = Math.ceiling(seatRow/2) + (method a)
                 from = -1; to = 0
                  int method a(int from, int to)
@@ -123,7 +123,6 @@ namespace CinemaSeatingSimulation
                     return b;
                  }
             3 rd priority: using 2nd priority formula, from = -2; to = 0
-
             for(int i = 0; i < Math.ceiling(seatCol/2); i++)
             {
                 from = -i;
@@ -166,37 +165,48 @@ namespace CinemaSeatingSimulation
 
             int col, row;
 
-            if (customerID < 8)
+            // Ring 1
+            if (customerID < (customerAmount / 27))
             {
                 row = rand.Next(middleRow1(), middleRow2());
                 col = rand.Next(middleCol1(), middleCol2());
             }
-            else if (customerID < 44)
-            {
-                row = rand.Next(4, 6);
-                col = rand.Next(0, seatCol);
-                if (col < 10) col = rand.Next(0, 9);
-                else if (col > 13) col = rand.Next(13, 22);
-            }
-            else if (customerID < 88)
-            {
-                row = rand.Next(6, 8);
-                col = rand.Next(0, seatCol);
-                if (col < 10) col = rand.Next(0, 9);
-                else if (col > 13) col = rand.Next(13, 22);
 
+            // Ring 2
+            else if (customerID < (customerAmount / 5))
+            {
+                row = rand.Next(middleRow1(), middleRow2() + 2);
+                col = rand.Next(middleCol1() - 2, middleCol2() + 2);
             }
+
+            // Ring 3
+            else if (customerID < (customerAmount / 3))
+            {
+                row = rand.Next(middleRow1(), middleRow2() + 4);
+                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
+            }
+
+            // Ring 4
+            else if (customerID < (customerAmount / 2))
+            {
+                row = rand.Next(middleRow1() - 3, middleRow2() - 1);
+                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
+            }
+
+            // Ring 5
             else
             {
                 row = rand.Next(0, seatRow);
                 col = rand.Next(0, seatCol);
             }
 
+            seatCol = col;
+            seatRow = row;
         }
 
         public void PathFinding(int start, int goal)
         {
-            
+
         }
 
         public void DoorPlacement(int amount, int topCust)
@@ -205,6 +215,11 @@ namespace CinemaSeatingSimulation
             
 
             
+        }
+
+        public Seat GetSeatID()
+        {
+            return seatID;
         }
 
         /*
@@ -239,7 +254,7 @@ namespace CinemaSeatingSimulation
         }
     }
 
-    
+
 
     //class Child : Customer
     //{
