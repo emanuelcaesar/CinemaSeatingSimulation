@@ -38,7 +38,6 @@ namespace CinemaSeatingSimulation
         private Door doorB;
         private Scenario scenarioTest;
 
-<<<<<<< HEAD
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
             x = 120;
@@ -46,8 +45,6 @@ namespace CinemaSeatingSimulation
 
             height = 10;
             width = 10;
-=======
->>>>>>> Feter2
 
             row = 10;
             col = 22;
@@ -232,28 +229,16 @@ namespace CinemaSeatingSimulation
 
         private void timerEmergency_Tick(object sender, EventArgs e)
         {
-<<<<<<< HEAD
            scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
-=======
-          
-           //scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
-           
->>>>>>> Feter2
         }
 
         private void timerSimulation_Tick(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             UserGoToSeats(); //Laras & Caesar
-=======
-            
-            //UserGoToSeats(); //Laras & Caesar
->>>>>>> Feter2
         }
 
         public void UserGoToSeats()
         {
-<<<<<<< HEAD
             for (int i = 0; i <= amount; i++)
             {
                 if(users[i].Top < 50)

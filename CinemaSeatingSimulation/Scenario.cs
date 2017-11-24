@@ -39,6 +39,7 @@ namespace CinemaSeatingSimulation
 
         public void EmergencySim(double amount, List<System.Windows.Forms.Panel> users, List<Customer> custs, Seat[,] seatList2, Door door)
         {
+
             for (int i = 0; i <= amount; i++)
             {
                 
