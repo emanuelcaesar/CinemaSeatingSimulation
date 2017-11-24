@@ -21,7 +21,7 @@ namespace CinemaSeatingSimulation
         List<Panel> users = new List<Panel>();
         List<Customer> custs = new List<Customer>();
         //List<Seat> seatList = new List<Seat>();
-
+        Seat[,] seatList2;
         private int x, y, height, width, row, col;
         private string alp;
         Random rand = new Random();
@@ -37,7 +37,6 @@ namespace CinemaSeatingSimulation
         private Door doorA;
         private Door doorB;
         private Scenario scenarioTest;
-		private Seat[,] seatList2;
 
 <<<<<<< HEAD
         private void FormLayoutTry1_Load(object sender, EventArgs e)
@@ -50,11 +49,13 @@ namespace CinemaSeatingSimulation
 =======
 >>>>>>> Feter2
 
-		private void FormLayoutTry1_Load(object sender, EventArgs e)
-        {
-			Hall hall1 = new Hall();
-			hall1.ConfigHall();
-			seatList2 = hall1.Seats();
+            row = 10;
+            col = 22;
+            amount = FormSimulation.customerCount * col * row;
+
+            alp = "";
+            seatList2 = new Seat[row, col];
+            scenarioTest = new Scenario();
 
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
@@ -72,6 +73,56 @@ namespace CinemaSeatingSimulation
             pDoorB.BackColor = Color.Purple;
             this.Controls.Add(pDoorB);
 
+            for (int i = 0; i < row; i++)
+            {
+                for(int j = 0; j < col; j++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            alp = "A";
+                            break;
+                        case 1:
+                            alp = "B";
+                            break;
+                        case 2:
+                            alp = "C";
+                            break;
+                        case 3:
+                            alp = "D";
+                            break;
+                        case 4:
+                            alp = "E";
+                            break;
+                        case 5:
+                            alp = "F";
+                            break;
+                        case 6:
+                            alp = "G";
+                            break;
+                        case 7:
+                            alp = "H";
+                            break;
+                        case 8:
+                            alp = "I";
+                            break;
+                        case 9:
+                            alp = "J";
+                            break;
+                    }
+                    if(j == (col/2))
+                    {
+                        x = x + 20;
+                    }
+                    //seatList.Add(new Seat(alp+""+(j + 1), x, y, height, width, seatColor));
+                    seatList2[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width, Color.Maroon);
+                    x = x + 13;
+                    Console.WriteLine(seatList2[i, j]);
+                }
+                x = 120;
+                y = y + 20;
+            }
+
             /*
             for (int i = 0; i < seatList.Count; i++)
             {
@@ -82,12 +133,12 @@ namespace CinemaSeatingSimulation
                 this.Controls.Add(p);
             }
             */
-            for (int i = 0; i < hall1.GetRow(); i++)
+            for (int i = 0; i < row; i++)
             {
-                for(int j = 0; j < hall1.GetColumn(); j++)
+                for(int j = 0; j < col; j++)
                 {
                     Panel p = new Panel();
-                    p.Location = new Point(seatList2[i,j].PosX, seatList2[i, j].PosY);
+                    p.Location = new Point(seatList2[i, j].PosX, seatList2[i, j].PosY);
                     p.Size = new Size(seatList2[i, j].SHeight, seatList2[i, j].SWidth);
                     p.BackColor = seatList2[i, j].SeatColor;
                     this.Controls.Add(p);
@@ -265,106 +316,8 @@ namespace CinemaSeatingSimulation
                         }
                     }
                 }
-=======
-
-
-            //Try1 Caesar
-            
-            /*
-            for (int i = 0; i <= amount; i++)
-            {
-                if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
-                {
-                    users[i].Top++;
-                }
-                else if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
-                {
-                    if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                        users[i].Left++;
-
-                    else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                    {
-                        //timerSimulation.Stop();
-                        while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-                        {
-                            users[i].Top++;
-                            if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-                            {
-                                users[i].BringToFront();
-                                //timerSimulation.Stop();
-                            }
-                        }
-                    }
-
-                }
-            }
-            */
-
-        //    for (int i = 0; i <= amount; i++)
-        //    {
-        //        if(users[i].Top < 50)
-        //        {
-        //            users[i].Top++;
-        //        }
-        //        else
-        //        {
-        //            if (seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId.Substring(0, 1).Equals("A"))
-        //            {
-        //                if(users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                {
-        //                    users[i].Left++;
-        //                }
-        //                else
-        //                {
-        //                    if(users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-        //                    {
-        //                        users[i].Top++;
-        //                    }
-        //                    else
-        //                    {
-        //                        users[i].BringToFront();
-        //                    }
-        //                }
-        //            }
-        //            else if (users[i].Left < 268 && users[i].Top == 50)
-        //            {
-        //                users[i].Left++;
-        //            }
-        //            else
-        //            {
-        //                if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
-        //                {
-        //                    users[i].Top++;
-        //                }
-        //                else
-        //                {
-        //                    if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                        users[i].Left++;
-        //                    else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                    {
-        //                        users[i].Left--;
-        //                    }
-        //                    else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                    {
-        //                        //timerSimulation.Stop();
-        //                        while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-        //                        {
-        //                            users[i].Top++;
-        //                            if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-        //                            {
-        //                                users[i].BringToFront();
-        //                                //timerSimulation.Stop();
-        //                                //haga
-        //                            }
-        //                        }
-        //                    }
-
-        //                }
-        //            }
-        //        }
->>>>>>> Feter2
                 
-        //    }
+            }
 
         }
 

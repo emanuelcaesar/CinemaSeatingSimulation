@@ -11,8 +11,7 @@ namespace CinemaSeatingSimulation
         private int customerID, speed, seatRow, seatCol, scenarioID, seatID;
         private string demographic;
         private Hall hall;
-        private Seat[,] seats;
-		private Door[,] doors;
+        private int[,] seats, doors;
         private Random rand;
 
         public Customer(int customerID)
