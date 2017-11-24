@@ -98,7 +98,7 @@ namespace CinemaSeatingSimulation
                         x = x + 20;
                     }
 
-                    seatList2[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width, Color.Maroon);
+                    seatList2[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width);
                     x = x + 13;
                 }
                 x = 120;
