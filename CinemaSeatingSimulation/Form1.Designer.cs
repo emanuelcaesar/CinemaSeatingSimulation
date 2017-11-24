@@ -248,7 +248,6 @@
             this.pnlLayout1.Name = "pnlLayout1";
             this.pnlLayout1.Size = new System.Drawing.Size(734, 359);
             this.pnlLayout1.TabIndex = 0;
-            this.pnlLayout1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLayout1_Paint);
             // 
             // tabLayout2
             // 

@@ -52,11 +52,8 @@ namespace CinemaSeatingSimulation
             if(!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
             {
                 btnClicked = true;
-
                 formSimulation.timerSimulation.Start();
                 formSimulation.timerEmergency.Stop();
-
-
             }
             else
             {
@@ -131,11 +128,6 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
-        }
-
-        private void pnlLayout1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
