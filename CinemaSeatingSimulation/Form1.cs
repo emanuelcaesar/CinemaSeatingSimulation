@@ -55,8 +55,6 @@ namespace CinemaSeatingSimulation
 
                 formSimulation.timerSimulation.Start();
                 formSimulation.timerEmergency.Stop();
-
-
             }
             else
             {

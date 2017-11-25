@@ -171,118 +171,80 @@ namespace CinemaSeatingSimulation
 
         private void timerEmergency_Tick(object sender, EventArgs e)
         {
-          
-           //scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
-           
+           scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
         }
 
         private void timerSimulation_Tick(object sender, EventArgs e)
-
         {
-            
             //UserGoToSeats(); //Laras & Caesar
         }
 
         public void UserGoToSeats()
         {
-
-
-            //Try1 Caesar
-            
-            /*
             for (int i = 0; i <= amount; i++)
             {
-                if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                if(users[i].Top < 50)
                 {
                     users[i].Top++;
                 }
-                else if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                else
                 {
-                    if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                        users[i].Left++;
-
-                    else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                    if (seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId.Substring(0, 1).Equals("A"))
                     {
-                        //timerSimulation.Stop();
-                        while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                        if(users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                         {
-                            users[i].Top++;
-                            if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                            users[i].Left++;
+                        }
+                        else
+                        {
+                            if(users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                            {
+                                users[i].Top++;
+                            }
+                            else
                             {
                                 users[i].BringToFront();
-                                //timerSimulation.Stop();
                             }
                         }
                     }
+                    else if (users[i].Left < 268 && users[i].Top == 50)
+                    {
+                        users[i].Left++;
+                    }
+                    else
+                    {
+                        if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                        {
+                            users[i].Top++;
+                        }
+                        else
+                        {
+                            if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                                users[i].Left++;
+                            else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            {
+                                users[i].Left--;
+                            }
+                            else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            {
+                                //timerSimulation.Stop();
+                                while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                {
+                                    users[i].Top++;
+                                    if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                    {
+                                        users[i].BringToFront();
+                                        //timerSimulation.Stop();
+                                        //haga
+                                    }
+                                }
+                            }
 
+                        }
+                    }
                 }
+              
             }
-            */
-
-        //    for (int i = 0; i <= amount; i++)
-        //    {
-        //        if(users[i].Top < 50)
-        //        {
-        //            users[i].Top++;
-        //        }
-        //        else
-        //        {
-        //            if (seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId.Substring(0, 1).Equals("A"))
-        //            {
-        //                if(users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                {
-        //                    users[i].Left++;
-        //                }
-        //                else
-        //                {
-        //                    if(users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-        //                    {
-        //                        users[i].Top++;
-        //                    }
-        //                    else
-        //                    {
-        //                        users[i].BringToFront();
-        //                    }
-        //                }
-        //            }
-        //            else if (users[i].Left < 268 && users[i].Top == 50)
-        //            {
-        //                users[i].Left++;
-        //            }
-        //            else
-        //            {
-        //                if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
-        //                {
-        //                    users[i].Top++;
-        //                }
-        //                else
-        //                {
-        //                    if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                        users[i].Left++;
-        //                    else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                    {
-        //                        users[i].Left--;
-        //                    }
-        //                    else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-        //                    {
-        //                        //timerSimulation.Stop();
-        //                        while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-        //                        {
-        //                            users[i].Top++;
-        //                            if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-        //                            {
-        //                                users[i].BringToFront();
-        //                                //timerSimulation.Stop();
-        //                                //haga
-        //                            }
-        //                        }
-        //                    }
-
-        //                }
-        //            }
-        //        }
-                
-        //    }
 
         }
 
