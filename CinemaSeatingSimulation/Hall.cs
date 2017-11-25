@@ -10,7 +10,7 @@ namespace CinemaSeatingSimulation
     {
         private int seatAmount, doorAmount, startingPosition;
         private Seat[,] seats;
-        private Door[,] doors;
+        private Door[] doors;
 
         public void ConfigHall()
         {
@@ -26,7 +26,7 @@ namespace CinemaSeatingSimulation
             return this.seats;
         }
 
-        public Door[,] Doors()
+        public Door[] Doors()
         {
             return this.doors;
         }

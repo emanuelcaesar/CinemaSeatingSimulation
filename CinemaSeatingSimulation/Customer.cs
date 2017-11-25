@@ -12,8 +12,7 @@ namespace CinemaSeatingSimulation
         private string demographic;
         private Hall hall;
         private Seat[,] seats;
-        private Door[,] doors;
-        private Seat seatID;
+        private Door[] doors;
         private Random rand;
 
         public Customer(int customerID, int customerAmount)
@@ -32,7 +31,6 @@ namespace CinemaSeatingSimulation
             seatRow = seats.GetLength(1); // get length from the second column [,*]
 
             rand = new Random();
-            seatID = new Seat();
         }
         
 
@@ -48,160 +46,11 @@ namespace CinemaSeatingSimulation
             set { seatCol = value; }
         }
 
-        public void SeatArrangement()
+        public void FindSeat()
         {
-            /*
-            double middleCol = seatCol / 2;
-            double middleRow = seatRow / 2;
-            int from, to, col, row;asdadasds
-            */
+            
 
-            /* priority check: normal
-
-           3 | 3 | 3 | 3 | 3
-           3 | 2 | 2 | 2 | 3
-           3 | 2 | 1 | 2 | 3
-           3 | 2 | 2 | 2 | 3
-           3 | 3 | 3 | 3 | 3
-
-            example of 5*5 grid
-            1 st priority: [3,3] -> col = Math.ceiling(seatCol/2); row = Math.ceiling(seatRow/2)
-            2 nd priority: [2,2] | [2,3] | [2,4] | [3,4] | [4,4] | [4,3] | [4,2] | [3,2]
-                -> col = Math.ceiling(seatCol/2) + (method a); row = Math.ceiling(seatRow/2) + (method a)
-                from = -1; to = 1
-                 int method a(int from, int to)
-                 {
-                    b = new Random.Next(from, to);
-                    while(b!=from || b!=to)
-                        b = new Random.Next(from, to);
-                    return b;
-                 }
-            3 rd priority: using 2nd priority formula, from = -2; to = 2
-
-            for(int i = 0; i < Math.ceiling(seatCol/2); i++)
-            {
-                from = -i
-                to = i
-                col = Math.ceiling(seatCol/2) + (method a(from, to));
-                row = Math.ceiling(seatRow/2) + (method a(from, to));
-
-                if (!seats[col,row] already occupied)
-                {
-                    seatID = seats[col,row].SeatID -> how to assign it?
-                    i = Math.ceiling(seatCol/2); -> break the for statement
-                }
-            }
-
-            */
-
-            /* PROBLEMS:
-                - need value of seatID whether it is filled or no -> boolean on each seatID (maybe)
-                - seatID = seats[col,row].SeatID -> how to assign it?
-                - disadvantage of formula: just for odd*odd grid that has the same col and row
-            */
-
-
-            /* priority check: child
-
-           3 | 2 | 1 | 2 | 3
-           3 | 2 | 2 | 2 | 3
-           3 | 3 | 3 | 3 | 3
-           4 | 4 | 4 | 4 | 4
-           5 | 5 | 5 | 5 | 5
-
-            example of 5*5 grid
-            1 st priority: [1,3] -> col = i+1; row = Math.ceiling(seatRow/2)
-            2 nd priority: 
-
-                -> col = (i+1) + (method a); row = Math.ceiling(seatRow/2) + (method a)
-                from = -1; to = 0
-                 int method a(int from, int to)
-                 {
-                    b = new Random.Next(from, to);
-                    while(b!=from || b!=to)
-                        b = new Random.Next(from, to);
-                    return b;
-                 }
-            3 rd priority: using 2nd priority formula, from = -2; to = 0
-            for(int i = 0; i < Math.ceiling(seatCol/2); i++)
-            {
-                from = -i;
-                to = 0;
-                col = (i+1) + (method a(from, to));
-                row = Math.ceiling(seatRow/2) + (method a(from, to));
-
-                if (!seats[col,row] already occupied)
-                {
-                    seatID = seats[col,row].SeatID -> how to assign it?
-                    i = Math.ceiling(seatCol/2); -> break the for statement
-                }
-            }
-
-            */
-
-            /*
-            for (int i = 0; i < Math.Ceiling(middleCol); i++)
-                {
-                    from = -i;
-                    if (demographic == "child")
-                    {
-                        to = 0;
-                        col = Convert.ToInt32((i + 1) + (A(from, to)));
-                    }
-                    else
-                    {
-                        to = i;
-                        col = Convert.ToInt32(Math.Ceiling(middleCol) + (A(from, to)));
-                    }
-                    row = Convert.ToInt32(Math.Ceiling(middleRow) + (A(from, to)));
-
-                    if (seats[col, row] == null)
-                    {
-                        seatID = seats[col, row];
-                        i = Convert.ToInt32(Math.Ceiling(middleCol));
-                    }
-                }
-                */
-
-            int col, row;
-
-            // Ring 1
-            if (customerID < (customerAmount/27))
-            {
-                row = rand.Next(middleRow1(), middleRow2());
-                col = rand.Next(middleCol1(), middleCol2());
-            }
-
-            // Ring 2
-            else if (customerID < (customerAmount/5))
-            {
-                row = rand.Next(middleRow1(), middleRow2()+2);
-                col = rand.Next(middleCol1() - 2, middleCol2() + 2);
-            }
-
-            // Ring 3
-            else if (customerID < (customerAmount/3))
-            {
-                row = rand.Next(middleRow1(), middleRow2() + 4);
-                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
-            }
-
-            // Ring 4
-            else if (customerID < (customerAmount / 2))
-            {
-                row = rand.Next(middleRow1() - 3, middleRow2() -1);
-                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
-            }
-
-            // Ring 5
-            else
-            {
-                row = rand.Next(0, seatRow);
-                col = rand.Next(0, seatCol);
-            }
-
-            seatID.PosX = seats[row, col].PosX;
-            seatID.PosY = seats[row, col].PosY;
+            
         }
 
         public void PathFinding(int start, int goal)
@@ -209,14 +58,9 @@ namespace CinemaSeatingSimulation
             
         }
 
-        public void DoorPlacement()
+        public void FindDoor()
         {
 
-        }
-
-        public Seat GetSeatID()
-        {
-            return seatID;
         }
 
         /*
