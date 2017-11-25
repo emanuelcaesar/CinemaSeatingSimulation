@@ -48,9 +48,45 @@ namespace CinemaSeatingSimulation
 
         public void FindSeat()
         {
-            
+            int col, row;
 
-            
+            // Ring 1
+            if (customerID < (customerAmount / 27))
+            {
+                row = rand.Next(middleRow1(), middleRow2());
+                col = rand.Next(middleCol1(), middleCol2());
+            }
+
+            // Ring 2
+            else if (customerID < (customerAmount / 5))
+            {
+                row = rand.Next(middleRow1(), middleRow2() + 2);
+                col = rand.Next(middleCol1() - 2, middleCol2() + 2);
+            }
+
+            // Ring 3
+            else if (customerID < (customerAmount / 3))
+            {
+                row = rand.Next(middleRow1(), middleRow2() + 4);
+                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
+            }
+
+            // Ring 4
+            else if (customerID < (customerAmount / 2))
+            {
+                row = rand.Next(middleRow1() - 3, middleRow2() - 1);
+                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
+            }
+
+            // Ring 5
+            else
+            {
+                row = rand.Next(0, seatRow);
+                col = rand.Next(0, seatCol);
+            }
+
+            seatRow = row;
+            seatCol = col;
         }
 
         public void PathFinding(int start, int goal)
