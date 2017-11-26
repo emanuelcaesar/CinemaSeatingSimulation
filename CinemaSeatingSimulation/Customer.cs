@@ -12,7 +12,11 @@ namespace CinemaSeatingSimulation
         private string demographic;
         private Hall hall;
         private Seat[,] seats;
+<<<<<<< HEAD
 		private Door[,] doors;
+=======
+        private Door[] doors;
+>>>>>>> Laras
         private Random rand;
 
         public Customer(int customerID)
@@ -51,7 +55,9 @@ namespace CinemaSeatingSimulation
         }
 
         public void SeatArrangement()
+        public void FindSeat()
         {
+<<<<<<< HEAD
             /*
             double middleCol = seatCol / 2;
             double middleRow = seatRow / 2;
@@ -168,10 +174,17 @@ namespace CinemaSeatingSimulation
             int col, row;
 
             if (customerID < 8)
+=======
+            int col, row;
+
+            // Ring 1
+            if (customerID < (customerAmount / 27))
+>>>>>>> Laras
             {
                 row = rand.Next(middleRow1(), middleRow2());
                 col = rand.Next(middleCol1(), middleCol2());
             }
+<<<<<<< HEAD
             else if (customerID < 44)
             {
                 row = rand.Next(4, 6);
@@ -180,12 +193,32 @@ namespace CinemaSeatingSimulation
                 else if (col > 13) col = rand.Next(13, 22);
             }
             else if (customerID < 88)
+=======
+
+            // Ring 2
+            else if (customerID < (customerAmount / 5))
+            {
+                row = rand.Next(middleRow1(), middleRow2() + 2);
+                col = rand.Next(middleCol1() - 2, middleCol2() + 2);
+            }
+
+            // Ring 3
+            else if (customerID < (customerAmount / 3))
+>>>>>>> Laras
             {
                 row = rand.Next(6, 8);
                 col = rand.Next(0, seatCol);
                 if (col < 10) col = rand.Next(0, 9);
                 else if (col > 13) col = rand.Next(13, 22);
 
+<<<<<<< HEAD
+=======
+            // Ring 4
+            else if (customerID < (customerAmount / 2))
+            {
+                row = rand.Next(middleRow1() - 3, middleRow2() - 1);
+                col = rand.Next(middleCol1() - 5, middleCol2() + 5);
+>>>>>>> Laras
             }
             else
             {
@@ -193,6 +226,11 @@ namespace CinemaSeatingSimulation
                 col = rand.Next(0, seatCol);
             }
 
+<<<<<<< HEAD
+=======
+            seatRow = row;
+            seatCol = col;
+>>>>>>> Laras
         }
 
         public void PathFinding(int start, int goal)
@@ -200,14 +238,21 @@ namespace CinemaSeatingSimulation
             
         }
 
+<<<<<<< HEAD
         public void DoorPlacement(int amount, int topCust)
+=======
+        public void FindDoor()
+>>>>>>> Laras
         {
 
             
 
+<<<<<<< HEAD
             
         }
 
+=======
+>>>>>>> Laras
         /*
         public int A(int from, int to)
         {
