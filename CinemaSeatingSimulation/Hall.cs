@@ -8,13 +8,61 @@ namespace CinemaSeatingSimulation
 {
     class Hall
     {
+<<<<<<< HEAD
         private int seatAmount, doorAmount, startingPosition;
+=======
+        private int x, y, height, width, row, col;
+        private string alp;
+        Random rand = new Random();
+
+        public int randRow, randCol, randSpace;
+
+        //int amount = 100 - 1;
+
+        double amount;
+
+        //int userspointLeft = 5;
+        //int userspointTop = 0;
+        private Door[] doorA;
+
+        private int seatAmount, doorAmount, startingPosition;
+        private Seat[,] seats;
+        private Door[,] doors;
+
+        public void ConfigHall()
+        {
+            int doorWidth = 25;
+            int doorHeight = 9;
+            doorA = new Door[4];
+            doorA[0] = new Door(doorWidth, doorHeight, 5, 0);
+            doorA[1] = new Door(doorWidth, doorHeight, 10, -5);
+            doorA[2] = new Door(doorWidth, doorHeight, 50, -5);
+            doorA[3] = new Door(doorWidth, doorHeight, 35, 5);
+
+>>>>>>> Greg
 
         private Seat[,] seats;
         private Door[] doors;
 
+<<<<<<< HEAD
 
 		private string alp;
+=======
+                    if (j == (col / 2))
+                    {
+                        x = x + 20;
+                    }
+                    seats[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width, System.Drawing.Color.Maroon);
+                    x = x + 13;
+                    Console.WriteLine(seats[i, j]);
+                }
+                x = 120;
+                y = y + 20;
+            }
+
+
+        }
+>>>>>>> Greg
 
 		//seats position and characteristic
 		private int x, y, 
@@ -104,11 +152,23 @@ namespace CinemaSeatingSimulation
             return this.seats;
         }
 
+<<<<<<< HEAD
         public Door[] Doors()
+=======
+        public Door[] door()
+        {
+            return this.doorA;
+
+        }
+
+
+        public Door[,] Doors()
+>>>>>>> Greg
         {
             return this.doors;
         }
 
+<<<<<<< HEAD
 		public int GetRow()
 		{
 			return row;
@@ -119,3 +179,10 @@ namespace CinemaSeatingSimulation
 		}
 	}
 }
+=======
+        int hallNum;
+        int seatingConfNum;
+
+    }
+}
+>>>>>>> Greg
