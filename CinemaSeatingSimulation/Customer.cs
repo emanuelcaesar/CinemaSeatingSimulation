@@ -36,11 +36,14 @@ namespace CinemaSeatingSimulation
             rand = new Random();
         }
 
+<<<<<<< HEAD
         public Customer(int seatRow, int seatCol)
         {
             this.seatRow = seatRow;
             this.seatCol = seatCol;
         }
+=======
+>>>>>>> Laras
 
         public int SeatRow
         {
@@ -234,7 +237,7 @@ namespace CinemaSeatingSimulation
 
         public void PathFinding(int start, int goal)
         {
-            
+
         }
 
 <<<<<<< HEAD
