@@ -9,13 +9,10 @@ namespace CinemaSeatingSimulation
     class Hall
     {
         private int seatAmount, doorAmount, startingPosition;
-<<<<<<< HEAD
-		private Seat[,] seats;
-		private Door[,] doors;
-=======
+
         private Seat[,] seats;
         private Door[] doors;
->>>>>>> Laras
+
 
 		private string alp;
 

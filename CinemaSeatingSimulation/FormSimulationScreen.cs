@@ -38,17 +38,12 @@ namespace CinemaSeatingSimulation
         private Door doorB;
         private Scenario scenarioTest;
 		private Seat[,] seatList2;
-
-<<<<<<< HEAD:CinemaSeatingSimulation/FormSimulationScreen.cs
-
-		private void FormLayoutTry1_Load(object sender, EventArgs e)
-        {
-			Hall hall1 = new Hall();
-			hall1.ConfigHall();
-			seatList2 = hall1.Seats();
-=======
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
+
+            Hall hall1 = new Hall();
+			hall1.ConfigHall();
+			seatList2 = hall1.Seats();
             x = 120;
             y = 90;
 
@@ -61,7 +56,6 @@ namespace CinemaSeatingSimulation
 
             alp = "";
             seatList2 = new Seat[row, col];
->>>>>>> Laras:CinemaSeatingSimulation/FormLayoutTry1.cs
 
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
@@ -153,7 +147,6 @@ namespace CinemaSeatingSimulation
         }
         private void newCustomer()
         {
-
             Customer customers = new Customer(randRow, randCol);
 
             //List<int> availableCol = new List<int>(amount);
