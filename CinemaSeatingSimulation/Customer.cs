@@ -22,6 +22,7 @@ namespace CinemaSeatingSimulation
 
             // instantiate hall object to access the Seats and Doors
             hall = new Hall();
+            hall.ConfigHall();
             seats = hall.Seats();
             doors = hall.Doors();
 

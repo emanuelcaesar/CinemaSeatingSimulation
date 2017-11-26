@@ -55,8 +55,7 @@ namespace CinemaSeatingSimulation
             amount = FormSimulation.customerCount * col * row;
 
             alp = "";
-            seatList2 = new Seat[row, col];
-
+            
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
             Panel pDoorA = new Panel();
@@ -88,7 +87,7 @@ namespace CinemaSeatingSimulation
                 for(int j = 0; j < hall1.GetColumn(); j++)
                 {
                     Panel p = new Panel();
-                    p.Location = new Point(seatList2[i,j].PosX, seatList2[i, j].PosY);
+                    p.Location = new Point(seatList2[i,j].PosX, seatList2[i,j].PosY);
                     p.Size = new Size(seatList2[i, j].SHeight, seatList2[i, j].SWidth);
                     p.BackColor = seatList2[i, j].SeatColor;
                     this.Controls.Add(p);
