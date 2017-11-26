@@ -29,7 +29,7 @@ namespace CinemaSeatingSimulation
 
         public void AssignCustomers()
         {
-
+            
         }
 
         public void StartSim()
