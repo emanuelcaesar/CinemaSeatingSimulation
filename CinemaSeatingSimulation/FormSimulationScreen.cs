@@ -95,6 +95,11 @@ namespace CinemaSeatingSimulation
             }
             
 			//Adding Users
+            for(int i = 0; i < amount; i++)
+            {
+                custs.Add(new Customer(i, Convert.ToInt32(amount)));
+                custs[i].FindSeat();
+            }
 			/*
             Panel pnlUser = new Panel();
             //for (int i = 0; i < 20; i++) {
