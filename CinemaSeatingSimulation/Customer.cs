@@ -54,7 +54,6 @@ namespace CinemaSeatingSimulation
             set { seatCol = value; }
         }
 
-        public void SeatArrangement()
         public void FindSeat()
         {
 <<<<<<< HEAD
