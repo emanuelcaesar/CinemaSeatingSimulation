@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,40 +37,25 @@
             this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDivider = new System.Windows.Forms.Panel();
-            this.tabLayout = new System.Windows.Forms.TabControl();
-            this.tabLayout1 = new System.Windows.Forms.TabPage();
-            this.pnlLayout1 = new System.Windows.Forms.Panel();
-            this.tabLayout2 = new System.Windows.Forms.TabPage();
             this.gbPanel = new System.Windows.Forms.GroupBox();
             this.gbControlPanel = new System.Windows.Forms.GroupBox();
-            this.hScrollBarTimeline = new System.Windows.Forms.HScrollBar();
-            this.panel133 = new System.Windows.Forms.Panel();
-            this.lblMinutes = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
             this.btnEmergency = new System.Windows.Forms.Button();
             this.btnSkip = new System.Windows.Forms.Button();
             this.btnSimulate = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gbScreeningPanel = new System.Windows.Forms.GroupBox();
             this.panel129 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnTime = new System.Windows.Forms.Button();
-            this.btnAge = new System.Windows.Forms.Button();
-            this.btnGenre = new System.Windows.Forms.Button();
+            this.cbTime = new System.Windows.Forms.ComboBox();
+            this.cbAge = new System.Windows.Forms.ComboBox();
+            this.cbGenre = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbLayout = new System.Windows.Forms.GroupBox();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbB = new System.Windows.Forms.RadioButton();
+            this.rbA = new System.Windows.Forms.RadioButton();
+            this.rbC = new System.Windows.Forms.RadioButton();
             this.label16 = new System.Windows.Forms.Label();
             this.panel134 = new System.Windows.Forms.Panel();
             this.lblChoosenLayout = new System.Windows.Forms.Label();
@@ -81,74 +64,50 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.panel132 = new System.Windows.Forms.Panel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lblEldersAmount = new System.Windows.Forms.Label();
             this.lblInfantAmount = new System.Windows.Forms.Label();
             this.lblChildrenAmount = new System.Windows.Forms.Label();
             this.lblAdultAmount = new System.Windows.Forms.Label();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.tabLayout1 = new System.Windows.Forms.TabPage();
+            this.pnlLayout1 = new System.Windows.Forms.Panel();
+            this.tabLayout = new System.Windows.Forms.TabControl();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lblFilledSeats = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabLayout.SuspendLayout();
-            this.tabLayout1.SuspendLayout();
             this.gbPanel.SuspendLayout();
             this.gbControlPanel.SuspendLayout();
-            this.panel133.SuspendLayout();
             this.gbScreeningPanel.SuspendLayout();
             this.panel129.SuspendLayout();
             this.gbLayout.SuspendLayout();
             this.panel134.SuspendLayout();
             this.gbStatus.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabLayout1.SuspendLayout();
+            this.tabLayout.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.LightBlue;
-            this.panelHeader.Controls.Add(this.btnSave);
             this.panelHeader.Controls.Add(this.btnLoad);
             this.panelHeader.Controls.Add(this.lblTitle);
+            this.panelHeader.Controls.Add(this.btnSave);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(2);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1082, 70);
             this.panelHeader.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(772, 12);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(144, 45);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.BackColor = System.Drawing.Color.LightBlue;
-            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(921, 12);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(145, 45);
-            this.btnLoad.TabIndex = 13;
-            this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = false;
             // 
             // lblTitle
             // 
@@ -187,24 +146,28 @@
             // 
             // resetToolStripMenuItem
             // 
+            this.resetToolStripMenuItem.Enabled = false;
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.resetToolStripMenuItem.Text = "Reset";
             // 
             // controlToolStripMenuItem
             // 
+            this.controlToolStripMenuItem.Enabled = false;
             this.controlToolStripMenuItem.Name = "controlToolStripMenuItem";
             this.controlToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.controlToolStripMenuItem.Text = "Control";
             // 
             // modeToolStripMenuItem
             // 
+            this.modeToolStripMenuItem.Enabled = false;
             this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
             this.modeToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.modeToolStripMenuItem.Text = "Mode";
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.Enabled = false;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
@@ -217,49 +180,6 @@
             this.panelDivider.Name = "panelDivider";
             this.panelDivider.Size = new System.Drawing.Size(1078, 5);
             this.panelDivider.TabIndex = 2;
-            // 
-            // tabLayout
-            // 
-            this.tabLayout.Controls.Add(this.tabLayout1);
-            this.tabLayout.Controls.Add(this.tabLayout2);
-            this.tabLayout.Location = new System.Drawing.Point(6, 21);
-            this.tabLayout.Margin = new System.Windows.Forms.Padding(2);
-            this.tabLayout.Name = "tabLayout";
-            this.tabLayout.SelectedIndex = 0;
-            this.tabLayout.Size = new System.Drawing.Size(742, 390);
-            this.tabLayout.TabIndex = 3;
-            // 
-            // tabLayout1
-            // 
-            this.tabLayout1.BackColor = System.Drawing.Color.Black;
-            this.tabLayout1.Controls.Add(this.pnlLayout1);
-            this.tabLayout1.Location = new System.Drawing.Point(4, 26);
-            this.tabLayout1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabLayout1.Name = "tabLayout1";
-            this.tabLayout1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabLayout1.Size = new System.Drawing.Size(734, 360);
-            this.tabLayout1.TabIndex = 0;
-            this.tabLayout1.Text = "Layout 1";
-            // 
-            // pnlLayout1
-            // 
-            this.pnlLayout1.Location = new System.Drawing.Point(0, 0);
-            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(1);
-            this.pnlLayout1.Name = "pnlLayout1";
-            this.pnlLayout1.Size = new System.Drawing.Size(734, 359);
-            this.pnlLayout1.TabIndex = 0;
-            this.pnlLayout1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLayout1_Paint);
-            // 
-            // tabLayout2
-            // 
-            this.tabLayout2.BackColor = System.Drawing.Color.Black;
-            this.tabLayout2.Location = new System.Drawing.Point(4, 26);
-            this.tabLayout2.Margin = new System.Windows.Forms.Padding(2);
-            this.tabLayout2.Name = "tabLayout2";
-            this.tabLayout2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabLayout2.Size = new System.Drawing.Size(734, 360);
-            this.tabLayout2.TabIndex = 1;
-            this.tabLayout2.Text = "Layout 2";
             // 
             // gbPanel
             // 
@@ -276,71 +196,28 @@
             // 
             // gbControlPanel
             // 
-            this.gbControlPanel.Controls.Add(this.hScrollBarTimeline);
-            this.gbControlPanel.Controls.Add(this.panel133);
             this.gbControlPanel.Controls.Add(this.btnEmergency);
             this.gbControlPanel.Controls.Add(this.btnSkip);
             this.gbControlPanel.Controls.Add(this.btnSimulate);
             this.gbControlPanel.Controls.Add(this.btnReset);
             this.gbControlPanel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbControlPanel.Location = new System.Drawing.Point(11, 536);
+            this.gbControlPanel.Location = new System.Drawing.Point(11, 532);
             this.gbControlPanel.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.gbControlPanel.Name = "gbControlPanel";
             this.gbControlPanel.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.gbControlPanel.Size = new System.Drawing.Size(758, 108);
+            this.gbControlPanel.Size = new System.Drawing.Size(757, 76);
             this.gbControlPanel.TabIndex = 148;
             this.gbControlPanel.TabStop = false;
             this.gbControlPanel.Text = "Control Panel";
             // 
-            // hScrollBarTimeline
-            // 
-            this.hScrollBarTimeline.Location = new System.Drawing.Point(8, 22);
-            this.hScrollBarTimeline.Name = "hScrollBarTimeline";
-            this.hScrollBarTimeline.Size = new System.Drawing.Size(594, 21);
-            this.hScrollBarTimeline.TabIndex = 12;
-            // 
-            // panel133
-            // 
-            this.panel133.BackColor = System.Drawing.Color.Black;
-            this.panel133.Controls.Add(this.lblMinutes);
-            this.panel133.Controls.Add(this.lblTime);
-            this.panel133.Location = new System.Drawing.Point(605, 22);
-            this.panel133.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.panel133.Name = "panel133";
-            this.panel133.Size = new System.Drawing.Size(141, 74);
-            this.panel133.TabIndex = 11;
-            // 
-            // lblMinutes
-            // 
-            this.lblMinutes.AutoSize = true;
-            this.lblMinutes.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinutes.ForeColor = System.Drawing.Color.White;
-            this.lblMinutes.Location = new System.Drawing.Point(21, 42);
-            this.lblMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMinutes.Name = "lblMinutes";
-            this.lblMinutes.Size = new System.Drawing.Size(100, 23);
-            this.lblMinutes.TabIndex = 148;
-            this.lblMinutes.Text = "Minutes left";
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(36, 11);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(72, 32);
-            this.lblTime.TabIndex = 145;
-            this.lblTime.Text = "20:39";
-            // 
             // btnEmergency
             // 
             this.btnEmergency.BackColor = System.Drawing.Color.Crimson;
+            this.btnEmergency.Enabled = false;
             this.btnEmergency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmergency.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmergency.ForeColor = System.Drawing.Color.White;
-            this.btnEmergency.Location = new System.Drawing.Point(149, 52);
+            this.btnEmergency.Location = new System.Drawing.Point(194, 23);
             this.btnEmergency.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnEmergency.Name = "btnEmergency";
             this.btnEmergency.Size = new System.Drawing.Size(178, 45);
@@ -355,10 +232,10 @@
             this.btnSkip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSkip.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSkip.ForeColor = System.Drawing.Color.White;
-            this.btnSkip.Location = new System.Drawing.Point(331, 52);
+            this.btnSkip.Location = new System.Drawing.Point(380, 23);
             this.btnSkip.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(131, 45);
+            this.btnSkip.Size = new System.Drawing.Size(178, 45);
             this.btnSkip.TabIndex = 10;
             this.btnSkip.Text = "Skip";
             this.btnSkip.UseVisualStyleBackColor = false;
@@ -366,13 +243,14 @@
             // btnSimulate
             // 
             this.btnSimulate.BackColor = System.Drawing.Color.Turquoise;
+            this.btnSimulate.Enabled = false;
             this.btnSimulate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSimulate.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSimulate.ForeColor = System.Drawing.Color.White;
-            this.btnSimulate.Location = new System.Drawing.Point(8, 52);
+            this.btnSimulate.Location = new System.Drawing.Point(7, 23);
             this.btnSimulate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnSimulate.Name = "btnSimulate";
-            this.btnSimulate.Size = new System.Drawing.Size(138, 45);
+            this.btnSimulate.Size = new System.Drawing.Size(178, 45);
             this.btnSimulate.TabIndex = 7;
             this.btnSimulate.Text = "Simulate";
             this.btnSimulate.UseVisualStyleBackColor = false;
@@ -381,13 +259,14 @@
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.LightBlue;
+            this.btnReset.Enabled = false;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(466, 52);
+            this.btnReset.Location = new System.Drawing.Point(567, 23);
             this.btnReset.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(135, 45);
+            this.btnReset.Size = new System.Drawing.Size(178, 45);
             this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
@@ -401,7 +280,7 @@
             this.gbScreeningPanel.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.gbScreeningPanel.Name = "gbScreeningPanel";
             this.gbScreeningPanel.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.gbScreeningPanel.Size = new System.Drawing.Size(292, 360);
+            this.gbScreeningPanel.Size = new System.Drawing.Size(292, 258);
             this.gbScreeningPanel.TabIndex = 149;
             this.gbScreeningPanel.TabStop = false;
             this.gbScreeningPanel.Text = "Screening Panel";
@@ -409,12 +288,10 @@
             // panel129
             // 
             this.panel129.BackColor = System.Drawing.Color.Linen;
-            this.panel129.Controls.Add(this.comboBox3);
-            this.panel129.Controls.Add(this.comboBox2);
-            this.panel129.Controls.Add(this.comboBox1);
-            this.panel129.Controls.Add(this.btnTime);
-            this.panel129.Controls.Add(this.btnAge);
-            this.panel129.Controls.Add(this.btnGenre);
+            this.panel129.Controls.Add(this.button2);
+            this.panel129.Controls.Add(this.cbTime);
+            this.panel129.Controls.Add(this.cbAge);
+            this.panel129.Controls.Add(this.cbGenre);
             this.panel129.Controls.Add(this.label5);
             this.panel129.Controls.Add(this.label4);
             this.panel129.Controls.Add(this.label3);
@@ -422,87 +299,60 @@
             this.panel129.Location = new System.Drawing.Point(12, 48);
             this.panel129.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel129.Name = "panel129";
-            this.panel129.Size = new System.Drawing.Size(266, 296);
+            this.panel129.Size = new System.Drawing.Size(266, 196);
             this.panel129.TabIndex = 140;
             // 
-            // comboBox3
+            // cbTime
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTime.FormattingEnabled = true;
+            this.cbTime.Items.AddRange(new object[] {
             "Morning (10:00)",
             "Afternoon (14:00)",
             "Evening (18:00)",
             "Night (21:00)"});
-            this.comboBox3.Location = new System.Drawing.Point(62, 182);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(150, 25);
-            this.comboBox3.TabIndex = 157;
+            this.cbTime.Location = new System.Drawing.Point(67, 115);
+            this.cbTime.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTime.Name = "cbTime";
+            this.cbTime.Size = new System.Drawing.Size(175, 25);
+            this.cbTime.TabIndex = 157;
             // 
-            // comboBox2
+            // cbAge
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAge.FormattingEnabled = true;
+            this.cbAge.Items.AddRange(new object[] {
             "AL",
             "12+",
             "18+"});
-            this.comboBox2.Location = new System.Drawing.Point(62, 152);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 25);
-            this.comboBox2.TabIndex = 156;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cbAge.Location = new System.Drawing.Point(67, 85);
+            this.cbAge.Margin = new System.Windows.Forms.Padding(4);
+            this.cbAge.Name = "cbAge";
+            this.cbAge.Size = new System.Drawing.Size(175, 25);
+            this.cbAge.TabIndex = 156;
+            this.cbAge.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbGenre
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGenre.FormattingEnabled = true;
+            this.cbGenre.Items.AddRange(new object[] {
             "Horror",
             "Comedy",
             "Romance",
             "Action",
             "Animation"});
-            this.comboBox1.Location = new System.Drawing.Point(62, 121);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 25);
-            this.comboBox1.TabIndex = 155;
-            // 
-            // btnTime
-            // 
-            this.btnTime.Location = new System.Drawing.Point(225, 186);
-            this.btnTime.Margin = new System.Windows.Forms.Padding(2);
-            this.btnTime.Name = "btnTime";
-            this.btnTime.Size = new System.Drawing.Size(31, 21);
-            this.btnTime.TabIndex = 154;
-            this.btnTime.UseVisualStyleBackColor = true;
-            // 
-            // btnAge
-            // 
-            this.btnAge.Location = new System.Drawing.Point(225, 152);
-            this.btnAge.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAge.Name = "btnAge";
-            this.btnAge.Size = new System.Drawing.Size(31, 21);
-            this.btnAge.TabIndex = 153;
-            this.btnAge.UseVisualStyleBackColor = true;
-            // 
-            // btnGenre
-            // 
-            this.btnGenre.Location = new System.Drawing.Point(225, 124);
-            this.btnGenre.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGenre.Name = "btnGenre";
-            this.btnGenre.Size = new System.Drawing.Size(31, 21);
-            this.btnGenre.TabIndex = 152;
-            this.btnGenre.UseVisualStyleBackColor = true;
+            this.cbGenre.Location = new System.Drawing.Point(67, 54);
+            this.cbGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.cbGenre.Name = "cbGenre";
+            this.cbGenre.Size = new System.Drawing.Size(175, 25);
+            this.cbGenre.TabIndex = 155;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 188);
+            this.label5.Location = new System.Drawing.Point(10, 121);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 19);
@@ -514,7 +364,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 155);
+            this.label4.Location = new System.Drawing.Point(10, 88);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 19);
@@ -526,7 +376,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 126);
+            this.label3.Location = new System.Drawing.Point(10, 59);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 19);
@@ -538,7 +388,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 58);
+            this.label2.Location = new System.Drawing.Point(4, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 41);
@@ -547,108 +397,63 @@
             // 
             // gbLayout
             // 
-            this.gbLayout.Controls.Add(this.radioButton9);
-            this.gbLayout.Controls.Add(this.radioButton4);
-            this.gbLayout.Controls.Add(this.radioButton5);
-            this.gbLayout.Controls.Add(this.radioButton6);
-            this.gbLayout.Controls.Add(this.radioButton3);
-            this.gbLayout.Controls.Add(this.radioButton2);
-            this.gbLayout.Controls.Add(this.radioButton1);
+            this.gbLayout.Controls.Add(this.rbB);
+            this.gbLayout.Controls.Add(this.rbA);
+            this.gbLayout.Controls.Add(this.rbC);
             this.gbLayout.Controls.Add(this.label16);
             this.gbLayout.Controls.Add(this.panel134);
             this.gbLayout.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLayout.Location = new System.Drawing.Point(772, 476);
+            this.gbLayout.Location = new System.Drawing.Point(772, 380);
             this.gbLayout.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.gbLayout.Name = "gbLayout";
             this.gbLayout.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.gbLayout.Size = new System.Drawing.Size(156, 294);
+            this.gbLayout.Size = new System.Drawing.Size(156, 152);
             this.gbLayout.TabIndex = 150;
             this.gbLayout.TabStop = false;
             this.gbLayout.Text = "Layout";
+            this.gbLayout.Enter += new System.EventHandler(this.gbLayout_Enter);
             // 
-            // radioButton9
+            // rbB
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(12, 208);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(64, 23);
-            this.radioButton9.TabIndex = 152;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "IMAX";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rbB.AutoSize = true;
+            this.rbB.Enabled = false;
+            this.rbB.Location = new System.Drawing.Point(57, 106);
+            this.rbB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.rbB.Name = "rbB";
+            this.rbB.Size = new System.Drawing.Size(38, 23);
+            this.rbB.TabIndex = 150;
+            this.rbB.TabStop = true;
+            this.rbB.Text = "B";
+            this.rbB.UseVisualStyleBackColor = true;
+            this.rbB.Click += new System.EventHandler(this.rbB_Click);
             // 
-            // radioButton4
+            // rbA
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(12, 181);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(83, 23);
-            this.radioButton4.TabIndex = 151;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "MODE 1";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbA.AutoSize = true;
+            this.rbA.Location = new System.Drawing.Point(12, 106);
+            this.rbA.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.rbA.Name = "rbA";
+            this.rbA.Size = new System.Drawing.Size(39, 23);
+            this.rbA.TabIndex = 149;
+            this.rbA.TabStop = true;
+            this.rbA.Text = "A";
+            this.rbA.UseVisualStyleBackColor = true;
+            this.rbA.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            this.rbA.Click += new System.EventHandler(this.radioButton6_Click);
             // 
-            // radioButton5
+            // rbC
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(12, 120);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(89, 23);
-            this.radioButton5.TabIndex = 150;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "REGULAR";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(12, 94);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(64, 23);
-            this.radioButton6.TabIndex = 149;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "IMAX";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(12, 262);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(83, 23);
-            this.radioButton3.TabIndex = 148;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "MODE 1";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 235);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(89, 23);
-            this.radioButton2.TabIndex = 147;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "REGULAR";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 151);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(64, 23);
-            this.radioButton1.TabIndex = 146;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "IMAX";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbC.AutoSize = true;
+            this.rbC.Enabled = false;
+            this.rbC.Location = new System.Drawing.Point(103, 106);
+            this.rbC.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.rbC.Name = "rbC";
+            this.rbC.Size = new System.Drawing.Size(39, 23);
+            this.rbC.TabIndex = 146;
+            this.rbC.TabStop = true;
+            this.rbC.Text = "C";
+            this.rbC.UseVisualStyleBackColor = true;
+            this.rbC.Click += new System.EventHandler(this.rbC_Click);
             // 
             // label16
             // 
@@ -678,9 +483,8 @@
             this.lblChoosenLayout.Location = new System.Drawing.Point(6, 2);
             this.lblChoosenLayout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChoosenLayout.Name = "lblChoosenLayout";
-            this.lblChoosenLayout.Size = new System.Drawing.Size(108, 32);
+            this.lblChoosenLayout.Size = new System.Drawing.Size(0, 32);
             this.lblChoosenLayout.TabIndex = 152;
-            this.lblChoosenLayout.Text = "Layout A";
             this.lblChoosenLayout.Click += new System.EventHandler(this.label15_Click);
             // 
             // gbStatus
@@ -690,11 +494,11 @@
             this.gbStatus.Controls.Add(this.label21);
             this.gbStatus.Controls.Add(this.label22);
             this.gbStatus.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbStatus.Location = new System.Drawing.Point(938, 476);
+            this.gbStatus.Location = new System.Drawing.Point(936, 380);
             this.gbStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.gbStatus.Name = "gbStatus";
             this.gbStatus.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.gbStatus.Size = new System.Drawing.Size(88, 172);
+            this.gbStatus.Size = new System.Drawing.Size(88, 152);
             this.gbStatus.TabIndex = 151;
             this.gbStatus.TabStop = false;
             this.gbStatus.Text = "Status";
@@ -703,7 +507,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 138);
+            this.label11.Location = new System.Drawing.Point(10, 106);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 19);
@@ -715,7 +519,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(10, 100);
+            this.label12.Location = new System.Drawing.Point(10, 78);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 19);
@@ -727,7 +531,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(10, 62);
+            this.label21.Location = new System.Drawing.Point(10, 50);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(63, 19);
@@ -747,28 +551,6 @@
             this.label22.Text = "Adult:";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel132
-            // 
-            this.panel132.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel132.Location = new System.Drawing.Point(10, 22);
-            this.panel132.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.panel132.Name = "panel132";
-            this.panel132.Size = new System.Drawing.Size(736, 88);
-            this.panel132.TabIndex = 152;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.panel132);
-            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(11, 648);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Size = new System.Drawing.Size(758, 122);
-            this.groupBox6.TabIndex = 154;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Log Panel";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.lblEldersAmount);
@@ -776,11 +558,11 @@
             this.groupBox5.Controls.Add(this.lblChildrenAmount);
             this.groupBox5.Controls.Add(this.lblAdultAmount);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(1030, 476);
+            this.groupBox5.Location = new System.Drawing.Point(1028, 380);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.groupBox5.Size = new System.Drawing.Size(36, 172);
+            this.groupBox5.Size = new System.Drawing.Size(36, 152);
             this.groupBox5.TabIndex = 158;
             this.groupBox5.TabStop = false;
             // 
@@ -788,36 +570,36 @@
             // 
             this.lblEldersAmount.AutoSize = true;
             this.lblEldersAmount.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEldersAmount.Location = new System.Drawing.Point(10, 138);
+            this.lblEldersAmount.Location = new System.Drawing.Point(10, 108);
             this.lblEldersAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEldersAmount.Name = "lblEldersAmount";
-            this.lblEldersAmount.Size = new System.Drawing.Size(17, 19);
+            this.lblEldersAmount.Size = new System.Drawing.Size(14, 19);
             this.lblEldersAmount.TabIndex = 157;
-            this.lblEldersAmount.Text = "2";
+            this.lblEldersAmount.Text = "/";
             this.lblEldersAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblInfantAmount
             // 
             this.lblInfantAmount.AutoSize = true;
             this.lblInfantAmount.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfantAmount.Location = new System.Drawing.Point(10, 100);
+            this.lblInfantAmount.Location = new System.Drawing.Point(10, 78);
             this.lblInfantAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfantAmount.Name = "lblInfantAmount";
-            this.lblInfantAmount.Size = new System.Drawing.Size(17, 19);
+            this.lblInfantAmount.Size = new System.Drawing.Size(14, 19);
             this.lblInfantAmount.TabIndex = 156;
-            this.lblInfantAmount.Text = "0";
+            this.lblInfantAmount.Text = "/";
             this.lblInfantAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblChildrenAmount
             // 
             this.lblChildrenAmount.AutoSize = true;
             this.lblChildrenAmount.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChildrenAmount.Location = new System.Drawing.Point(10, 62);
+            this.lblChildrenAmount.Location = new System.Drawing.Point(10, 50);
             this.lblChildrenAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChildrenAmount.Name = "lblChildrenAmount";
-            this.lblChildrenAmount.Size = new System.Drawing.Size(17, 19);
+            this.lblChildrenAmount.Size = new System.Drawing.Size(14, 19);
             this.lblChildrenAmount.TabIndex = 155;
-            this.lblChildrenAmount.Text = "5";
+            this.lblChildrenAmount.Text = "/";
             this.lblChildrenAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAdultAmount
@@ -827,45 +609,17 @@
             this.lblAdultAmount.Location = new System.Drawing.Point(10, 26);
             this.lblAdultAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdultAmount.Name = "lblAdultAmount";
-            this.lblAdultAmount.Size = new System.Drawing.Size(17, 19);
+            this.lblAdultAmount.Size = new System.Drawing.Size(14, 19);
             this.lblAdultAmount.TabIndex = 154;
-            this.lblAdultAmount.Text = "7";
+            this.lblAdultAmount.Text = "/";
             this.lblAdultAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.BackColor = System.Drawing.Color.White;
-            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.ForeColor = System.Drawing.Color.Black;
-            this.btnHelp.Location = new System.Drawing.Point(938, 658);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(128, 51);
-            this.btnHelp.TabIndex = 13;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = false;
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.Color.White;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnInfo.Location = new System.Drawing.Point(938, 720);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(129, 50);
-            this.btnInfo.TabIndex = 160;
-            this.btnInfo.Text = "Info";
-            this.btnInfo.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightBlue;
             this.panel1.Controls.Add(this.label23);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 790);
+            this.panel1.Location = new System.Drawing.Point(0, 618);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1082, 36);
@@ -885,18 +639,115 @@
             this.label23.Text = "Copyright EJ-Caesar-Davin-Laras-Feter-Mubashir";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(800, 10);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(128, 45);
+            this.btnSave.TabIndex = 159;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.BackColor = System.Drawing.Color.LightBlue;
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.ForeColor = System.Drawing.Color.White;
+            this.btnLoad.Location = new System.Drawing.Point(936, 10);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(128, 45);
+            this.btnLoad.TabIndex = 160;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = false;
+            // 
+            // tabLayout1
+            // 
+            this.tabLayout1.BackColor = System.Drawing.Color.Black;
+            this.tabLayout1.Controls.Add(this.pnlLayout1);
+            this.tabLayout1.Location = new System.Drawing.Point(4, 26);
+            this.tabLayout1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabLayout1.Name = "tabLayout1";
+            this.tabLayout1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabLayout1.Size = new System.Drawing.Size(734, 360);
+            this.tabLayout1.TabIndex = 0;
+            this.tabLayout1.Text = "Hall";
+            // 
+            // pnlLayout1
+            // 
+            this.pnlLayout1.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(1);
+            this.pnlLayout1.Name = "pnlLayout1";
+            this.pnlLayout1.Size = new System.Drawing.Size(734, 359);
+            this.pnlLayout1.TabIndex = 0;
+            this.pnlLayout1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLayout1_Paint);
+            // 
+            // tabLayout
+            // 
+            this.tabLayout.Controls.Add(this.tabLayout1);
+            this.tabLayout.Location = new System.Drawing.Point(6, 21);
+            this.tabLayout.Margin = new System.Windows.Forms.Padding(2);
+            this.tabLayout.Name = "tabLayout";
+            this.tabLayout.SelectedIndex = 0;
+            this.tabLayout.Size = new System.Drawing.Size(742, 390);
+            this.tabLayout.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(152, 147);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 34);
+            this.button2.TabIndex = 159;
+            this.button2.Text = "Confirm";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // lblFilledSeats
+            // 
+            this.lblFilledSeats.AutoSize = true;
+            this.lblFilledSeats.Location = new System.Drawing.Point(10, 36);
+            this.lblFilledSeats.Name = "lblFilledSeats";
+            this.lblFilledSeats.Size = new System.Drawing.Size(17, 19);
+            this.lblFilledSeats.TabIndex = 159;
+            this.lblFilledSeats.Text = "0";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.lblFilledSeats);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(936, 537);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(128, 71);
+            this.groupBox1.TabIndex = 160;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Status";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(38, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 19);
+            this.label6.TabIndex = 160;
+            this.label6.Text = "Seats Filled";
+            // 
             // FormSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1082, 826);
+            this.ClientSize = new System.Drawing.Size(1082, 654);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnInfo);
-            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.gbStatus);
             this.Controls.Add(this.gbLayout);
             this.Controls.Add(this.gbScreeningPanel);
@@ -911,18 +762,14 @@
             this.Name = "FormSimulation";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cinema Seating Simulation v1.1";
+            this.Text = "Cinema Seating Simulation v1.9";
             this.Load += new System.EventHandler(this.FormSimulation_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabLayout.ResumeLayout(false);
-            this.tabLayout1.ResumeLayout(false);
             this.gbPanel.ResumeLayout(false);
             this.gbControlPanel.ResumeLayout(false);
-            this.panel133.ResumeLayout(false);
-            this.panel133.PerformLayout();
             this.gbScreeningPanel.ResumeLayout(false);
             this.panel129.ResumeLayout(false);
             this.panel129.PerformLayout();
@@ -932,11 +779,14 @@
             this.panel134.PerformLayout();
             this.gbStatus.ResumeLayout(false);
             this.gbStatus.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabLayout1.ResumeLayout(false);
+            this.tabLayout.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -953,15 +803,8 @@
         private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Panel panelDivider;
-        private System.Windows.Forms.TabControl tabLayout;
-        private System.Windows.Forms.TabPage tabLayout1;
-        private System.Windows.Forms.TabPage tabLayout2;
         private System.Windows.Forms.GroupBox gbPanel;
         private System.Windows.Forms.GroupBox gbControlPanel;
-        private System.Windows.Forms.HScrollBar hScrollBarTimeline;
-        private System.Windows.Forms.Panel panel133;
-        private System.Windows.Forms.Label lblMinutes;
-        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Button btnEmergency;
         private System.Windows.Forms.Button btnSkip;
         private System.Windows.Forms.Button btnSimulate;
@@ -973,41 +816,36 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbLayout;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbC;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel134;
         private System.Windows.Forms.Label lblChoosenLayout;
-        private System.Windows.Forms.Button btnTime;
-        private System.Windows.Forms.Button btnAge;
-        private System.Windows.Forms.Button btnGenre;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton rbB;
+        private System.Windows.Forms.RadioButton rbA;
         private System.Windows.Forms.GroupBox gbStatus;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Panel panel132;
-        private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblEldersAmount;
         private System.Windows.Forms.Label lblInfantAmount;
         private System.Windows.Forms.Label lblChildrenAmount;
         private System.Windows.Forms.Label lblAdultAmount;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox cbTime;
+        private System.Windows.Forms.ComboBox cbAge;
+        private System.Windows.Forms.ComboBox cbGenre;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.TabControl tabLayout;
+        private System.Windows.Forms.TabPage tabLayout1;
         private System.Windows.Forms.Panel pnlLayout1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label lblFilledSeats;
     }
 }
 

@@ -39,9 +39,9 @@ namespace CinemaSeatingSimulation
 
         public void EmergencySim(double amount, List<System.Windows.Forms.Panel> users, List<Customer> custs, Seat[,] seatList2, Door door)
         {
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
-                
+
                 if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
                             custs[i].SeatCol].SHeight))
                 {
