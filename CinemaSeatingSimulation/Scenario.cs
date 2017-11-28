@@ -41,7 +41,6 @@ namespace CinemaSeatingSimulation
         {
             for (int i = 0; i <= amount; i++)
             {
-<<<<<<< HEAD
                 
                 if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
                             custs[i].SeatCol].SHeight))
@@ -49,10 +48,6 @@ namespace CinemaSeatingSimulation
                     users[i].Top--;
                 }
                 else
-=======
-
-                for (j = 0; j < custs.Count(); j++)
->>>>>>> Greg
                 {
                     if (users[i].Left > (door.PosX + door.DWidth) / 2)
                     {
@@ -60,13 +55,7 @@ namespace CinemaSeatingSimulation
                     }
                     else
                     {
-<<<<<<< HEAD
                         users[i].Top--;
-=======
-
-                        cu[filling].SeatArrangement();
-                        j = -1;
->>>>>>> Greg
                     }
                 }
             }
