@@ -36,7 +36,7 @@ namespace CinemaSeatingSimulation
         private void FormSimulation_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(FormSimulation_FormClosing);
-            ShowFormSimulationScreen();
+            //ShowFormSimulationScreen();
         }
 
         private void FormSimulation_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,10 +48,12 @@ namespace CinemaSeatingSimulation
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
-            countCustomer();
+            //countCustomer();
             if(!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
             {
                 btnClicked = true;
+                countCustomer();
+                ShowFormSimulationScreen();
 
                 formSimulation.timerSimulation.Start();
                 formSimulation.timerEmergency.Stop();

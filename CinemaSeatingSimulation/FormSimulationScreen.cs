@@ -30,7 +30,7 @@ namespace CinemaSeatingSimulation
 
         //int amount = 100 - 1;
         
-        double amount;
+        int amount;
 
         //int userspointLeft = 5;
         //int userspointTop = 0;
@@ -44,17 +44,21 @@ namespace CinemaSeatingSimulation
             Hall hall1 = new Hall();
 			hall1.ConfigHall();
 			seatList2 = hall1.Seats();
-            x = 120;
-            y = 90;
 
-            height = 10;
-            width = 10;
+            // maks amount = 56;
+            amount = Convert.ToInt32(FormSimulation.customerCount * seatList2.GetLength(1) * seatList2.GetLength(0));
+            
+            //x = 120;
+            //y = 90;
 
-            row = 10;
-            col = 22;
-            amount = FormSimulation.customerCount * col * row;
+            //height = 10;
+            //width = 10;
 
-            alp = "";
+            //row = 10;
+            //col = 22;
+            
+
+            //alp = "";
             
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
@@ -128,7 +132,7 @@ namespace CinemaSeatingSimulation
             //    custs.Add(new Customer(randRow, randCol));
             //}
 
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
                 Panel pnlUser = new Panel();
                 users.Add(pnlUser);
@@ -151,7 +155,7 @@ namespace CinemaSeatingSimulation
         }
         private void newCustomer()
         {
-            Customer customers = new Customer(randRow, randCol);
+            //Customer customers = new Customer(randRow, randCol);
 
             //List<int> availableCol = new List<int>(amount);
             //List<int> availableRow = new List<int>(amount);
@@ -160,26 +164,40 @@ namespace CinemaSeatingSimulation
             //var setRow = new HashSet<int>();
             //var nums = new List<int>();
 
-            int filling;
-            for (filling = 0; filling <= amount; filling++)
+            for (int i = 0; i < amount; i++)
             {
-				//randCol = rand.Next(0, col);
-				//randRow = rand.Next(0, row);
-				//custs.Add(new Customer(randRow, randCol));
+                //randCol = rand.Next(0, col);
+                //randRow = rand.Next(0, row);
+                //custs.Add(new Customer(randRow, randCol));
 
-				seatArrangement(filling);
-                custs.Add(new Customer(randRow, randCol));
+                //seatArrangement(filling);
+                custs.Add(new Customer(i, amount));
 
-                for (int j = 0; j < custs.Count(); j++) {
-                    if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j) {
-                        seatArrangement(filling);
+                //for (int j = 0; j < custs.Count(); j++)
+                //{
+                //    if (custs[filling].SeatRow == custs[j].SeatRow && custs[filling].SeatCol == custs[j].SeatCol && filling != j)
+                //    {
+                //        seatArrangement(filling);
+                //        //custs.Add(new Customer(randRow, randCol));
+                //        custs[filling].SeatRow = randRow;
+                //        custs[filling].SeatCol = randCol;
+                //        j = -1;
+                //    }
+                //}
+
+                custs[i].FindSeat();
+
+                for (int j = 0; j < custs.Count(); j++)
+                {
+                    if (custs[i].SeatRow == custs[j].SeatRow && custs[i].SeatCol == custs[j].SeatCol && i != j)
+                    {
+                        custs[i].FindSeat();
                         //custs.Add(new Customer(randRow, randCol));
-                        custs[filling].SeatRow = randRow;
-                        custs[filling].SeatCol = randCol;
                         j = -1;
                     }
                 }
-                
+                Console.WriteLine("custs: " + custs[i].SeatRow + "" + custs[i].SeatCol);
+                Console.WriteLine("Seat: "+seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId);
             }
         }
 
@@ -190,12 +208,12 @@ namespace CinemaSeatingSimulation
 
         private void timerSimulation_Tick(object sender, EventArgs e)
         {
-            //UserGoToSeats(); //Laras & Caesar
+            UserGoToSeats(); //Laras & Caesar
         }
 
         public void UserGoToSeats()
         {
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
                 if(users[i].Top < 50)
                 {
@@ -283,41 +301,41 @@ namespace CinemaSeatingSimulation
 		}
 
         //Filling Seat
-        public void seatArrangement(int filling)
-        {
-            if (filling < 8)
-            {
-                randRow = rand.Next(middleRow1(), middleRow2());
-                randCol = rand.Next(middleCol1(), middleCol2());
-            }
-            else if (filling < 44)
-            {
-                randRow = rand.Next(4, 6);
-                randCol = rand.Next(0, col);
-                if (randCol < 10) randCol = rand.Next(0, 9);
-                else if (randCol > 13) randCol = rand.Next(13, 22);
-            }
-            else if (filling < 88)
-            {
-                randRow = rand.Next(6, 8);
-                randCol = rand.Next(0, col);
-                if (randCol < 10) randCol = rand.Next(0, 9);
-                else if (randCol > 13) randCol = rand.Next(13, 22);
+        //public void seatArrangement(int filling)
+        //{
+        //    if (filling < 8)
+        //    {
+        //        randRow = rand.Next(middleRow1(), middleRow2());
+        //        randCol = rand.Next(middleCol1(), middleCol2());
+        //    }
+        //    else if (filling < 44)
+        //    {
+        //        randRow = rand.Next(4, 6);
+        //        randCol = rand.Next(0, col);
+        //        if (randCol < 10) randCol = rand.Next(0, 9);
+        //        else if (randCol > 13) randCol = rand.Next(13, 22);
+        //    }
+        //    else if (filling < 88)
+        //    {
+        //        randRow = rand.Next(6, 8);
+        //        randCol = rand.Next(0, col);
+        //        if (randCol < 10) randCol = rand.Next(0, 9);
+        //        else if (randCol > 13) randCol = rand.Next(13, 22);
                 
-            }
-            else
-            {
-                randRow = rand.Next(0, row);
-                randCol = rand.Next(0, col);
-                //fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
-                //while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
-                //{
-                //	randRow = rand.Next(0, row);
-                //	randCol = rand.Next(0, col);
-                //}
+        //    }
+        //    else
+        //    {
+        //        randRow = rand.Next(0, row);
+        //        randCol = rand.Next(0, col);
+        //        //fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
+        //        //while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
+        //        //{
+        //        //	randRow = rand.Next(0, row);
+        //        //	randCol = rand.Next(0, col);
+        //        //}
                 
-            }
-        }
+        //    }
+        //}
 		//END-----Seat Arrangement
 		/*
         private void SeatPlacement(Seat s, Panel p)

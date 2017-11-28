@@ -36,7 +36,6 @@ namespace CinemaSeatingSimulation
 
 			row = 10;
 			col = 22;
-			amount = FormSimulation.customerCount * col * row;
 
 			alp = "";
 			seats = new Seat[row, col];
@@ -88,7 +87,6 @@ namespace CinemaSeatingSimulation
 					//seatList.Add(new Seat(alp+""+(j + 1), x, y, height, width, seatColor));
 					seats[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width);
 					x = x + 13;
-					Console.WriteLine(seats[i, j]);
 				}
 				x = 120;
 				y = y + 20;
