@@ -28,13 +28,6 @@ namespace CinemaSeatingSimulation
 
         public void ConfigHall()
         {
-            int doorWidth = 25;
-            int doorHeight = 9;
-            doorA = new Door[4];
-            doorA[0] = new Door(doorWidth, doorHeight, 5, 0);
-            doorA[1] = new Door(doorWidth, doorHeight, 10, -5);
-            doorA[2] = new Door(doorWidth, doorHeight, 50, -5);
-            doorA[3] = new Door(doorWidth, doorHeight, 35, 5);
 
 
             for (int i = 0; i < row; i++)
