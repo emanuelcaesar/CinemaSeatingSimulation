@@ -15,6 +15,8 @@ namespace CinemaSeatingSimulation
         public static double customerCount;
         private bool btnClicked = false;
         FormSimulationScreen formSimulation;
+        Scenario scenariotest = new Scenario();
+        Customer cust = new Customer();
         
 
 
@@ -54,11 +56,13 @@ namespace CinemaSeatingSimulation
             btnReset.Enabled = true;
             formSimulation.timerEmergency.Stop();
             formSimulation.timerSimulation.Start();
+
+            
         }
 
         private void ShowFormSimulationScreen()
         {
-            formSimulation = new FormSimulationScreen();
+            formSimulation = new FormSimulationScreen(scenariotest);
             //formSimulation.MdiParent = this;
             //formSimulation.TopLevel = false;
             // this.pnlLayout1.Controls.Add(formSimulation);
@@ -118,6 +122,7 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
+            scenariotest.ChooseGenre(cbGenre.Text);
         }
 
         private void pnlLayout1_Paint(object sender, PaintEventArgs e)

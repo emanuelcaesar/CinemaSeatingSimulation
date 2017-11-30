@@ -12,9 +12,11 @@ namespace CinemaSeatingSimulation
 {
     public partial class FormSimulationScreen : Form
     {
-        public FormSimulationScreen()
+        public FormSimulationScreen(Scenario s)
         {
             InitializeComponent();
+            scenarioTest = s;
+
         }
 
 
@@ -38,8 +40,14 @@ namespace CinemaSeatingSimulation
         //int userspointTop = 0;
         private Door doorA;
         private Door doorB;
+        
+        //
         Scenario scenarioTest;
+        Customer customer;
 		private Seat[,] seatList2;
+        
+        decimal[] agecategory;
+     
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +56,16 @@ namespace CinemaSeatingSimulation
 			seatList2 = hall1.Seats();
 
             // maks amount = 56;
+            //below is the amount of Customers, and percentage (customerCount) come from Form1
             amount = Convert.ToInt32(FormSimulation.customerCount * seatList2.GetLength(1) * seatList2.GetLength(0));
+            //TryMubashirCode
+            
+            agecategory = scenarioTest.AssignCustomers(Convert.ToDecimal(amount));
+            //agecategory[] = tempList2[];
+            Label Elder = ((FormSimulation)this.Owner).lblEldersAmount;
+            Elder.Text = Convert.ToString(Convert.ToString(agecategory[0]));
+
+
             //amount = 55;
             //x = 120;
             //y = 90;
@@ -58,10 +75,10 @@ namespace CinemaSeatingSimulation
 
             //row = 10;
             //col = 22;
-            
+
 
             //alp = "";
-            
+
             //Adding Door
             doorA = new Door(25, 9, 5, 0);
             Panel pDoorA = new Panel();
@@ -116,7 +133,8 @@ namespace CinemaSeatingSimulation
         {
             for (int i = 0; i < amount; i++)
             {
-                custs.Add(new Customer(i, amount));
+                customer = new Customer(i, amount);
+                custs.Add(customer);
                 custs[i].FindSeat();
                 for (int j = 0; j < custs.Count(); j++)
                 {
@@ -129,6 +147,7 @@ namespace CinemaSeatingSimulation
                 Console.WriteLine("custs: " + custs[i].SeatRow + "" + custs[i].SeatCol);
                 Console.WriteLine("Seat: "+seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId);
             }
+            //scenarioTest.AssignCustomers(customer.getCustomerAmount);
         }
 
         private void timerEmergency_Tick(object sender, EventArgs e)

@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +40,9 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDivider = new System.Windows.Forms.Panel();
             this.gbPanel = new System.Windows.Forms.GroupBox();
+            this.tabLayout = new System.Windows.Forms.TabControl();
+            this.tabLayout1 = new System.Windows.Forms.TabPage();
+            this.pnlLayout1 = new System.Windows.Forms.Panel();
             this.gbControlPanel = new System.Windows.Forms.GroupBox();
             this.btnEmergency = new System.Windows.Forms.Button();
             this.btnSkip = new System.Windows.Forms.Button();
@@ -45,6 +50,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.gbScreeningPanel = new System.Windows.Forms.GroupBox();
             this.panel129 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.cbTime = new System.Windows.Forms.ComboBox();
             this.cbAge = new System.Windows.Forms.ComboBox();
             this.cbGenre = new System.Windows.Forms.ComboBox();
@@ -71,18 +77,14 @@
             this.lblAdultAmount = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.tabLayout1 = new System.Windows.Forms.TabPage();
-            this.pnlLayout1 = new System.Windows.Forms.Panel();
-            this.tabLayout = new System.Windows.Forms.TabControl();
-            this.button2 = new System.Windows.Forms.Button();
             this.lblFilledSeats = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.gbPanel.SuspendLayout();
+            this.tabLayout.SuspendLayout();
+            this.tabLayout1.SuspendLayout();
             this.gbControlPanel.SuspendLayout();
             this.gbScreeningPanel.SuspendLayout();
             this.panel129.SuspendLayout();
@@ -91,8 +93,6 @@
             this.gbStatus.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabLayout1.SuspendLayout();
-            this.tabLayout.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +109,20 @@
             this.panelHeader.Size = new System.Drawing.Size(1082, 70);
             this.panelHeader.TabIndex = 0;
             // 
+            // btnLoad
+            // 
+            this.btnLoad.BackColor = System.Drawing.Color.LightBlue;
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.ForeColor = System.Drawing.Color.White;
+            this.btnLoad.Location = new System.Drawing.Point(936, 10);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(128, 45);
+            this.btnLoad.TabIndex = 160;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = false;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -120,6 +134,20 @@
             this.lblTitle.Size = new System.Drawing.Size(606, 59);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "CINEMA SEATING SIMULATION";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(800, 10);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(128, 45);
+            this.btnSave.TabIndex = 159;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // menuStrip1
             // 
@@ -193,6 +221,37 @@
             this.gbPanel.TabIndex = 0;
             this.gbPanel.TabStop = false;
             this.gbPanel.Text = "Simulation Panel";
+            // 
+            // tabLayout
+            // 
+            this.tabLayout.Controls.Add(this.tabLayout1);
+            this.tabLayout.Location = new System.Drawing.Point(6, 21);
+            this.tabLayout.Margin = new System.Windows.Forms.Padding(2);
+            this.tabLayout.Name = "tabLayout";
+            this.tabLayout.SelectedIndex = 0;
+            this.tabLayout.Size = new System.Drawing.Size(742, 390);
+            this.tabLayout.TabIndex = 3;
+            // 
+            // tabLayout1
+            // 
+            this.tabLayout1.BackColor = System.Drawing.Color.Black;
+            this.tabLayout1.Controls.Add(this.pnlLayout1);
+            this.tabLayout1.Location = new System.Drawing.Point(4, 26);
+            this.tabLayout1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabLayout1.Name = "tabLayout1";
+            this.tabLayout1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabLayout1.Size = new System.Drawing.Size(734, 360);
+            this.tabLayout1.TabIndex = 0;
+            this.tabLayout1.Text = "Hall";
+            // 
+            // pnlLayout1
+            // 
+            this.pnlLayout1.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(1);
+            this.pnlLayout1.Name = "pnlLayout1";
+            this.pnlLayout1.Size = new System.Drawing.Size(734, 359);
+            this.pnlLayout1.TabIndex = 0;
+            this.pnlLayout1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLayout1_Paint);
             // 
             // gbControlPanel
             // 
@@ -301,6 +360,16 @@
             this.panel129.Name = "panel129";
             this.panel129.Size = new System.Drawing.Size(266, 196);
             this.panel129.TabIndex = 140;
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(152, 147);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 34);
+            this.button2.TabIndex = 159;
+            this.button2.Text = "Confirm";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // cbTime
             // 
@@ -639,75 +708,6 @@
             this.label23.Text = "Copyright EJ-Caesar-Davin-Laras-Feter-Mubashir";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(800, 10);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(128, 45);
-            this.btnSave.TabIndex = 159;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.BackColor = System.Drawing.Color.LightBlue;
-            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(936, 10);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(128, 45);
-            this.btnLoad.TabIndex = 160;
-            this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = false;
-            // 
-            // tabLayout1
-            // 
-            this.tabLayout1.BackColor = System.Drawing.Color.Black;
-            this.tabLayout1.Controls.Add(this.pnlLayout1);
-            this.tabLayout1.Location = new System.Drawing.Point(4, 26);
-            this.tabLayout1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabLayout1.Name = "tabLayout1";
-            this.tabLayout1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabLayout1.Size = new System.Drawing.Size(734, 360);
-            this.tabLayout1.TabIndex = 0;
-            this.tabLayout1.Text = "Hall";
-            // 
-            // pnlLayout1
-            // 
-            this.pnlLayout1.Location = new System.Drawing.Point(0, 0);
-            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(1);
-            this.pnlLayout1.Name = "pnlLayout1";
-            this.pnlLayout1.Size = new System.Drawing.Size(734, 359);
-            this.pnlLayout1.TabIndex = 0;
-            this.pnlLayout1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLayout1_Paint);
-            // 
-            // tabLayout
-            // 
-            this.tabLayout.Controls.Add(this.tabLayout1);
-            this.tabLayout.Location = new System.Drawing.Point(6, 21);
-            this.tabLayout.Margin = new System.Windows.Forms.Padding(2);
-            this.tabLayout.Name = "tabLayout";
-            this.tabLayout.SelectedIndex = 0;
-            this.tabLayout.Size = new System.Drawing.Size(742, 390);
-            this.tabLayout.TabIndex = 3;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(152, 147);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 34);
-            this.button2.TabIndex = 159;
-            this.button2.Text = "Confirm";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // lblFilledSeats
             // 
             this.lblFilledSeats.AutoSize = true;
@@ -769,6 +769,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gbPanel.ResumeLayout(false);
+            this.tabLayout.ResumeLayout(false);
+            this.tabLayout1.ResumeLayout(false);
             this.gbControlPanel.ResumeLayout(false);
             this.gbScreeningPanel.ResumeLayout(false);
             this.panel129.ResumeLayout(false);
@@ -783,8 +785,6 @@
             this.groupBox5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabLayout1.ResumeLayout(false);
-            this.tabLayout.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -828,7 +828,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label lblEldersAmount;
         private System.Windows.Forms.Label lblInfantAmount;
         private System.Windows.Forms.Label lblChildrenAmount;
         private System.Windows.Forms.Label lblAdultAmount;
@@ -846,6 +845,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label lblFilledSeats;
+        public System.Windows.Forms.Label lblEldersAmount;
     }
 }
 

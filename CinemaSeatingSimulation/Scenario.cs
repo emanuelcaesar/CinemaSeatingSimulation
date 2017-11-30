@@ -6,30 +6,45 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Scenario
+    public class Scenario
     {
         private int scenarioID, ageRating;
         private string genre;
         private DateTime time;
+        private int age;
+        //string ageCategory;
+        string options;
 
-        public void ChooseGenre()
+        public void ChooseGenre(string genre2)
         {
-
+            this.genre = genre2;
         }
 
-        public void ChooseAge()
+        public string ChooseAge(int age)
         {
-
+            //this.age = age;
+            //if (this.age >=18)
+            //{
+            //    this.ageCategory = "Elder";
+            //}
+            return "hahaha";
         }
 
         public void ChooseTime()
         {
-
+        
         }
-
-        public void AssignCustomers()
+  
+        public decimal[] AssignCustomers(decimal amount)
         {
-            
+            decimal[] tempList = new decimal[4];
+            if(this.genre == "Horror" && amount <= 30)
+            {
+                tempList[0] =  ((30*amount)/100);
+                //tempList.Add(amountofselectedcustomer);
+                //amountofselectedcustomer = 70 & *amount;     
+            }
+            return tempList;
         }
 
         public void StartSim()
@@ -63,7 +78,7 @@ namespace CinemaSeatingSimulation
 
         public void ResetSim()
         {
-
+            //already in the form
         }
 
         public void SkipSim()

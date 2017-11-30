@@ -33,6 +33,10 @@ namespace CinemaSeatingSimulation
 
             rand = new Random();
         }
+        public Customer()
+        {
+            
+        }
 
         public int SeatRow
         {
@@ -83,6 +87,11 @@ namespace CinemaSeatingSimulation
             }
             seatRow = row;
             seatCol = col;
+        }
+
+        public int getCustomerAmount()
+        {
+            return customerAmount;
         }
 
         public void PathFinding(int start, int goal)
