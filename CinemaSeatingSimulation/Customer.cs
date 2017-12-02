@@ -22,13 +22,13 @@ namespace CinemaSeatingSimulation
             this.customerAmount = customerAmount;
 
             // instantiate hall object to access the Seats and Doors
-            hall = new Hall();
+            hall = new HallC();
             hall.ConfigHall();
             seats = hall.Seats();
             doors = hall.Doors();
 
             // get the column and Row of the seats[,]
-            seatRowCust = seats.GetLength(0); // get length from the first column [*,]
+            seatRowCust = seats.GetLength(0) - 1; // get length from the first column [*,]
             seatColCust = seats.GetLength(1); // get length from the second column [,*]
 
             rand = new Random();
@@ -66,7 +66,7 @@ namespace CinemaSeatingSimulation
             // Ring 3
             else if (customerID < 84)
             {
-                row = rand.Next(middleRow1(), middleRow2() + 2);
+                row = rand.Next(middleRow1(), middleRow2() + 4);
                 col = rand.Next(middleCol1() - 5, middleCol2() + 5);
             }
             // Ring 4
@@ -110,23 +110,4 @@ namespace CinemaSeatingSimulation
             return (seatColCust / 2) + 2;
         }
     }
-
-    
-
-    //class Child : Customer
-    //{
-
-    //}
-    //class Adult : Customer
-    //{
-
-    //}
-    //class Seniors : Customer
-    //{
-
-    //}
-    //class Teens : Customer
-    //{
-
-    //}
 }

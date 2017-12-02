@@ -6,105 +6,39 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Hall
+    abstract class Hall
     {
-        private int seatAmount, doorAmount, startingPosition;
+        protected int seatAmount, doorAmount, startingPosition;
+        
+        protected string alp;
 
-        private Seat[,] seats;
-        private Door[] doors;
+        //seats position and characteristic
+        protected int x, y,
+            height, width,
+            row, col;
 
+        protected Seat[,] seats;
+        protected Door[] doors;
 
-		private string alp;
-
-		//seats position and characteristic
-		private int x, y, 
-			height, width, 
-			row, col;
-		//Amount of custumer
-		double amount;
-
-		private Door doorA;
-		private Door doorB;
-		private Scenario scenarioTest;
-		public void ConfigHall()
-        {
-			x = 120;
-			y = 90;
-
-			height = 10;
-			width = 10;
-
-			row = 10;
-			col = 22;
-
-			alp = "";
-			seats = new Seat[row, col];
-			scenarioTest = new Scenario();
-
-			//Creating Seats Map
-
-			for (int i = 0; i < row; i++)
-			{
-				for (int j = 0; j < col; j++)
-				{
-					switch (i)
-					{
-						case 0:
-							alp = "A";
-							break;
-						case 1:
-							alp = "B";
-							break;
-						case 2:
-							alp = "C";
-							break;
-						case 3:
-							alp = "D";
-							break;
-						case 4:
-							alp = "E";
-							break;
-						case 5:
-							alp = "F";
-							break;
-						case 6:
-							alp = "G";
-							break;
-						case 7:
-							alp = "H";
-							break;
-						case 8:
-							alp = "I";
-							break;
-						case 9:
-							alp = "J";
-							break;
-					}
-					if (j == (col / 2))
-					{
-						x = x + 20;
-					}
-					//seatList.Add(new Seat(alp+""+(j + 1), x, y, height, width, seatColor));
-					seats[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width);
-					x = x + 13;
-				}
-				x = 120;
-				y = y + 20;
-			}
-		}
+        public abstract void ConfigHall();
 
         public int GetSeatAmount()
         {
             return seatAmount;
         }
+
+        public int GetDoorAmount()
+        {
+            return doorAmount;
+        }
         public Seat[,] Seats()
         {
-            return this.seats;
+            return seats;
         }
 
         public Door[] Doors()
         {
-            return this.doors;
+            return doors;
         }
 
 		public int GetRow()

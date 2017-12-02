@@ -57,6 +57,7 @@
             // 
             // timerSimulation
             // 
+            this.timerSimulation.Enabled = true;
             this.timerSimulation.Interval = 5;
             this.timerSimulation.Tick += new System.EventHandler(this.timerSimulation_Tick);
             // 

@@ -22,8 +22,6 @@ namespace CinemaSeatingSimulation
         List<Customer> custs = new List<Customer>();
         //List<Seat> seatList = new List<Seat>();
 
-        private int x, y, height, width, row, col;
-        private string alp;
         Random rand = new Random();
 
         public int randRow, randCol, randSpace;
@@ -38,12 +36,14 @@ namespace CinemaSeatingSimulation
         private Door doorB;
         private Scenario scenarioTest;
 		private Seat[,] seatList2;
+        private Door[] doors;
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
 
-            Hall hall1 = new Hall();
+            Hall hall1 = new HallC();
 			hall1.ConfigHall();
 			seatList2 = hall1.Seats();
+            doors = hall1.Doors();
 
             // maks amount = 56;
             amount = Convert.ToInt32(FormSimulation.customerCount * seatList2.GetLength(1) * seatList2.GetLength(0));
@@ -60,21 +60,30 @@ namespace CinemaSeatingSimulation
 
             //alp = "";
             
-            //Adding Door
-            doorA = new Door(25, 9, 5, 0);
-            Panel pDoorA = new Panel();
-            pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
-            pDoorA.Size = new Size(doorA.DWidth, doorA.DHeight);
-            pDoorA.BackColor = Color.Blue;
-            this.Controls.Add(pDoorA);
+            ////Adding Door
+            //doorA = new Door(25, 9, 5, 0);
+            //Panel pDoorA = new Panel();
+            //pDoorA.Location = new Point(doorA.PosX, doorA.PosY);
+            //pDoorA.Size = new Size(doorA.DWidth, doorA.DHeight);
+            //pDoorA.BackColor = Color.Blue;
+            //this.Controls.Add(pDoorA);
 
-            //Adding Door 2
-            doorB = new Door(25, 9, 500, 0);
-            Panel pDoorB = new Panel();
-            pDoorB.Location = new Point(doorB.PosX, doorB.PosY);
-            pDoorB.Size = new Size(doorB.DWidth, doorB.DHeight);
-            pDoorB.BackColor = Color.Purple;
-            this.Controls.Add(pDoorB);
+            ////Adding Door 2
+            //doorB = new Door(25, 9, 500, 0);
+            //Panel pDoorB = new Panel();
+            //pDoorB.Location = new Point(doorB.PosX, doorB.PosY);
+            //pDoorB.Size = new Size(doorB.DWidth, doorB.DHeight);
+            //pDoorB.BackColor = Color.Purple;
+            //this.Controls.Add(pDoorB);
+
+            for(int i = 0; i<hall1.GetDoorAmount(); i++)
+            {
+                Panel p = new Panel();
+                p.Location = new Point(doors[i].PosX, doors[i].PosY);
+                p.Size = new Size(doors[i].DWidth, doors[i].DHeight);
+                p.BackColor = Color.Purple;
+                this.Controls.Add(p);
+            }
 
             /*
             for (int i = 0; i < seatList.Count; i++)
@@ -134,14 +143,14 @@ namespace CinemaSeatingSimulation
                 //Point UsersLocation;
                 //UsersLocation.X = 0;
                 //Random rnd = new Random();
-                users[i].Location = new Point((doorA.PosX + doorA.DWidth)/2, doorA.PosY);
+                users[i].Location = new Point((doors[0].PosX + doors[0].DWidth)/2, doors[0].PosY);
                 //users[i].Location = new Point(userspointLeft, userspointTop);
                 users[i].BackColor = Color.White;
                 users[i].Size = new Size(9, 9);
                 this.Controls.Add(users[i]);
                 //userspointTop -= 11;
                 randSpace = rand.Next(11, 40);
-                doorA.PosY -= randSpace;
+                doors[0].PosY -= randSpace;
                 //userspointTop += 0;
             }
             newCustomer();
@@ -198,7 +207,7 @@ namespace CinemaSeatingSimulation
 
         private void timerEmergency_Tick(object sender, EventArgs e)
         {
-           scenarioTest.EmergencySim(amount, users, custs, seatList2, doorA);
+           scenarioTest.EmergencySim(amount, users, custs, seatList2, doors[0]);
         }
 
         private void timerSimulation_Tick(object sender, EventArgs e)
@@ -274,74 +283,5 @@ namespace CinemaSeatingSimulation
             }
 
         }
-
-		//START-----Seats Arrangement
-		//inner Circle
-		private int middleRow1()
-		{
-			return (row / 2) - 1;
-		}
-		private int middleRow2()
-		{
-			return (row / 2) + 1;
-		}
-		private int middleCol1()
-		{
-			return (col / 2) - 2;
-		}
-
-		private int middleCol2()
-		{
-			return (col / 2) + 2;
-		}
-
-        //Filling Seat
-        //public void seatArrangement(int filling)
-        //{
-        //    if (filling < 8)
-        //    {
-        //        randRow = rand.Next(middleRow1(), middleRow2());
-        //        randCol = rand.Next(middleCol1(), middleCol2());
-        //    }
-        //    else if (filling < 44)
-        //    {
-        //        randRow = rand.Next(4, 6);
-        //        randCol = rand.Next(0, col);
-        //        if (randCol < 10) randCol = rand.Next(0, 9);
-        //        else if (randCol > 13) randCol = rand.Next(13, 22);
-        //    }
-        //    else if (filling < 88)
-        //    {
-        //        randRow = rand.Next(6, 8);
-        //        randCol = rand.Next(0, col);
-        //        if (randCol < 10) randCol = rand.Next(0, 9);
-        //        else if (randCol > 13) randCol = rand.Next(13, 22);
-                
-        //    }
-        //    else
-        //    {
-        //        randRow = rand.Next(0, row);
-        //        randCol = rand.Next(0, col);
-        //        //fillingSeats[randRow, randCol] = new Seat(randRow, randCol);
-        //        //while (IsDup(fillingSeats[randRow, randCol], bookedSeats[randRow, randCol]))
-        //        //{
-        //        //	randRow = rand.Next(0, row);
-        //        //	randCol = rand.Next(0, col);
-        //        //}
-                
-        //    }
-        //}
-		//END-----Seat Arrangement
-		/*
-        private void SeatPlacement(Seat s, Panel p)
-        {
-            p = new Panel();
-            p.Location = new Point(s.PosX, s.PosY);
-            p.Size = new Size(10, 10);
-            p.BackColor = Color.Maroon;
-            this.Controls.Add(p);
-
-        }
-        */
 	}
 }
