@@ -15,6 +15,9 @@ namespace CinemaSeatingSimulation
         public static double customerCount;
         private bool btnClicked = false;
         FormSimulationScreen formSimulation;
+        Scenario scenariotest = new Scenario();
+        Customer cust = new Customer();
+        
 
         public FormSimulation()
         {
@@ -47,50 +50,38 @@ namespace CinemaSeatingSimulation
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
-            //countCustomer();
-            if(!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
-            {
-                btnClicked = true;
-                countCustomer();
-                ShowFormSimulationScreen();
+            btnEmergency.Enabled = true;
+            btnSimulate.Enabled = false;
+            btnReset.Enabled = true;
+            formSimulation.timerEmergency.Stop();
+            formSimulation.timerSimulation.Start();
 
-                formSimulation.timerSimulation.Start();
-                formSimulation.timerEmergency.Stop();
-            }
-            else
-            {
-                MessageBox.Show("Please fill the scenario!");
-            }
+            
         }
 
         private void ShowFormSimulationScreen()
         {
-            formSimulation = new FormSimulationScreen();
-            formSimulation.TopLevel = false;
-            this.pnlLayout1.Controls.Add(formSimulation);
-            formSimulation.Show();
+            formSimulation = new FormSimulationScreen(scenariotest);
+            //formSimulation.MdiParent = this;
+            //formSimulation.TopLevel = false;
+            // this.pnlLayout1.Controls.Add(formSimulation);
+            formSimulation.StartPosition = FormStartPosition.Manual;
+
+            //formSimulation.Location = new Point(100, 100);
+            formSimulation.Size = pnlLayout1.Size;
+            formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
+            
+            formSimulation.Show(this);
+
+            
         }
 
         private void btnEmergency_Click(object sender, EventArgs e)
         {
-            if (!(comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == ""))
-            {
-                if (btnClicked)
-                {
-                    //FormSimulationScreen fss = new FormSimulationScreen();
-                    formSimulation.timerSimulation.Stop();
-                    formSimulation.timerEmergency.Start();
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Please Simulate first!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill the scenario!");
-            }  
+            btnEmergency.Enabled = false;
+            btnSimulate.Enabled = true;
+            formSimulation.timerSimulation.Stop();
+            formSimulation.timerEmergency.Start();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,13 +91,13 @@ namespace CinemaSeatingSimulation
 
         public void countCustomer()
         {
-            if (comboBox3.Text == "Evening (18:00)" || comboBox3.Text == "Night (21:00)")
+            if (cbTime.Text == "Evening (18:00)" || cbTime.Text == "Night (21:00)")
             {
-                if (comboBox1.Text == "Horror" && comboBox2.Text == "18+")
+                if (cbGenre.Text == "Horror" && cbAge.Text == "18+")
                 {
-                    customerCount = GetRandomNumber(0.7, 0.75);
+                    customerCount = GetRandomNumber(0.7, 0.75); //percentage
                 }
-                else if (comboBox1.Text == "Romance")
+                else if (cbGenre.Text == "Romance")
                 {
                     customerCount = GetRandomNumber(0.6, 0.8);
                 }
@@ -117,11 +108,11 @@ namespace CinemaSeatingSimulation
             }
             else
             {
-                if (comboBox1.Text == "Horror")
+                if (cbGenre.Text == "Horror")
                 {
                     customerCount = GetRandomNumber(0, 0.1);
                 }
-                else if (comboBox1.Text == "Animation")
+                else if (cbGenre.Text == "Animation")
                 {
                     customerCount = GetRandomNumber(0.4, 0.6);
                 }
@@ -130,6 +121,7 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
+            scenariotest.ChooseGenre(cbGenre.Text);
         }
 
         private void pnlLayout1_Paint(object sender, PaintEventArgs e)
@@ -139,8 +131,94 @@ namespace CinemaSeatingSimulation
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            btnEmergency.Enabled = false;
+            btnSimulate.Enabled = true;
             formSimulation.Close();
             ShowFormSimulationScreen();
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radioButton6_Click(object sender, EventArgs e)
+        {
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                btnClicked = true;
+                countCustomer();
+                ShowFormSimulationScreen();
+                btnSimulate.Enabled = true;
+                lblChoosenLayout.Text = "Layout " + rbA.Text;
+            }
+            else
+            {
+                rbA.Checked = false;
+                MessageBox.Show("Please fill the scenario!");
+
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnGenre_Click(object sender, EventArgs e)
+        {
+            cbGenre.ResetText();
+        }
+
+        private void gbLayout_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbB_Click(object sender, EventArgs e)
+        {
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                btnClicked = true;
+                countCustomer();
+                ShowFormSimulationScreen();
+                btnSimulate.Enabled = true;
+                lblChoosenLayout.Text = "Layout " + rbB.Text;
+            }
+            else
+            {
+                rbB.Checked = false;
+                MessageBox.Show("Please fill the scenario!");
+
+            }
+        }
+
+        private void rbC_Click(object sender, EventArgs e)
+        {
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                btnClicked = true;
+                countCustomer();
+                ShowFormSimulationScreen();
+                btnSimulate.Enabled = true;
+                lblChoosenLayout.Text = "Layout " + rbC.Text;
+            }
+            else
+            {
+                rbC.Checked = false;
+                MessageBox.Show("Please fill the scenario!");
+
+            }
+        }
+
+        public void setlblSeats()
+        {
+            lblFilledSeats.Text = "Worked";
         }
     }
 }
