@@ -233,7 +233,19 @@ namespace CinemaSeatingSimulation
 
         public void SkipSim()
         {
-            //just do eevrything no timer
+            for (int i = 0; i < amount; i++)
+            {
+                System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
+                users.Add(pnlUser);
+                users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
+                    seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
+                users[i].BackColor = System.Drawing.Color.White;
+                users[i].Size = new System.Drawing.Size(9, 9);
+                fss.Controls.Add(users[i]);
+                users[i].BringToFront();
+                System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
+                seatsfiled.Text = Convert.ToString(i);
+            }
         }
 
         public void ChooseHall()

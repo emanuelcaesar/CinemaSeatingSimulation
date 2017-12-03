@@ -302,6 +302,7 @@
             this.btnSkip.TabIndex = 10;
             this.btnSkip.Text = "Skip";
             this.btnSkip.UseVisualStyleBackColor = false;
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
             // 
             // btnSimulate
             // 

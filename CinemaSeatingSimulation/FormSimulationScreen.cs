@@ -38,7 +38,12 @@ namespace CinemaSeatingSimulation
             scenarioTest.UserGoToSeat();
         }
 
-        
-        
+        public void timerSimulation_Skip()
+        {
+            scenarioTest.SkipSim();
+        }
+
+
+
     }
 }

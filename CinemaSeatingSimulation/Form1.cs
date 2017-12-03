@@ -225,5 +225,19 @@ namespace CinemaSeatingSimulation
         {
             formSimulation.timerEmergency_Tick(sender, e);
         }
+
+        private void btnSkip_Click(object sender, EventArgs e)
+        {
+            btnEmergency.Enabled = true;
+            btnSimulate.Enabled = false;
+
+            formSimulation.timerEmergency.Enabled = false;
+            formSimulation.timerSimulation.Enabled = false;
+
+            formSimulation.timerSimulation.Stop();
+            timerStart.Stop();
+            timerBack.Stop();
+            formSimulation.timerSimulation_Skip();
+        }
     }
 }
