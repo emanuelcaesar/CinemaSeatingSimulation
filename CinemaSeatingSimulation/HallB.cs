@@ -22,10 +22,10 @@ namespace CinemaSeatingSimulation
             alp = "";
             seatAmount = row * col;
             seats = new Seat[row, col];
-            
+
             doors = new Door[2];
             doorAmount = doors.Length;
-            
+
             //Creating Seats Map
 
             for (int i = 0; i < row; i++)
@@ -81,4 +81,3 @@ namespace CinemaSeatingSimulation
         }
     }
 }
-

@@ -65,7 +65,7 @@ namespace CinemaSeatingSimulation
                             alp = "J";
                             break;
                     }
-                    if (i>0 && i%2 == 0 && j == 0)
+                    if (i > 0 && i % 2 == 0 && j == 0)
                     {
                         y = y + 5;
                     }

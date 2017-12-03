@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.btnLoad = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -80,6 +81,9 @@
             this.lblFilledSeats = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.timerStart = new System.Windows.Forms.Timer(this.components);
+            this.timerBack = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelHeader.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.gbPanel.SuspendLayout();
@@ -122,6 +126,7 @@
             this.btnLoad.TabIndex = 160;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // lblTitle
             // 
@@ -148,6 +153,7 @@
             this.btnSave.TabIndex = 159;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // menuStrip1
             // 
@@ -370,6 +376,7 @@
             this.button2.TabIndex = 159;
             this.button2.Text = "Confirm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbTime
             // 
@@ -392,8 +399,8 @@
             this.cbAge.FormattingEnabled = true;
             this.cbAge.Items.AddRange(new object[] {
             "AL",
-            "12+",
-            "18+"});
+            "12",
+            "18"});
             this.cbAge.Location = new System.Drawing.Point(67, 85);
             this.cbAge.Margin = new System.Windows.Forms.Padding(4);
             this.cbAge.Name = "cbAge";
@@ -738,6 +745,16 @@
             this.label6.TabIndex = 160;
             this.label6.Text = "Seats Filled";
             // 
+            // timerStart
+            // 
+            this.timerStart.Interval = 5;
+            this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
+            // 
+            // timerBack
+            // 
+            this.timerBack.Interval = 5;
+            this.timerBack.Tick += new System.EventHandler(this.timerBack_Tick);
+            // 
             // FormSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -762,7 +779,7 @@
             this.Name = "FormSimulation";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cinema Seating Simulation v1.9";
+            this.Text = "Cinema Seating Simulation v1.9 RC";
             this.Load += new System.EventHandler(this.FormSimulation_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
@@ -846,6 +863,9 @@
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label lblFilledSeats;
         public System.Windows.Forms.Label lblEldersAmount;
+        private System.Windows.Forms.Timer timerStart;
+        private System.Windows.Forms.Timer timerBack;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

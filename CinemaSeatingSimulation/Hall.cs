@@ -9,7 +9,7 @@ namespace CinemaSeatingSimulation
     abstract class Hall
     {
         protected int seatAmount, doorAmount, startingPosition;
-        
+
         protected string alp;
 
         //seats position and characteristic
@@ -26,19 +26,18 @@ namespace CinemaSeatingSimulation
         {
             return seatAmount;
         }
-
         public int GetDoorAmount()
         {
             return doorAmount;
         }
         public Seat[,] Seats()
         {
-            return seats;
+            return this.seats;
         }
 
         public Door[] Doors()
         {
-            return doors;
+            return this.doors;
         }
 
 		public int GetRow()

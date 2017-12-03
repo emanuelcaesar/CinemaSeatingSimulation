@@ -14,24 +14,26 @@ namespace CinemaSeatingSimulation
         private Seat[,] seats;
         private Door[] doors;
         private Random rand;
+        int seatCounter = 0;
 
-        public Customer(int customerID, int customerAmount)
+        public Customer(int customerID, int customerAmount, Hall hallChosen)
         {
             // Customer ID & Customer Amount
             this.customerID = customerID;
             this.customerAmount = customerAmount;
 
             // instantiate hall object to access the Seats and Doors
-            hall = new HallC();
+            hall = hallChosen;
             hall.ConfigHall();
             seats = hall.Seats();
             doors = hall.Doors();
 
             // get the column and Row of the seats[,]
-            seatRowCust = seats.GetLength(0) - 1; // get length from the first column [*,]
+            seatRowCust = seats.GetLength(0); // get length from the first column [*,]
             seatColCust = seats.GetLength(1); // get length from the second column [,*]
 
             rand = new Random();
+            
         }
         public Customer()
         {
@@ -48,6 +50,76 @@ namespace CinemaSeatingSimulation
         {
             get { return this.seatCol; }
             set { seatCol = value; }
+        }
+
+        public void goToSeat(int amount, List<System.Windows.Forms.Panel> users, Seat[,] seatList2, List<Customer> custs, FormSimulationScreen fss)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                if (users[i].Top < 50)
+                {
+                    users[i].Top++;
+                }
+                else
+                {
+                    if (seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId.Substring(0, 1).Equals("A"))
+                    {
+                        if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                        {
+                            users[i].Left++;
+                        }
+                        else
+                        {
+                            if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                            {
+                                users[i].Top++;
+                            }
+                            else
+                            {
+                                users[i].BringToFront();
+                            }
+                        }
+                    }
+                    else if (users[i].Left < 268 && users[i].Top == 50)
+                    {
+                        users[i].Left++;
+                    }
+                    else
+                    {
+                        if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                        {
+                            users[i].Top++;
+                        }
+                        else
+                        {
+                            if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                                users[i].Left++;
+                            else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            {
+                                users[i].Left--;
+                            }
+                            else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            {
+                                //timerSimulation.Stop();
+                                while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                {
+                                    users[i].Top++;
+                                    if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                    {
+                                        users[i].BringToFront();
+                                        seatCounter++;
+                                        System.Windows.Forms.Label test = ((FormSimulation)fss.Owner).lblFilledSeats;
+                                        test.Text = Convert.ToString(seatCounter);
+                                        //timerSimulation.Stop();
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+            }
         }
 
         public void FindSeat()

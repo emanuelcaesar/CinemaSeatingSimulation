@@ -69,6 +69,7 @@ namespace CinemaSeatingSimulation
                     {
                         x = x + 20;
                     }
+                    //seatList.Add(new Seat(alp+""+(j + 1), x, y, height, width, seatColor));
                     seats[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width);
                     x = x + 13;
                 }
