@@ -22,8 +22,11 @@ namespace CinemaSeatingSimulation
         public FormSimulation()
         {
             InitializeComponent();
+<<<<<<< HEAD
 
+=======
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+>>>>>>> Feter2
             EnableRB(false);
         }
         
@@ -65,7 +68,12 @@ namespace CinemaSeatingSimulation
 
         private void ShowFormSimulationScreen()
         {
+<<<<<<< HEAD
             formSimulation = new FormSimulationScreen(scenariotest);
+=======
+            formSimulation = new FormSimulationScreen();
+			//formSimulation.TopLevel = false;
+>>>>>>> Feter2
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
 			formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
@@ -78,6 +86,10 @@ namespace CinemaSeatingSimulation
         {
             btnEmergency.Enabled = false;
             btnSimulate.Enabled = true;
+<<<<<<< HEAD
+=======
+			btnSkip.Enabled = false;
+>>>>>>> Feter2
 
             formSimulation.timerEmergency.Enabled = true;
             timerBack.Start();
@@ -206,7 +218,10 @@ namespace CinemaSeatingSimulation
             lblFilledSeats.Text = "Worked";
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Feter2
         private void button2_Click(object sender, EventArgs e)
         {
             scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
@@ -232,6 +247,7 @@ namespace CinemaSeatingSimulation
             formSimulation.timerEmergency_Tick(sender, e);
         }
 
+<<<<<<< HEAD
         private void btnSkip_Click(object sender, EventArgs e)
         {
             btnEmergency.Enabled = true;
@@ -246,6 +262,7 @@ namespace CinemaSeatingSimulation
             formSimulation.timerSimulation_Skip();
         }
     }
+=======
 		private void btnSkip_Click(object sender, EventArgs e)
 		{
 			btnEmergency.Enabled = true;
@@ -260,4 +277,5 @@ namespace CinemaSeatingSimulation
 			formSimulation.timerSimulation_Skip();
 		}
 	}
+>>>>>>> Feter2
 }

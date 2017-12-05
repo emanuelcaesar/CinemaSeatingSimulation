@@ -9,19 +9,32 @@ namespace CinemaSeatingSimulation
     class Scenario
     {
         private int scenarioID, ageRating;
+<<<<<<< HEAD
         string genre;
         string time;
         int age;
+=======
+        private string genre;
+        private string time;
+        private int age;
+>>>>>>> Feter2
         //string ageCategory;
         string options;
         System.Drawing.Image userpanel = (System.Drawing.Image)new System.Drawing.Bitmap(@"user.png");
 
         private Seat[,] seatList2;
         private Door[] doors;
+<<<<<<< HEAD
         private Hall hall1;
         System.Windows.Forms.Panel p;
 
         List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
+=======
+        public static Hall hall1;
+        //System.Windows.Forms.Panel p;
+
+		List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
+>>>>>>> Feter2
         List<Customer> custs = new List<Customer>();
 
         private int x, y, height, width, row, col;
@@ -74,6 +87,7 @@ namespace CinemaSeatingSimulation
 
         public void CalcAmountofCustomers(string time, string genre, string ageRating) //1
         {
+<<<<<<< HEAD
             if (time == "Evening (18:00)" || time == "Night (21:00)")
             {
                 if (genre == "Horror" && ageRating == "18+")
@@ -107,6 +121,16 @@ namespace CinemaSeatingSimulation
             ChooseAge(age);
             ChooseGenre(genre);
             ChooseTime(time);
+=======
+            //this.age = age;
+            //if (this.age >=18)
+            //{
+            //    this.ageCategory = "Elder";
+            //}
+            
+            //
+            return "hahaha";
+>>>>>>> Feter2
         }
 
         public void SetHall(string hallString)
@@ -116,6 +140,7 @@ namespace CinemaSeatingSimulation
             else if (hallString == "C") hall1 = new HallC();
         }
 
+<<<<<<< HEAD
         public decimal[] AssignCustomers(decimal amount) //2
         {
             decimal[] tempListofPeople = new decimal[4];
@@ -127,6 +152,8 @@ namespace CinemaSeatingSimulation
                 //Console.WriteLine(this.genre);
 
 
+=======
+        public double GetRandomNumber(double minimum, double maximum)
         {
             Random random = new Random();
             return random.NextDouble() * (maximum - minimum) + minimum;
