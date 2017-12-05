@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
             this.pnlScreen = new System.Windows.Forms.Panel();
             this.doorExit1 = new System.Windows.Forms.Panel();
@@ -95,6 +96,76 @@
             this.Text = "FormSimulationScreen";
             this.Load += new System.EventHandler(this.FormLayoutTry1_Load);
             this.ResumeLayout(false);
+=======
+			this.components = new System.ComponentModel.Container();
+			this.pnlScreen = new System.Windows.Forms.Panel();
+			this.doorExit1 = new System.Windows.Forms.Panel();
+			this.timerSimulation = new System.Windows.Forms.Timer(this.components);
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.timerEmergency = new System.Windows.Forms.Timer(this.components);
+			this.SuspendLayout();
+			// 
+			// pnlScreen
+			// 
+			this.pnlScreen.BackColor = System.Drawing.Color.Chartreuse;
+			this.pnlScreen.Location = new System.Drawing.Point(110, 5);
+			this.pnlScreen.Margin = new System.Windows.Forms.Padding(1);
+			this.pnlScreen.Name = "pnlScreen";
+			this.pnlScreen.Size = new System.Drawing.Size(320, 7);
+			this.pnlScreen.TabIndex = 0;
+			// 
+			// doorExit1
+			// 
+			this.doorExit1.BackColor = System.Drawing.Color.Aquamarine;
+			this.doorExit1.Location = new System.Drawing.Point(527, 5);
+			this.doorExit1.Margin = new System.Windows.Forms.Padding(1);
+			this.doorExit1.Name = "doorExit1";
+			this.doorExit1.Size = new System.Drawing.Size(18, 48);
+			this.doorExit1.TabIndex = 5;
+			// 
+			// timerSimulation
+			// 
+			this.timerSimulation.Enabled = true;
+			this.timerSimulation.Interval = 10;
+			this.timerSimulation.Tick += new System.EventHandler(this.timerSimulation_Tick_1);
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(27, 650);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(1408, 20);
+			this.textBox1.TabIndex = 6;
+			// 
+			// panel1
+			// 
+			this.panel1.Location = new System.Drawing.Point(27, 614);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(30, 30);
+			this.panel1.TabIndex = 7;
+			// 
+			// timerEmergency
+			// 
+			this.timerEmergency.Interval = 5;
+			this.timerEmergency.Tick += new System.EventHandler(this.timerEmergency_Tick);
+			// 
+			// FormSimulationScreen
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Black;
+			this.ClientSize = new System.Drawing.Size(550, 292);
+			this.Controls.Add(this.doorExit1);
+			this.Controls.Add(this.pnlScreen);
+			this.DoubleBuffered = true;
+			this.ForeColor = System.Drawing.Color.White;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Margin = new System.Windows.Forms.Padding(1);
+			this.Name = "FormSimulationScreen";
+			this.Text = "FormSimulationScreen";
+			this.Load += new System.EventHandler(this.FormLayoutTry1_Load);
+			this.ResumeLayout(false);
+>>>>>>> Feter2
 
         }
 
