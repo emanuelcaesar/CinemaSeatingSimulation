@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Scenario
+    public class Scenario
     {
         private int scenarioID, ageRating;
         string genre;
@@ -127,60 +127,6 @@ namespace CinemaSeatingSimulation
                 //Console.WriteLine(this.genre);
 
 
-        {
-            Random random = new Random();
-            return random.NextDouble() * (maximum - minimum) + minimum;
-        }
-
-        public void CalcAmountofCustomers(string time, string genre, string ageRating) //1
-        {
-            if (time == "Evening (18:00)" || time == "Night (21:00)")
-            {
-                if (genre == "Horror" && ageRating == "18+")
-                {
-                    customerCount = GetRandomNumber(0.7, 0.75); //percentage
-                }
-                else if (genre == "Romance")
-                {
-                    customerCount = GetRandomNumber(0.6, 0.8);
-                }
-                else
-                {
-                    customerCount = GetRandomNumber(0.5, 0.7);
-                }
-            }
-            else
-            {
-                if (genre == "Horror")
-                {
-                    customerCount = GetRandomNumber(0, 0.1);
-                }
-                else if (genre == "Animation")
-                {
-                    customerCount = GetRandomNumber(0.4, 0.6);
-                }
-                else
-                {
-                    customerCount = GetRandomNumber(0.1, 0.3);
-                }
-            }
-            
-        }
-
-        public void SetHall(string hallString)
-        {
-            if (hallString == "A") hall1 = new HallA();
-            else if (hallString == "B") hall1 = new HallB();
-            else if (hallString == "C") hall1 = new HallC();
-        }
-
-        public decimal[] AssignCustomers(decimal amount) //2
-        {
-            decimal[] tempListofPeople = new decimal[4];
-            if(this.genre == "Horror" && amount <= 30)
-            {
-                tempListofPeople[0] =  ((30*amount)/100); //templist[0] is elder for example
->>>>>>> Feter2
                 //tempList.Add(amountofselectedcustomer);
                 //amountofselectedcustomer = 70 & *amount;     
             }
@@ -214,7 +160,6 @@ namespace CinemaSeatingSimulation
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
-<<<<<<< HEAD
                 //users[i].BackColor = System.Drawing.Color.White;
                 users[i].Size = new System.Drawing.Size(9, 9);
                 users[i].BackgroundImage = userpanel;
@@ -257,72 +202,8 @@ namespace CinemaSeatingSimulation
             }
 
             GenerateCust();
-=======
-                users[i].BackColor = System.Drawing.Color.White;
-                users[i].Size = new System.Drawing.Size(11, 11);
-
-				//System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
-				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-				//lblcus.Font = new System.Drawing.Font("Arial", 4);
-				//lblcus.ForeColor = System.Drawing.Color.Black;
-#if DEBUG
-				users[i].Controls.Add(addlabel("Customer",i,0));
-#endif
-
-				fss.Controls.Add(users[i]);
-                randSpace = rand.Next(11, 40);
-                doors[0].PosY -= randSpace;
-            }
->>>>>>> Feter2
-        }
-        public void StartSim(FormSimulationScreen fss)
-        {
-            //all the code from formload
-            
-            this.fss = fss;
-            hall1.ConfigHall();
-            seatList2 = hall1.Seats();
-            doors = hall1.Doors();
-            amount = Convert.ToInt32(customerCount * seatList2.GetLength(1) * seatList2.GetLength(0));
-
-            AssignCustSeats();
-
-            for (int i = 0; i < hall1.GetRow(); i++)
-            {
-                for (int j = 0; j < hall1.GetColumn(); j++)
-                {
-                    System.Windows.Forms.Panel p = new System.Windows.Forms.Panel();
-                    p.Location = new System.Drawing.Point(seatList2[i, j].PosX, seatList2[i, j].PosY);
-                    p.Size = new System.Drawing.Size(seatList2[i, j].SHeight, seatList2[i, j].SWidth);
-                    p.BackColor = seatList2[i, j].SeatColor;
-
-					//System.Windows.Forms.Label l = new System.Windows.Forms.Label();
-					//l.Text = seatList2[i, j].SeatId;
-					//l.Font = new System.Drawing.Font("Arial", 4);
-					//l.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-#if DEBUG
-					p.Controls.Add(addlabel("Seats", i, j));
-#endif
-					//Console.WriteLine(seatList2[i, j]);
-					fss.Controls.Add(p);
-                }
-            }
-
-            for (int i = 0; i < hall1.GetDoorAmount(); i++)
-            {
-                System.Windows.Forms.Panel p = new System.Windows.Forms.Panel();
-                p.Location = new System.Drawing.Point(doors[i].PosX, doors[i].PosY);
-                p.Size = new System.Drawing.Size(doors[i].DWidth, doors[i].DHeight);
-                p.BackColor = System.Drawing.Color.Purple;
-                fss.Controls.Add(p);
-            }
-
-<<<<<<< HEAD
-=======
-            GenerateCust();
         }
 
->>>>>>> Feter2
         public void EmergencySim()
         {
             for (int i = 0; i < amount; i++)
@@ -356,7 +237,6 @@ namespace CinemaSeatingSimulation
         {
             for (int i = 0; i < amount; i++)
             {
-<<<<<<< HEAD
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
@@ -375,34 +255,6 @@ namespace CinemaSeatingSimulation
             //to choose which hall a b c, and iniate the hall
         }
 
-=======
-				System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
-				users.Add(pnlUser);
-				users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
-					seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
-				users[i].BackColor = System.Drawing.Color.White;
-				users[i].Size = new System.Drawing.Size(11, 11);
-
-				//System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
-				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-				//lblcus.Font = new System.Drawing.Font("Arial", 4);
-				//lblcus.ForeColor = System.Drawing.Color.Black;
-#if DEBUG
-				users[i].Controls.Add(addlabel("Skip",i,0));
-#endif
-				fss.Controls.Add(users[i]);
-				users[i].BringToFront();
-				System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
-				seatsfiled.Text = Convert.ToString(i);
-			}
-        }
-
-        public void ChooseHall()
-        {
-            //to choose which hall a b c, and iniate the hall
-        }
-
->>>>>>> Feter2
         public void UserGoToSeat()
         {
             customer.goToSeat(this.amount, this.users, this.seatList2, this.custs, this.fss);
@@ -425,31 +277,5 @@ namespace CinemaSeatingSimulation
         {
             return (col / 2) + 2;
         }
-<<<<<<< HEAD
     }
-=======
-
-#if DEBUG
-		private System.Windows.Forms.Label addlabel(String given, int i,int j)
-		{
-			String condition = given;
-			System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
-			lbl.Font = new System.Drawing.Font("Arial", 4);
-
-			if (condition == "Seats")
-			{
-				lbl.Text = seatList2[i, j].SeatId;
-			}
-			else if (condition == "Customer" || condition == "Skip")
-			{
-				lbl.ForeColor = System.Drawing.Color.Black;
-				lbl.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-			}
-			else lbl.Text = "";
-				
-			return lbl;
-		}
-#endif
-	}
->>>>>>> Feter2
 }

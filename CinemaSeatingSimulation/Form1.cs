@@ -23,7 +23,6 @@ namespace CinemaSeatingSimulation
         {
             InitializeComponent();
 
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             EnableRB(false);
         }
         
@@ -54,7 +53,6 @@ namespace CinemaSeatingSimulation
 
             btnEmergency.Enabled = true;
             btnSimulate.Enabled = false;
-			btnSkip.Enabled = true;
             btnReset.Enabled = true;
 
             formSimulation.timerEmergency.Enabled = false;
@@ -68,8 +66,7 @@ namespace CinemaSeatingSimulation
             formSimulation = new FormSimulationScreen(scenariotest);
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
-			formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
-			//formSimulation.MdiParent = this;
+            formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
             
             formSimulation.Show(this);
         }
@@ -104,14 +101,9 @@ namespace CinemaSeatingSimulation
         {
             btnEmergency.Enabled = false;
             btnSimulate.Enabled = true;
-			btnSkip.Enabled = false;
             formSimulation.Close();
-			formSimulation.timerSimulation.Stop();
             ShowFormSimulationScreen();
-			timerStart.Stop();
-			System.Windows.Forms.Label seatsfiled = ((FormSimulation)formSimulation.Owner).lblFilledSeats;
-			seatsfiled.Text = Convert.ToString(0);
-		}
+        }
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
@@ -246,18 +238,4 @@ namespace CinemaSeatingSimulation
             formSimulation.timerSimulation_Skip();
         }
     }
-		private void btnSkip_Click(object sender, EventArgs e)
-		{
-			btnEmergency.Enabled = true;
-			btnSimulate.Enabled = false;
-
-			formSimulation.timerEmergency.Enabled = false;
-			formSimulation.timerSimulation.Enabled = false;
-
-			formSimulation.timerSimulation.Stop();
-			timerStart.Stop();
-			timerBack.Stop();
-			formSimulation.timerSimulation_Skip();
-		}
-	}
 }

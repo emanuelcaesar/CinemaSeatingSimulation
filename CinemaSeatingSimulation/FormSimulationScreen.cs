@@ -12,7 +12,6 @@ namespace CinemaSeatingSimulation
 {
     public partial class FormSimulationScreen : Form
     {
-<<<<<<< HEAD
         Scenario scenarioTest = new Scenario();
         public FormSimulationScreen(Scenario scenariotest)
         {
@@ -21,14 +20,6 @@ namespace CinemaSeatingSimulation
         }
         decimal[] agecategory;
        
-=======
-        public FormSimulationScreen()
-        {
-            InitializeComponent();
-        }
-        decimal[] agecategory;
-        Scenario scenarioTest = new Scenario();
->>>>>>> Feter2
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
@@ -36,7 +27,6 @@ namespace CinemaSeatingSimulation
             agecategory = scenarioTest.AssignCustomers(Convert.ToDecimal(FormSimulation.amount)); 
             Label Elder = ((FormSimulation)this.Owner).lblEldersAmount;
             Elder.Text = Convert.ToString(Convert.ToString(agecategory[0]));
-<<<<<<< HEAD
         }
 
         public void timerEmergency_Tick(object sender, EventArgs e)
@@ -58,29 +48,4 @@ namespace CinemaSeatingSimulation
 
 
     }
-=======
-        }
-
-        public void timerEmergency_Tick(object sender, EventArgs e)
-        {
-            scenarioTest.EmergencySim();
-            
-        }
-        //scenarioTest.AssignCustomers(customer.getCustomerAmount);
-        public void timerSimulation_Tick(object sender, EventArgs e)
-        {
-            scenarioTest.UserGoToSeat();
-        }
-
-		public void timerSimulation_Skip()
-		{
-			scenarioTest.SkipSim();
-		}
-
-		private void timerSimulation_Tick_1(object sender, EventArgs e)
-		{
-
-		}
-	}
->>>>>>> Feter2
 }
