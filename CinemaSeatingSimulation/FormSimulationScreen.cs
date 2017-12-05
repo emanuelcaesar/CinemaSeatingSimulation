@@ -25,7 +25,7 @@ namespace CinemaSeatingSimulation
             agecategory = scenarioTest.AssignCustomers(Convert.ToDecimal(FormSimulation.amount)); 
             Label Elder = ((FormSimulation)this.Owner).lblEldersAmount;
             Elder.Text = Convert.ToString(Convert.ToString(agecategory[0]));
-<<<<<<< HEAD
+
         }
 
         public void timerEmergency_Tick(object sender, EventArgs e)
