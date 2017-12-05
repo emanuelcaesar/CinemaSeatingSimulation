@@ -191,23 +191,4 @@ namespace CinemaSeatingSimulation
             return (seatColCust / 2) + 2;
         }
     }
-
-    
-
-    //class Child : Customer
-    //{
-
-    //}
-    //class Adult : Customer
-    //{
-
-    //}
-    //class Seniors : Customer
-    //{
-
-    //}
-    //class Teens : Customer
-    //{
-
-    //}
 }

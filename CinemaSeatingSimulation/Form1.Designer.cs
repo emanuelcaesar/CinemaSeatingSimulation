@@ -126,6 +126,7 @@
             this.btnLoad.TabIndex = 160;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // lblTitle
             // 
@@ -152,6 +153,7 @@
             this.btnSave.TabIndex = 159;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // menuStrip1
             // 
@@ -401,7 +403,12 @@
             "AL",
             "12",
             "18"});
+<<<<<<< HEAD
             this.cbAge.Location = new System.Drawing.Point(54, 68);
+=======
+            this.cbAge.Location = new System.Drawing.Point(67, 85);
+            this.cbAge.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> origin/Laras
             this.cbAge.Name = "cbAge";
             this.cbAge.Size = new System.Drawing.Size(141, 20);
             this.cbAge.TabIndex = 156;

@@ -57,7 +57,11 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
+<<<<<<< HEAD
     <SignManifests>false</SignManifests>
+=======
+    <SignManifests>true</SignManifests>
+>>>>>>> origin/Laras
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
