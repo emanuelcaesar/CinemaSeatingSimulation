@@ -37,5 +37,10 @@ namespace CinemaSeatingSimulation
         {
             scenarioTest.UserGoToSeat();
         }
+
+        private void doorExit1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

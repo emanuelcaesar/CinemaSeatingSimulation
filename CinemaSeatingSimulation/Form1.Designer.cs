@@ -752,7 +752,6 @@
             // 
             // timerBack
             // 
-            this.timerBack.Interval = 5;
             this.timerBack.Tick += new System.EventHandler(this.timerBack_Tick);
             // 
             // FormSimulation

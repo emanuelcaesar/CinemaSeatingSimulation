@@ -19,6 +19,7 @@ namespace CinemaSeatingSimulation
         Scenario scenariotest = new Scenario();
         Customer cust = new Customer();
         public static int amount;
+        public static bool emergencyEnable;
         List<Customer> custList = new List<Customer>();
         
         public FormSimulation()
@@ -53,14 +54,19 @@ namespace CinemaSeatingSimulation
 
             ShowFormSimulationScreen();
 
-            btnEmergency.Enabled = true;
+            //btnEmergency.Enabled = true;
             btnSimulate.Enabled = false;
             btnReset.Enabled = true;
+            emergencyEnable = false;
 
             formSimulation.timerEmergency.Enabled = false;
             timerBack.Stop();
             formSimulation.timerSimulation.Enabled = true;
             timerStart.Start();
+            //if(custList.Count() <= 0)
+            //{
+            //    btnEmergency.Enabled = true;
+            //}
         }
 
         private void ShowFormSimulationScreen()
@@ -69,11 +75,7 @@ namespace CinemaSeatingSimulation
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
             formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
-            
-            
             formSimulation.Show(this);
-
-            
         }
 
         private void btnEmergency_Click(object sender, EventArgs e)
@@ -117,22 +119,6 @@ namespace CinemaSeatingSimulation
 
         private void radioButton6_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbA.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbA.Text;
-
-            //}
-            //else
-            //{
-            //    rbA.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
-
-            //}
             btnSimulate.Enabled = true;
         }
 
@@ -158,43 +144,11 @@ namespace CinemaSeatingSimulation
 
         private void rbB_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbB.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbB.Text;
-
-            //}
-            //else
-            //{
-            //    rbB.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
-
-            //}
             btnSimulate.Enabled = true;
         }
 
         private void rbC_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbC.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbC.Text;
-
-            //}
-            //else
-            //{
-            //    rbC.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
-
-            //}
             btnSimulate.Enabled = true;
         }
 
@@ -205,10 +159,15 @@ namespace CinemaSeatingSimulation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
-
-            EnableRB(true);
-            
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
+                EnableRB(true);
+            }
+            else
+            {
+                MessageBox.Show("Please fill the scenario!");
+            }
         }
 
         private void EnableRB(bool value)
@@ -221,6 +180,10 @@ namespace CinemaSeatingSimulation
         private void timerStart_Tick(object sender, EventArgs e)
         {
             formSimulation.timerSimulation_Tick(sender, e);
+            if (emergencyEnable)
+            {
+                btnEmergency.Enabled = true;
+            }
         }
 
         private void timerBack_Tick(object sender, EventArgs e)
@@ -230,28 +193,12 @@ namespace CinemaSeatingSimulation
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string dir = @"D:\Visual Studio\CinemaSeatingSimulation";
-            int n = 1;
-         
-            string serializationFile = Path.Combine(dir, "CinemaSeatingSimulation", Convert.ToString(n++));
-            using (Stream stream = File.Open(serializationFile, FileMode.Create))
-            {
-
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                bformatter.Serialize(stream, custList);
-            }
+            
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            string dir = @"D:\Visual Studio\CinemaSeatingSimulation";
-
-            string serializationFile = Path.Combine(dir, "CinemaSeatingSimulation");
-            using (Stream stream = File.Open(serializationFile, FileMode.Open))
-            {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-
-            }
+            
         }
     }
 }

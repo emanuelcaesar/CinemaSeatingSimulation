@@ -11,7 +11,7 @@ namespace CinemaSeatingSimulation
         public override void ConfigHall()
         {
             x = 120;
-            y = 90;
+            y = 70;
 
             height = 10;
             width = 10;
