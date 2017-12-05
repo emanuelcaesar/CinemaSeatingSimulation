@@ -63,15 +63,12 @@ namespace CinemaSeatingSimulation
 
         private void ShowFormSimulationScreen()
         {
-            formSimulation = new FormSimulationScreen();
+            formSimulation = new FormSimulationScreen(scenariotest);
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
             formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
             
-            
             formSimulation.Show(this);
-
-            
         }
 
         private void btnEmergency_Click(object sender, EventArgs e)
@@ -200,6 +197,7 @@ namespace CinemaSeatingSimulation
         {
             lblFilledSeats.Text = "Worked";
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

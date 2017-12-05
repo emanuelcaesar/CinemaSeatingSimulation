@@ -12,12 +12,14 @@ namespace CinemaSeatingSimulation
 {
     public partial class FormSimulationScreen : Form
     {
-        public FormSimulationScreen()
+        Scenario scenarioTest = new Scenario();
+        public FormSimulationScreen(Scenario scenariotest)
         {
             InitializeComponent();
+            scenarioTest = scenariotest;
         }
         decimal[] agecategory;
-        Scenario scenarioTest = new Scenario();
+       
 
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {

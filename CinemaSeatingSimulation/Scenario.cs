@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Scenario
+    public class Scenario
     {
         private int scenarioID, ageRating;
-        private string genre;
-        private string time;
-        private int age;
+        string genre;
+        string time;
+        int age;
         //string ageCategory;
         string options;
+        System.Drawing.Image userpanel = (System.Drawing.Image)new System.Drawing.Bitmap(@"user.png");
 
         private Seat[,] seatList2;
         private Door[] doors;
-        public static Hall hall1;
+        private Hall hall1;
         System.Windows.Forms.Panel p;
 
         List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
@@ -55,21 +56,14 @@ namespace CinemaSeatingSimulation
             this.genre = genre2;
         }
 
-        public string ChooseAge(int age)
+        public void ChooseAge(int age2)
         {
-            //this.age = age;
-            //if (this.age >=18)
-            //{
-            //    this.ageCategory = "Elder";
-            //}
-            
-            //
-            return "hahaha";
+            this.age = age2;
         }
 
-        public void ChooseTime()
+        public void ChooseTime(string time2)
         {
-        
+            this.time = time2;
         }
 
         public double GetRandomNumber(double minimum, double maximum)
@@ -110,7 +104,9 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
-            
+            ChooseAge(age);
+            ChooseGenre(genre);
+            ChooseTime(time);
         }
 
         public void SetHall(string hallString)
@@ -123,9 +119,11 @@ namespace CinemaSeatingSimulation
         public decimal[] AssignCustomers(decimal amount) //2
         {
             decimal[] tempListofPeople = new decimal[4];
-            if(this.genre == "Horror" && amount <= 30)
+            if(genre == "Horror" || amount <= 30)
             {
-                tempListofPeople[0] =  ((30*amount)/100); //templist[0] is elder for example
+                tempListofPeople[0] =  10; //templist[0] is elder for example
+                System.Windows.Forms.MessageBox.Show(genre);
+                //Console.WriteLine(this.genre);
                 //tempList.Add(amountofselectedcustomer);
                 //amountofselectedcustomer = 70 & *amount;     
             }
@@ -159,8 +157,9 @@ namespace CinemaSeatingSimulation
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
-                users[i].BackColor = System.Drawing.Color.White;
+                //users[i].BackColor = System.Drawing.Color.White;
                 users[i].Size = new System.Drawing.Size(9, 9);
+                users[i].BackgroundImage = userpanel;
                 fss.Controls.Add(users[i]);
                 randSpace = rand.Next(11, 40);
                 doors[0].PosY -= randSpace;
