@@ -58,11 +58,7 @@ namespace CinemaSeatingSimulation
             {
                 if (users[i].Top < 50)
                 {
-<<<<<<< HEAD
                     users[i].Top+= rand.Next(1,5);
-=======
-                    users[i].Top++;
->>>>>>> Feter2
                 }
                 else
                 {
@@ -70,21 +66,13 @@ namespace CinemaSeatingSimulation
                     {
                         if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                         {
-<<<<<<< HEAD
                             users[i].Left += rand.Next(1, 2);
-=======
-                            users[i].Left++;
->>>>>>> Feter2
                         }
                         else
                         {
                             if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                             {
-<<<<<<< HEAD
                                 users[i].Top += rand.Next(1, 2);
-=======
-                                users[i].Top++;
->>>>>>> Feter2
                             }
                             else
                             {
@@ -94,30 +82,18 @@ namespace CinemaSeatingSimulation
                     }
                     else if (users[i].Left < 268 && users[i].Top == 50)
                     {
-<<<<<<< HEAD
                         users[i].Left += rand.Next(1, 2);
-=======
-                        users[i].Left++;
->>>>>>> Feter2
                     }
                     else
                     {
                         if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                         {
-<<<<<<< HEAD
                             users[i].Top += rand.Next(1, 2);
-=======
-                            users[i].Top++;
->>>>>>> Feter2
                         }
                         else
                         {
                             if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-<<<<<<< HEAD
                                 users[i].Left += rand.Next(1, 2);
-=======
-                                users[i].Left++;
->>>>>>> Feter2
                             else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                             {
                                 users[i].Left--;
@@ -127,11 +103,7 @@ namespace CinemaSeatingSimulation
                                 //timerSimulation.Stop();
                                 while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                                 {
-<<<<<<< HEAD
                                     users[i].Top += rand.Next(1, 2);
-=======
-                                    users[i].Top++;
->>>>>>> Feter2
                                     if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                                     {
                                         users[i].BringToFront();
