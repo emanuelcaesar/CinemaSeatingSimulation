@@ -166,7 +166,9 @@ namespace CinemaSeatingSimulation
 				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
 				//lblcus.Font = new System.Drawing.Font("Arial", 4);
 				//lblcus.ForeColor = System.Drawing.Color.Black;
+#if DEBUG
 				users[i].Controls.Add(addlabel("Customer",i,0));
+#endif
 
 				fss.Controls.Add(users[i]);
                 randSpace = rand.Next(11, 40);
@@ -198,8 +200,9 @@ namespace CinemaSeatingSimulation
 					//l.Text = seatList2[i, j].SeatId;
 					//l.Font = new System.Drawing.Font("Arial", 4);
 					//l.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+#if DEBUG
 					p.Controls.Add(addlabel("Seats", i, j));
-
+#endif
 					//Console.WriteLine(seatList2[i, j]);
 					fss.Controls.Add(p);
                 }
@@ -261,8 +264,9 @@ namespace CinemaSeatingSimulation
 				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
 				//lblcus.Font = new System.Drawing.Font("Arial", 4);
 				//lblcus.ForeColor = System.Drawing.Color.Black;
+#if DEBUG
 				users[i].Controls.Add(addlabel("Skip",i,0));
-
+#endif
 				fss.Controls.Add(users[i]);
 				users[i].BringToFront();
 				System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
@@ -298,6 +302,7 @@ namespace CinemaSeatingSimulation
             return (col / 2) + 2;
         }
 
+#if DEBUG
 		private System.Windows.Forms.Label addlabel(String given, int i,int j)
 		{
 			String condition = given;
@@ -317,5 +322,6 @@ namespace CinemaSeatingSimulation
 				
 			return lbl;
 		}
-    }
+#endif
+	}
 }
