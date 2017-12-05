@@ -239,5 +239,10 @@ namespace CinemaSeatingSimulation
             timerBack.Stop();
             formSimulation.timerSimulation_Skip();
         }
+
+        private void cbGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

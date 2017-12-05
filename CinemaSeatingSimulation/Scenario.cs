@@ -120,6 +120,7 @@ namespace CinemaSeatingSimulation
             else if (hallString == "C") hall1 = new HallC();
         }
 
+        // AssignCustomers Methods 
         public decimal[] AssignCustomers(decimal amount) //2
         {
             decimal[] tempListofPeople = new decimal[4];
@@ -128,6 +129,22 @@ namespace CinemaSeatingSimulation
                 tempListofPeople[0] =  ((30*amount)/100); //templist[0] is elder for example
                 //tempList.Add(amountofselectedcustomer);
                 //amountofselectedcustomer = 70 & *amount;     
+            }
+            if (this.genre == "Romance" && amount <= 30)
+            {
+                tempListofPeople[0] = ((250 * amount) / 100);
+            }
+            if (this.genre == "Action" && amount <= 30)
+            {
+                tempListofPeople[0] = ((250 * amount) / 100);
+            }
+            if (this.genre == "Comedy" && amount <= 30)
+            {
+                tempListofPeople[0] = ((250 * amount) / 100);
+            }
+            if (this.genre == "Animation" && amount <= 30)
+            {
+                tempListofPeople[0] = ((250 * amount) / 100);
             }
             return tempListofPeople;
         }
