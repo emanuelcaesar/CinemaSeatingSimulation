@@ -119,6 +119,7 @@ namespace CinemaSeatingSimulation
         public decimal[] AssignCustomers(decimal amount) //2
         {
             decimal[] tempListofPeople = new decimal[4];
+<<<<<<< HEAD
             if(genre == "Horror" || amount <= 30)
             {
                 tempListofPeople[0] =  10; //templist[0] is elder for example
