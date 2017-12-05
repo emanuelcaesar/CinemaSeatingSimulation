@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CinemaSeatingSimulation
 {
@@ -125,6 +126,42 @@ namespace CinemaSeatingSimulation
         private void pnlLayout1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+
+
+        // Save & Load
+        List<Customer> custList = new List<Customer>();
+        
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string dir = @"C:\Users\davin\source\repos\CinemaSeatingSimulation\CinemaSeatingSimulation\temp";
+            int n = 1;
+
+            string serializationFile = Path.Combine(dir, "Seat Simulation", Convert.ToString(n++));
+            using (Stream stream = File.Open(serializationFile, FileMode.Create))
+            {
+
+                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                bformatter.Serialize(stream, custList);
+            }
+
+            
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            string dir = @"C:\Users\davin\source\repos\CinemaSeatingSimulation\CinemaSeatingSimulation\temp";
+            int n = 1;
+
+            string serializationFile = Path.Combine(dir, "Seat Simulation", Convert.ToString(n++));
+            using (Stream stream = File.Open(serializationFile, FileMode.Open))
+            {
+                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+            }
         }
     }
 }
