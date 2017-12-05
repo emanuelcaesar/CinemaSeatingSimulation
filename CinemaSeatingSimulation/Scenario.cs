@@ -18,13 +18,10 @@ namespace CinemaSeatingSimulation
         private Seat[,] seatList2;
         private Door[] doors;
         public static Hall hall1;
-        System.Windows.Forms.Panel p;
 
         List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
         List<Customer> custs = new List<Customer>();
 
-        private int x, y, height, width, row, col;
-        private string alp;
         Random rand = new Random();
 
         int seatCounter = 0;
@@ -32,12 +29,7 @@ namespace CinemaSeatingSimulation
         public int randRow, randCol, randSpace;
         private int amount;
 
-        //int userspointLeft = 5;
-        //int userspointTop = 0;
-        private Door doorA;
-        private Door doorB;
-        Customer customer;
-        //private 
+        private Customer customer;
 
         decimal[] agecategory;
         FormSimulationScreen fss;
