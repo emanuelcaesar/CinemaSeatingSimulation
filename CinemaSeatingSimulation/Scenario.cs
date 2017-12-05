@@ -18,9 +18,9 @@ namespace CinemaSeatingSimulation
         private Seat[,] seatList2;
         private Door[] doors;
         public static Hall hall1;
-        System.Windows.Forms.Panel p;
+        //System.Windows.Forms.Panel p;
 
-        List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
+		List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
         List<Customer> custs = new List<Customer>();
 
         private int x, y, height, width, row, col;
@@ -160,8 +160,15 @@ namespace CinemaSeatingSimulation
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
                 users[i].BackColor = System.Drawing.Color.White;
-                users[i].Size = new System.Drawing.Size(9, 9);
-                fss.Controls.Add(users[i]);
+                users[i].Size = new System.Drawing.Size(11, 11);
+
+				//System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
+				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
+				//lblcus.Font = new System.Drawing.Font("Arial", 4);
+				//lblcus.ForeColor = System.Drawing.Color.Black;
+				users[i].Controls.Add(addlabel("Customer",i,0));
+
+				fss.Controls.Add(users[i]);
                 randSpace = rand.Next(11, 40);
                 doors[0].PosY -= randSpace;
             }
@@ -186,7 +193,15 @@ namespace CinemaSeatingSimulation
                     p.Location = new System.Drawing.Point(seatList2[i, j].PosX, seatList2[i, j].PosY);
                     p.Size = new System.Drawing.Size(seatList2[i, j].SHeight, seatList2[i, j].SWidth);
                     p.BackColor = seatList2[i, j].SeatColor;
-                    fss.Controls.Add(p);
+
+					//System.Windows.Forms.Label l = new System.Windows.Forms.Label();
+					//l.Text = seatList2[i, j].SeatId;
+					//l.Font = new System.Drawing.Font("Arial", 4);
+					//l.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+					p.Controls.Add(addlabel("Seats", i, j));
+
+					//Console.WriteLine(seatList2[i, j]);
+					fss.Controls.Add(p);
                 }
             }
 
@@ -240,7 +255,14 @@ namespace CinemaSeatingSimulation
 				users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
 					seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
 				users[i].BackColor = System.Drawing.Color.White;
-				users[i].Size = new System.Drawing.Size(9, 9);
+				users[i].Size = new System.Drawing.Size(11, 11);
+
+				//System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
+				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
+				//lblcus.Font = new System.Drawing.Font("Arial", 4);
+				//lblcus.ForeColor = System.Drawing.Color.Black;
+				users[i].Controls.Add(addlabel("Skip",i,0));
+
 				fss.Controls.Add(users[i]);
 				users[i].BringToFront();
 				System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
@@ -275,5 +297,25 @@ namespace CinemaSeatingSimulation
         {
             return (col / 2) + 2;
         }
+
+		private System.Windows.Forms.Label addlabel(String given, int i,int j)
+		{
+			String condition = given;
+			System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
+			lbl.Font = new System.Drawing.Font("Arial", 4);
+
+			if (condition == "Seats")
+			{
+				lbl.Text = seatList2[i, j].SeatId;
+			}
+			else if (condition == "Customer" || condition == "Skip")
+			{
+				lbl.ForeColor = System.Drawing.Color.Black;
+				lbl.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
+			}
+			else lbl.Text = "";
+				
+			return lbl;
+		}
     }
 }

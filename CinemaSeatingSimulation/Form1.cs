@@ -22,7 +22,7 @@ namespace CinemaSeatingSimulation
         public FormSimulation()
         {
             InitializeComponent();
-
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             EnableRB(false);
         }
         
@@ -65,10 +65,11 @@ namespace CinemaSeatingSimulation
         private void ShowFormSimulationScreen()
         {
             formSimulation = new FormSimulationScreen();
+			//formSimulation.TopLevel = false;
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
-            formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
-            
+			formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
+			//formSimulation.MdiParent = this;
             
             formSimulation.Show(this);
 
