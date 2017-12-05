@@ -68,10 +68,7 @@ namespace CinemaSeatingSimulation
             formSimulation.Size = pnlLayout1.Size;
             formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
             
-            
             formSimulation.Show(this);
-
-            
         }
 
         private void btnEmergency_Click(object sender, EventArgs e)
