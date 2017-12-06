@@ -14,6 +14,7 @@ namespace CinemaSeatingSimulation
         private int age;
         //string ageCategory;
         string options;
+        System.Drawing.Image userpanel = (System.Drawing.Image)new System.Drawing.Bitmap(@"user.png");
 
         private Seat[,] seatList2;
         private Door[] doors;
@@ -120,32 +121,16 @@ namespace CinemaSeatingSimulation
             else if (hallString == "C") hall1 = new HallC();
         }
 
-        // AssignCustomers Methods 
         public decimal[] AssignCustomers(decimal amount) //2
         {
             decimal[] tempListofPeople = new decimal[4];
-            if(this.genre == "Horror" && amount <= 30)
+            if(this.genre == "Horror" || amount <= 30 && this.time=="10:00")
             {
-                tempListofPeople[0] =  ((30*amount)/100); //templist[0] is elder for example
+
+                tempListofPeople[0] =  10; //templist[0] is elder for example
                 //tempList.Add(amountofselectedcustomer);
                 //amountofselectedcustomer = 70 & *amount;     
             }
-            //if (this.genre == "Romance" && amount <= 30)
-            //{
-            //    tempListofPeople[0] = ((250 * amount) / 100);
-            //}
-            //if (this.genre == "Action" && amount <= 30)
-            //{
-            //    tempListofPeople[0] = ((250 * amount) / 100);
-            //}
-            //if (this.genre == "Comedy" && amount <= 30)
-            //{
-            //    tempListofPeople[0] = ((250 * amount) / 100);
-            //}
-            //if (this.genre == "Animation" && amount <= 30)
-            //{
-            //    tempListofPeople[0] = ((250 * amount) / 100);
-            //}
             return tempListofPeople;
         }
 
@@ -176,8 +161,9 @@ namespace CinemaSeatingSimulation
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
-                users[i].BackColor = System.Drawing.Color.White;
+                //users[i].BackColor = System.Drawing.Color.White;
                 users[i].Size = new System.Drawing.Size(9, 9);
+                users[i].BackgroundImage = userpanel;
                 fss.Controls.Add(users[i]);
                 randSpace = rand.Next(11, 40);
                 doors[0].PosY -= randSpace;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +18,6 @@ namespace CinemaSeatingSimulation
         Scenario scenariotest = new Scenario();
         Customer cust = new Customer();
         public static int amount;
-<<<<<<< HEAD
-=======
-        List<Customer> custList = new List<Customer>();
->>>>>>> origin/Laras
         
         public FormSimulation()
         {
@@ -73,10 +68,7 @@ namespace CinemaSeatingSimulation
             formSimulation.Size = pnlLayout1.Size;
             formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
             
-            
             formSimulation.Show(this);
-
-            
         }
 
         private void btnEmergency_Click(object sender, EventArgs e)
@@ -199,65 +191,11 @@ namespace CinemaSeatingSimulation
 
             //}
             btnSimulate.Enabled = true;
-<<<<<<< HEAD
-=======
         }
 
         public void setlblSeats()
         {
             lblFilledSeats.Text = "Worked";
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
-
-            EnableRB(true);
-            
-        }
-
-        private void EnableRB(bool value)
-        {
-            rbA.Enabled = value;
-            rbB.Enabled = value;
-            rbC.Enabled = value;
-        }
-
-        private void timerStart_Tick(object sender, EventArgs e)
-        {
-            formSimulation.timerSimulation_Tick(sender, e);
-        }
-
-        private void timerBack_Tick(object sender, EventArgs e)
-        {
-            formSimulation.timerEmergency_Tick(sender, e);
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string dir = @"D:\Visual Studio\CinemaSeatingSimulation";
-            int n = 1;
-         
-            string serializationFile = Path.Combine(dir, "CinemaSeatingSimulation", Convert.ToString(n++));
-            using (Stream stream = File.Open(serializationFile, FileMode.Create))
-            {
-
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                bformatter.Serialize(stream, custList);
-            }
->>>>>>> origin/Laras
-        }
-
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            string dir = @"D:\Visual Studio\CinemaSeatingSimulation";
-
-            string serializationFile = Path.Combine(dir, "CinemaSeatingSimulation");
-            using (Stream stream = File.Open(serializationFile, FileMode.Open))
-            {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -297,11 +235,6 @@ namespace CinemaSeatingSimulation
             timerStart.Stop();
             timerBack.Stop();
             formSimulation.timerSimulation_Skip();
-        }
-
-        private void cbGenre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

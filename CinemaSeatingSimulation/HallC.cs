@@ -10,11 +10,7 @@ namespace CinemaSeatingSimulation
     {
         public override void ConfigHall()
         {
-<<<<<<< HEAD
             x = 185;
-=======
-            x = 173;
->>>>>>> origin/Laras
             y = 70;
 
             height = 10;
@@ -69,13 +65,6 @@ namespace CinemaSeatingSimulation
                             alp = "J";
                             break;
                     }
-<<<<<<< HEAD
-=======
-                    if(j == (col / 2))
-                    {
-                        x = x + 20;
-                    }
->>>>>>> origin/Laras
                     if (i > 0 && i % 2 == 0 && j == 0)
                     {
                         y = y + 5;
@@ -83,11 +72,7 @@ namespace CinemaSeatingSimulation
                     seats[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width);
                     x = x + 13;
                 }
-<<<<<<< HEAD
                 x = 185;
-=======
-                x = 173;
->>>>>>> origin/Laras
                 y = y + 20;
             }
 

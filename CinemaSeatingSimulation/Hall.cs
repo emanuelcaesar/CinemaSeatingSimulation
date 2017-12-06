@@ -8,7 +8,6 @@ namespace CinemaSeatingSimulation
 {
     abstract class Hall
     {
-<<<<<<< HEAD
         protected int seatAmount, doorAmount, startingPosition;
 
         protected string alp;
@@ -21,19 +20,6 @@ namespace CinemaSeatingSimulation
         protected Seat[,] seats;
         protected Door[] doors;
 
-=======
-        protected int seatAmount, doorAmount;
-        protected string alp;
-
-        //seats position and characteristic
-        protected int x, y,
-            height, width,
-            row, col;
-
-        protected Seat[,] seats;
-        protected Door[] doors;
-
->>>>>>> origin/Laras
         public abstract void ConfigHall();
 
         public int GetSeatAmount()
