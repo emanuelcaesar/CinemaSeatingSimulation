@@ -8,7 +8,7 @@ namespace CinemaSeatingSimulation
 {
     abstract class Hall
     {
-        protected int seatAmount, doorAmount, startingPosition;
+        protected int seatAmount, doorAmount;
 
         protected string alp;
 

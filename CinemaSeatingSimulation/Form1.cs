@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,20 +13,21 @@ namespace CinemaSeatingSimulation
 {
     public partial class FormSimulation : Form
     {
-        
+
         private bool btnClicked = false;
-        FormSimulationScreen formSimulation;
-        Scenario scenariotest = new Scenario();
+        private FormSimulationScreen formSimulation;
+        private Scenario scenariotest = new Scenario();
         Customer cust = new Customer();
-        public static int amount;
-        
+        public static bool emergencyEnable;
+        //public static double amount;
+
         public FormSimulation()
         {
             InitializeComponent();
 
             EnableRB(false);
         }
-        
+
         private void label15_Click(object sender, EventArgs e)
         {
 
@@ -54,6 +56,8 @@ namespace CinemaSeatingSimulation
             btnEmergency.Enabled = true;
             btnSimulate.Enabled = false;
             btnReset.Enabled = true;
+            btnSkip.Enabled = true;
+            emergencyEnable = false;
 
             formSimulation.timerEmergency.Enabled = false;
             timerBack.Stop();
@@ -67,7 +71,7 @@ namespace CinemaSeatingSimulation
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
             formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
-            
+
             formSimulation.Show(this);
         }
 
@@ -75,6 +79,7 @@ namespace CinemaSeatingSimulation
         {
             btnEmergency.Enabled = false;
             btnSimulate.Enabled = true;
+            btnSkip.Enabled = false;
 
             formSimulation.timerEmergency.Enabled = true;
             timerBack.Start();
@@ -84,12 +89,12 @@ namespace CinemaSeatingSimulation
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // checkBtnScenario();
         }
 
         public void countCustomer() //move this to scenario
         {
-            
+
         }
 
         private void pnlLayout1_Paint(object sender, PaintEventArgs e)
@@ -99,35 +104,32 @@ namespace CinemaSeatingSimulation
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            btnEmergency.Enabled = false;
-            btnSimulate.Enabled = true;
-            formSimulation.Close();
-            ShowFormSimulationScreen();
+            ResetAll();
         }
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void radioButton6_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbA.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbA.Text;
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                btnClicked = true;
+                scenariotest.SetHall(rbA.Text);
+                countCustomer();
+                ShowFormSimulationScreen();
+                btnSimulate.Enabled = true;
+                lblChoosenLayout.Text = "Layout " + rbA.Text;
 
-            //}
-            //else
-            //{
-            //    rbA.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
+            }
+            else
+            {
+                rbA.Checked = false;
+                MessageBox.Show("Please fill the scenario!");
 
-            //}
+            }
             btnSimulate.Enabled = true;
         }
 
@@ -153,43 +155,43 @@ namespace CinemaSeatingSimulation
 
         private void rbB_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbB.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbB.Text;
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                btnClicked = true;
+                scenariotest.SetHall(rbB.Text);
+                countCustomer();
+                ShowFormSimulationScreen();
+                btnSimulate.Enabled = true;
+                lblChoosenLayout.Text = "Layout " + rbB.Text;
 
-            //}
-            //else
-            //{
-            //    rbB.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
+            }
+            else
+            {
+                rbB.Checked = false;
+                MessageBox.Show("Please fill the scenario!");
 
-            //}
+            }
             btnSimulate.Enabled = true;
         }
 
         private void rbC_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbC.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbC.Text;
+            if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+            {
+                btnClicked = true;
+                scenariotest.SetHall(rbC.Text);
+                countCustomer();
+                ShowFormSimulationScreen();
+                btnSimulate.Enabled = true;
+                lblChoosenLayout.Text = "Layout " + rbC.Text;
 
-            //}
-            //else
-            //{
-            //    rbC.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
+            }
+            else
+            {
+                rbC.Checked = false;
+                MessageBox.Show("Please fill the scenario!");
 
-            //}
+            }
             btnSimulate.Enabled = true;
         }
 
@@ -201,10 +203,54 @@ namespace CinemaSeatingSimulation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
+            if (cbTime.SelectedIndex > -1 && cbAge.SelectedIndex > -1 && cbGenre.SelectedIndex > -1)
+            {
+                DialogResult dialogResult = MessageBox.Show("Option selected are: \n" + "- " + cbGenre.Text + "\n- " + cbTime.Text + "\n- " + cbAge.Text + "\nContinue?", "Scenario Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
+                    MessageBox.Show("Amount of customers calculated!");
+                    EnableRB(true);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    EnableRB(false);
+                    MessageBox.Show("Cancelled! Please choose again!");
+                }
+            }
+            else
+                MessageBox.Show("Please choose correctly");
 
-            EnableRB(true);
-            
+
+
+
+
+        }
+
+        private void ResetAll()
+        {
+            cbGenre.SelectedIndex =
+            cbTime.SelectedIndex = cbAge.SelectedIndex = -1;
+            lblAdultAmount.Text = "";
+            lblChildrenAmount.Text = "";
+            lblEldersAmount.Text = "";
+            lblStudentAmount.Text = "";
+            lblChoosenLayout.Text = "";
+            rbA.Checked = false;
+            rbB.Checked = false;
+            rbC.Checked = false;
+            lblFilledSeats.Text = "0";
+            btnEmergency.Enabled = false;
+            btnSimulate.Enabled = true;
+            btnSkip.Enabled = false;
+            formSimulation.timerSimulation.Stop();
+            ShowFormSimulationScreen();
+            timerStart.Stop();
+            formSimulation.timerEmergency.Stop();
+            timerBack.Stop();
+            emergencyEnable = false;
+            MessageBox.Show("Reset Done!");
+            formSimulation.Close();
         }
 
         private void EnableRB(bool value)
@@ -237,5 +283,195 @@ namespace CinemaSeatingSimulation
             timerBack.Stop();
             formSimulation.timerSimulation_Skip();
         }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //checkBtnScenario();
+        }
+
+        private void checkBtnScenario()
+        {
+            if (cbGenre.SelectedIndex > -1 || cbAge.SelectedIndex > -1 || cbTime.SelectedIndex > -1)
+            {
+                button2.Enabled = true;
+            }
+            button2.Enabled = false;
+        }
+
+        private void cbTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.InitialDirectory = @"C:\Documents";
+            //saveFileDialog1.CheckFileExists = true;
+            //saveFileDialog1.CheckPathExists = true;
+            saveFileDialog1.Title = "Browse Text Files";
+            saveFileDialog1.Filter = "sim files (.sim)|.txt|All files (.)|*.*";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                {
+                    sw.WriteLine("Results of the Simulation");
+                    sw.WriteLine(cbAge.SelectedIndex);
+                    sw.WriteLine(cbGenre.SelectedIndex);
+                    sw.WriteLine(cbTime.SelectedIndex);
+
+                    sw.WriteLine(lblAdultAmount.Text);
+                    sw.WriteLine(lblChildrenAmount.Text);
+                    sw.WriteLine(lblStudentAmount.Text);
+                    sw.WriteLine(lblEldersAmount.Text);
+
+                    if (rbA.Checked)
+                        sw.WriteLine(rbA.Text);
+                    if (rbB.Checked)
+                        sw.WriteLine(rbB.Text);
+                    if (rbC.Checked)
+                        sw.WriteLine(rbC.Text);
+
+
+                }
+
+            }
+            MessageBox.Show("Configuration saved!");
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
+            //xmlDocument.LoadXml()
+
+        }
+
+        private void btnLoad_Click_1(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = @"C:\Documents";
+            openFileDialog1.Title = "Browse Text Files";
+            openFileDialog1.Filter = "sim files (.sim)|.txt|All files (.)|*.*";
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string[] lines;
+
+                List<string> list = new List<string>();
+                using (StreamReader sr = new StreamReader(openFileDialog1.FileName))
+                {
+                    string line;
+                    int counter = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        System.Console.WriteLine(line);
+                        counter++;
+                        System.Console.WriteLine(counter);
+                        if (counter == 2)
+                        {
+                            if (line == "0")
+                                cbGenre.SelectedIndex = 0;
+                            if (line == "1")
+                                cbGenre.SelectedIndex = 1;
+                            if (line == "2")
+                                cbGenre.SelectedIndex = 2;
+                            if (line == "3")
+                                cbGenre.SelectedIndex = 3;
+                            if (line == "4")
+                                cbGenre.SelectedIndex = 4;
+                        }
+
+                        if (counter == 3)
+                        {
+                            if (line == "0")
+                            {
+                                cbAge.SelectedIndex = 0;
+                            }
+                            if (line == "1")
+                            {
+                                cbAge.SelectedIndex = 1;
+                            }
+                            if (line == "2")
+                            {
+                                cbAge.SelectedIndex = 2;
+                            }
+                        }
+
+                        if (counter == 4)
+                        {
+                            if (line == "0")
+                            {
+                                cbTime.SelectedIndex = 0;
+                            }
+                            if (line == "1")
+                            {
+                                cbTime.SelectedIndex = 1;
+                            }
+                            if (line == "2")
+                            {
+                                cbTime.SelectedIndex = 2;
+                            }
+                            if (line == "3")
+                            {
+                                cbTime.SelectedIndex = 3;
+                            }
+                        }
+
+                        //if (counter == 4) {
+                        //    //lblAdultAmount.Text = '5';
+                        //}
+                        //if (counter == 9) {
+                        //    if (line == "A")
+                        //    {
+                        //        rbA.Checked = true;
+                        //    }
+                        //    if (line == "B")
+                        //    {
+                        //        rbB.Checked = true;
+                        //    }
+                        //    if (line == "C")
+                        //    {
+                        //        rbC.Checked = true;
+                        //    }
+                        //}
+
+                        //if(counter==)
+                        //list.Add(line);
+                        //lines = list.ToArray();
+                        //cbAge.SelectedIndex = Convert.ToInt32(lines[1]);
+                        //cbGenre.SelectedIndex = Convert.ToInt32(lines[2]);
+                        //cbTime.SelectedIndex = Convert.ToInt32(lines[3]);
+                        //lblAdultAmount.Text = lines[4];
+                        //lblChildrenAmount.Text = lines[5];
+                        //lblInfantAmount.Text = lines[6];
+                        //lblEldersAmount.Text = lines[7];
+
+                        //if (lines[8] == "A") {
+                        //    rbA.Checked = true;
+                        //}
+                        //if (lines[8] == "B")
+                        //{
+                        //    rbB.Checked = true;
+                        //}
+                        //if (lines[8] == "C")
+                        //{
+                        //    rbC.Checked = true;
+                        //}
+
+                        //lblFilledSeats.Text = lines[9];
+                    }
+                }
+
+            }
+            MessageBox.Show("Configuration loaded!");
+        }
+
     }
+
 }
