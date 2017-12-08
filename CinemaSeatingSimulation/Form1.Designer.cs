@@ -86,6 +86,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.gbPanel.SuspendLayout();
@@ -100,11 +103,13 @@
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.LightBlue;
+            this.panelHeader.Controls.Add(this.panel2);
             this.panelHeader.Controls.Add(this.btnLoad);
             this.panelHeader.Controls.Add(this.lblTitle);
             this.panelHeader.Controls.Add(this.btnSave);
@@ -119,12 +124,12 @@
             // 
             this.btnLoad.BackColor = System.Drawing.Color.LightBlue;
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(936, 10);
+            this.btnLoad.Location = new System.Drawing.Point(947, 27);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(128, 45);
+            this.btnLoad.Size = new System.Drawing.Size(115, 35);
             this.btnLoad.TabIndex = 160;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -133,12 +138,12 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semilight", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(5, 6);
+            this.lblTitle.Location = new System.Drawing.Point(2, 20);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(606, 59);
+            this.lblTitle.Size = new System.Drawing.Size(479, 46);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "CINEMA SEATING SIMULATION";
             // 
@@ -146,12 +151,12 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightBlue;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(800, 10);
+            this.btnSave.Location = new System.Drawing.Point(822, 27);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(128, 45);
+            this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 159;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -211,7 +216,7 @@
             // panelDivider
             // 
             this.panelDivider.BackColor = System.Drawing.Color.LightBlue;
-            this.panelDivider.Location = new System.Drawing.Point(0, 108);
+            this.panelDivider.Location = new System.Drawing.Point(1, 108);
             this.panelDivider.Margin = new System.Windows.Forms.Padding(2);
             this.panelDivider.Name = "panelDivider";
             this.panelDivider.Size = new System.Drawing.Size(1078, 5);
@@ -384,7 +389,9 @@
             // 
             // cbTime
             // 
+            this.cbTime.BackColor = System.Drawing.Color.White;
             this.cbTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbTime.FormattingEnabled = true;
             this.cbTime.Items.AddRange(new object[] {
             "Morning (10:00)",
@@ -400,7 +407,9 @@
             // 
             // cbAge
             // 
+            this.cbAge.BackColor = System.Drawing.Color.White;
             this.cbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAge.FormattingEnabled = true;
             this.cbAge.Items.AddRange(new object[] {
             "AL",
@@ -415,7 +424,9 @@
             // 
             // cbGenre
             // 
+            this.cbGenre.BackColor = System.Drawing.Color.White;
             this.cbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGenre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbGenre.FormattingEnabled = true;
             this.cbGenre.Items.AddRange(new object[] {
             "Horror",
@@ -767,6 +778,43 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1082, 20);
+            this.panel2.TabIndex = 161;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1047, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 20);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.CadetBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(1011, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(34, 20);
+            this.button3.TabIndex = 1;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -786,6 +834,7 @@
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FormSimulation";
@@ -793,6 +842,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cinema Seating Simulation v1.9 RC";
             this.Load += new System.EventHandler(this.FormSimulation_Load);
+            this.LocationChanged += new System.EventHandler(this.FormSimulation_LocationChanged);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -816,6 +866,7 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -880,6 +931,9 @@
         public System.Windows.Forms.Label lblAdultAmount;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }
 

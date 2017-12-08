@@ -19,6 +19,7 @@ namespace CinemaSeatingSimulation
         private Scenario scenariotest = new Scenario();
         Customer cust = new Customer();
         public static bool emergencyEnable;
+        System.Drawing.Point initialLocation;
         //public static double amount;
 
         public FormSimulation()
@@ -26,6 +27,9 @@ namespace CinemaSeatingSimulation
             InitializeComponent();
 
             EnableRB(false);
+            this.ShowInTaskbar = false;
+            this.ControlBox = false;
+            this.Text = null;
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -36,6 +40,8 @@ namespace CinemaSeatingSimulation
         private void FormSimulation_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(FormSimulation_FormClosing);
+            this.CenterToScreen();
+            initialLocation = this.Location;
         }
 
         private void FormSimulation_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,7 +76,7 @@ namespace CinemaSeatingSimulation
             formSimulation = new FormSimulationScreen(scenariotest);
             formSimulation.StartPosition = FormStartPosition.Manual;
             formSimulation.Size = pnlLayout1.Size;
-            formSimulation.Location = new Point(this.Location.X + 27, this.Location.Y + 163);
+            formSimulation.Location = new Point(this.Location.X + 20, this.Location.Y + 134);
 
             formSimulation.Show(this);
         }
@@ -209,7 +215,7 @@ namespace CinemaSeatingSimulation
                 if (dialogResult == DialogResult.Yes)
                 {
                     scenariotest.CalcAmountofCustomers(this.cbTime.Text, this.cbGenre.Text, this.cbAge.Text);
-                    MessageBox.Show("Amount of customers calculated!");
+                    //MessageBox.Show("Amount of customers calculated!");
                     EnableRB(true);
                 }
                 else if (dialogResult == DialogResult.No)
@@ -250,7 +256,7 @@ namespace CinemaSeatingSimulation
             timerBack.Stop();
             emergencyEnable = false;
             MessageBox.Show("Reset Done!");
-            formSimulation.Close();
+            formSimulation.Hide();
         }
 
         private void EnableRB(bool value)
@@ -472,6 +478,20 @@ namespace CinemaSeatingSimulation
             MessageBox.Show("Configuration loaded!");
         }
 
+        private void FormSimulation_LocationChanged(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 
 }

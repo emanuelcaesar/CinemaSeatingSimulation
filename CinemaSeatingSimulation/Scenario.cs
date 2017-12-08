@@ -76,7 +76,7 @@ namespace CinemaSeatingSimulation
 
         public void CalcAmountofCustomers(string time3, string genre3, string ageRating3) //1
         {
-            if (time == "Evening (18:00)" || time == "Night (21:00)")
+            if (time3 == "Evening (18:00)" || time3 == "Night (21:00)")
             {
                 if (genre3 == "Horror" && ageRating3 == "18+")
                 {
@@ -293,17 +293,16 @@ namespace CinemaSeatingSimulation
             {
                 for (int j = 0; j < amount; j++)
                 {
-                    if ((seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX + seatList2[custs[i].SeatRow, custs[i].SeatCol].SWidth + 10) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX)
-                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX + 10) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX + seatList2[custs[j].SeatRow, custs[j].SeatCol].SWidth)
-                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY + seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight + 10) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY)
-                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY + 10) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY + seatList2[custs[j].SeatRow, custs[j].SeatCol].SHeight)
+                    while ((seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX + seatList2[custs[i].SeatRow, custs[i].SeatCol].SWidth) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX)
+                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX + seatList2[custs[j].SeatRow, custs[j].SeatCol].SWidth)
+                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY + seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY)
+                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY + seatList2[custs[j].SeatRow, custs[j].SeatCol].SHeight)
                                 && i != j)
                     {
                         users[i].Top -= 0;
                         users[i].Left -= 0;
                     }
-                    else
-                    {
+                    
                         if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
                                 custs[i].SeatCol].SHeight))
                         {
@@ -335,7 +334,7 @@ namespace CinemaSeatingSimulation
                                 }
                             }
                         }
-                    }
+
                 }
                 //if (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY == rows)
                 //{
