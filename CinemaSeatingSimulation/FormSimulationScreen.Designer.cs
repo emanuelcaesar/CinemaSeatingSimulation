@@ -66,6 +66,7 @@
             // 
             // timerEmergency
             // 
+            this.timerEmergency.Interval = 500;
             this.timerEmergency.Tick += new System.EventHandler(this.timerEmergency_Tick);
             // 
             // FormSimulationScreen

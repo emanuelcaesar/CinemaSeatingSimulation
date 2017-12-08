@@ -84,7 +84,6 @@
             this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.timerBack = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelHeader.SuspendLayout();
@@ -129,9 +128,7 @@
             this.btnLoad.TabIndex = 160;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = false;
-
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
-
             // 
             // lblTitle
             // 
@@ -408,7 +405,7 @@
             this.cbAge.Items.AddRange(new object[] {
             "AL",
             "12",
-            "18"});
+            "18+"});
             this.cbAge.Location = new System.Drawing.Point(67, 85);
             this.cbAge.Margin = new System.Windows.Forms.Padding(4);
             this.cbAge.Name = "cbAge";
@@ -763,7 +760,7 @@
             // 
             // timerBack
             // 
-            this.timerBack.Interval = 5;
+            this.timerBack.Interval = 500;
             this.timerBack.Tick += new System.EventHandler(this.timerBack_Tick);
             // 
             // openFileDialog1
