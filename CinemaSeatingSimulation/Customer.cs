@@ -56,69 +56,36 @@ namespace CinemaSeatingSimulation
         {
             for (int i = 0; i < amount; i++)
             {
-                if (users[i].Top < 50)
+                if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                 {
                     users[i].Top++;
                 }
                 else
                 {
-                    if (seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId.Substring(0, 1).Equals("A"))
-                    {
-                        if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                        {
-                            users[i].Left++;
-                        }
-                        else
-                        {
-                            if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-                            {
-                                users[i].Top++;
-                            }
-                            else
-                            {
-                                users[i].BringToFront();
-                            }
-                        }
-                    }
-                    else if (users[i].Left < 268 && users[i].Top == 50)
-                    {
+                    if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                         users[i].Left++;
-                    }
-                    else
+                    else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                     {
-                        if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+                        //timerSimulation.Stop();
+                        while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                         {
                             users[i].Top++;
-                        }
-                        else
-                        {
-                            if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                                users[i].Left++;
-                            else if (users[i].Left > seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+                            if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                             {
-                                users[i].Left--;
-                            }
-                            else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                            {
+                                users[i].BringToFront();
+                                seatCounter++;
+                                System.Windows.Forms.Label test = ((FormSimulation)fss.Owner).lblFilledSeats;
+                                test.Text = Convert.ToString(seatCounter);
                                 //timerSimulation.Stop();
-                                while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+                                if (i == amount - 1)
                                 {
-                                    users[i].Top++;
-                                    if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
-                                    {
-                                        users[i].BringToFront();
-                                        seatCounter++;
-                                        System.Windows.Forms.Label test = ((FormSimulation)fss.Owner).lblFilledSeats;
-                                        test.Text = Convert.ToString(seatCounter);
-                                        //timerSimulation.Stop();
-                                    }
+                                    FormSimulation.emergencyEnable = true;
                                 }
                             }
-
                         }
                     }
-                }
 
+                }
             }
         }
 

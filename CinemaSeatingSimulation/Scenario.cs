@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Scenario
+    public class Scenario
     {
+        System.Drawing.Image userlaras = (System.Drawing.Image)new System.Drawing.Bitmap(@"userlaras.png");
         private int scenarioID, ageRating;
-        private string genre;
-        private string time;
-        private int age;
+        string genre;
+        string time;
+        string age;
         //string ageCategory;
         string options;
+<<<<<<< HEAD
 		private bool[,] mapHall;
+=======
+        //System.Drawing.Image userpanel = (System.Drawing.Image)new System.Drawing.Bitmap(@"user.png");
+>>>>>>> master
 
         private Seat[,] seatList2;
         private Door[] doors;
-        public static Hall hall1;
-        //System.Windows.Forms.Panel p;
+        private Hall hall1;
+        System.Windows.Forms.Panel p;
 
-		List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
+        public List<System.Windows.Forms.Panel> users = new List<System.Windows.Forms.Panel>();
         List<Customer> custs = new List<Customer>();
 
         private int x, y, height, width, row, col;
@@ -31,7 +36,8 @@ namespace CinemaSeatingSimulation
         int seatCounter = 0;
 
         public int randRow, randCol, randSpace;
-        private int amount;
+        public static int amount;
+        private int z;
 
         //int userspointLeft = 5;
         //int userspointTop = 0;
@@ -56,21 +62,14 @@ namespace CinemaSeatingSimulation
             this.genre = genre2;
         }
 
-        public string ChooseAge(int age)
+        public void ChooseAge(string age2)
         {
-            //this.age = age;
-            //if (this.age >=18)
-            //{
-            //    this.ageCategory = "Elder";
-            //}
-            
-            //
-            return "hahaha";
+            this.age = age2;
         }
 
-        public void ChooseTime()
+        public void ChooseTime(string time2)
         {
-        
+            this.time = time2;
         }
 
         public double GetRandomNumber(double minimum, double maximum)
@@ -79,15 +78,15 @@ namespace CinemaSeatingSimulation
             return random.NextDouble() * (maximum - minimum) + minimum;
         }
 
-        public void CalcAmountofCustomers(string time, string genre, string ageRating) //1
+        public void CalcAmountofCustomers(string time3, string genre3, string ageRating3) //1
         {
             if (time == "Evening (18:00)" || time == "Night (21:00)")
             {
-                if (genre == "Horror" && ageRating == "18+")
+                if (genre3 == "Horror" && ageRating3 == "18+")
                 {
                     customerCount = GetRandomNumber(0.7, 0.75); //percentage
                 }
-                else if (genre == "Romance")
+                else if (genre3 == "Romance")
                 {
                     customerCount = GetRandomNumber(0.6, 0.8);
                 }
@@ -98,11 +97,11 @@ namespace CinemaSeatingSimulation
             }
             else
             {
-                if (genre == "Horror")
+                if (genre3 == "Horror")
                 {
                     customerCount = GetRandomNumber(0, 0.1);
                 }
-                else if (genre == "Animation")
+                else if (genre3 == "Animation")
                 {
                     customerCount = GetRandomNumber(0.4, 0.6);
                 }
@@ -111,7 +110,9 @@ namespace CinemaSeatingSimulation
                     customerCount = GetRandomNumber(0.1, 0.3);
                 }
             }
-            
+            ChooseAge(ageRating3);
+            ChooseGenre(genre3);
+            ChooseTime(time3);
         }
 
         public void SetHall(string hallString)
@@ -121,15 +122,83 @@ namespace CinemaSeatingSimulation
             else if (hallString == "C") hall1 = new HallC();
         }
 
-        public decimal[] AssignCustomers(decimal amount) //2
+
+        //afternoon(14:00)
+        //evening(18:00)
+        //night(21:00)
+
+        public decimal[] AssignCustomers(decimal amount2) //2
         {
             decimal[] tempListofPeople = new decimal[4];
-            if(this.genre == "Horror" && amount <= 30)
+            if(age == "18+")
             {
-                tempListofPeople[0] =  ((30*amount)/100); //templist[0] is elder for example
-                //tempList.Add(amountofselectedcustomer);
-                //amountofselectedcustomer = 70 & *amount;     
+                if (genre == "Horror")
+                {
+                    if (time == "Morning (10:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                    else if (time == "Afternoon (14:00)")
+                    {
+                        tempListofPeople[0] = ((70 * amount2) / 100);
+                        tempListofPeople[2] = ((30 * amount2) / 100);
+                    }
+                    else if (time == "Evening (21:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                }
+                else if (genre == "Comedy")
+                {
+                    if (time == "Morning (10:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                    else if (time == "Afternoon (14:00)")
+                    {
+                        tempListofPeople[0] = ((70 * amount2) / 100);
+                        tempListofPeople[2] = ((30 * amount2) / 100);
+                    }
+                    else if (time == "Evening (21:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                }
+                else if (genre == "Romance")
+                {
+                    if (time == "Morning (10:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                    else if (time == "Afternoon (14:00)")
+                    {
+                        tempListofPeople[0] = ((60 * amount2) / 100);
+                        tempListofPeople[2] = ((40 * amount2) / 100);
+                    }
+                    else if (time == "Evening (21:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                }
+                else if (genre == "Action")
+                {
+                    if (time == "Morning (10:00)")
+                    {
+                        tempListofPeople[3] = ((100 * amount2) / 100);
+                    }
+                    else if (time == "Afternoon (14:00)")
+                    {
+                        tempListofPeople[0] = ((60 * amount2) / 100);
+                        tempListofPeople[3] = ((40 * amount2) / 100);
+                    }
+                    else if (time == "Evening (21:00)")
+                    {
+                        tempListofPeople[0] = ((100 * amount2) / 100);
+                    }
+                }
+
             }
+            
             return tempListofPeople;
         }
 
@@ -153,33 +222,11 @@ namespace CinemaSeatingSimulation
             }
         }
 
-        public void GenerateCust() //4
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
-                users.Add(pnlUser);
-                users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
-                users[i].BackColor = System.Drawing.Color.White;
-                users[i].Size = new System.Drawing.Size(11, 11);
-
-				//System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
-				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-				//lblcus.Font = new System.Drawing.Font("Arial", 4);
-				//lblcus.ForeColor = System.Drawing.Color.Black;
-#if DEBUG
-				users[i].Controls.Add(addlabel("Customer",i,0));
-#endif
-
-				fss.Controls.Add(users[i]);
-                randSpace = rand.Next(11, 40);
-                doors[0].PosY -= randSpace;
-            }
-        }
         public void StartSim(FormSimulationScreen fss)
         {
+
             //all the code from formload
-            
+
             this.fss = fss;
             hall1.ConfigHall();
             seatList2 = hall1.Seats();
@@ -197,15 +244,15 @@ namespace CinemaSeatingSimulation
                     p.Size = new System.Drawing.Size(seatList2[i, j].SHeight, seatList2[i, j].SWidth);
                     p.BackColor = seatList2[i, j].SeatColor;
 
-					//System.Windows.Forms.Label l = new System.Windows.Forms.Label();
-					//l.Text = seatList2[i, j].SeatId;
-					//l.Font = new System.Drawing.Font("Arial", 4);
-					//l.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+                    //System.Windows.Forms.Label l = new System.Windows.Forms.Label();
+                    //l.Text = seatList2[i, j].SeatId;
+                    //l.Font = new System.Drawing.Font("Arial", 4);
+                    //l.TextAlign = System.Drawing.ContentAlignment.TopLeft;
 #if DEBUG
-					p.Controls.Add(addlabel("Seats", i, j));
+                    p.Controls.Add(addlabel("Seats", i, j));
 #endif
-					//Console.WriteLine(seatList2[i, j]);
-					fss.Controls.Add(p);
+                    //Console.WriteLine(seatList2[i, j]);
+                    fss.Controls.Add(p);
                 }
             }
 
@@ -217,31 +264,112 @@ namespace CinemaSeatingSimulation
                 p.BackColor = System.Drawing.Color.Purple;
                 fss.Controls.Add(p);
             }
-
             GenerateCust();
+        }
+
+        public void GenerateCust() //4
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
+                users.Add(pnlUser);
+                users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
+                users[i].BackColor = System.Drawing.Color.White;
+                users[i].BackgroundImage = userlaras;
+                users[i].Size = new System.Drawing.Size(9, 9);
+
+                //System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
+                //lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
+                //lblcus.Font = new System.Drawing.Font("Arial", 4);
+                //lblcus.ForeColor = System.Drawing.Color.Black;
+#if DEBUG
+                //users[i].Controls.Add(addlabel("Customer", i, 0));
+#endif
+                fss.Controls.Add(users[i]);
+                randSpace = rand.Next(11, 40);
+                doors[0].PosY -= randSpace;
+            }
         }
 
         public void EmergencySim()
         {
             for (int i = 0; i < amount; i++)
             {
-
-                if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
-                            custs[i].SeatCol].SHeight))
+                for (int j = 0; j < amount; j++)
                 {
-                    users[i].Top--;
-                }
-                else
-                {
-                    if (users[i].Left > (doors[0].PosX + doors[0].DWidth) / 2)
+                    if ((seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX + seatList2[custs[i].SeatRow, custs[i].SeatCol].SWidth + 10) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX)
+                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX + 10) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX + seatList2[custs[j].SeatRow, custs[j].SeatCol].SWidth)
+                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY + seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight + 10) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY)
+                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY + 10) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY + seatList2[custs[j].SeatRow, custs[j].SeatCol].SHeight)
+                                && i != j)
                     {
-                        users[i].Left--;
+                        users[i].Top -= 0;
+                        users[i].Left -= 0;
                     }
                     else
                     {
-                        users[i].Top--;
+                        if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
+                                custs[i].SeatCol].SHeight))
+                        {
+                            users[i].Top--;
+                        }
+                        else
+                        {
+                            if (users[i].Left > (doors[0].PosX + doors[0].DWidth) / 2)
+                            {
+                                users[i].Left--;
+                            }
+                            else
+                            {
+                                users[i].Top--;
+                                if (users[i].Top == 9)
+                                {
+                                    //colls[h].ill--;
+                                    z++;
+                                    users[i].SendToBack();
+                                }
+                                if (users[i].Top == -3)
+                                {
+                                    //rowList--;
+                                }
+                                if (z == amount)
+                                {
+                                    z++;
+                                    System.Windows.Forms.MessageBox.Show("Cinema is cleared");
+                                }
+                            }
+                        }
                     }
                 }
+                //if (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY == rows)
+                //{
+                //if (custs[i].SeatRow == h)
+                //{
+                //if (custs[i].SeatRow == rows)
+                //{
+
+                //}
+
+                //if(rowList == 0)
+                //{
+                //    rows = custs[0].SeatRow;
+                //    for (int j = 0; j < amount; j++)
+                //    {
+                //        if (users[j].Top > 9)
+                //        {
+                //            if (custs[j].SeatRow == rows)
+                //            {
+                //                rowList++;
+                //            }
+                //            else if (custs[j].SeatRow < rows)
+                //            {
+                //                rows = custs[j].SeatRow;
+                //                rowList = 0;
+                //            }
+                //        }
+                //    }
+                //    i = -1;
+                //}
             }
         }
 
@@ -254,25 +382,25 @@ namespace CinemaSeatingSimulation
         {
             for (int i = 0; i < amount; i++)
             {
-				System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
-				users.Add(pnlUser);
-				users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
-					seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
-				users[i].BackColor = System.Drawing.Color.White;
-				users[i].Size = new System.Drawing.Size(11, 11);
+                System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
+                users.Add(pnlUser);
+                users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
+                    seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
+                users[i].BackColor = System.Drawing.Color.White;
+                users[i].Size = new System.Drawing.Size(11, 11);
 
-				//System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
-				//lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-				//lblcus.Font = new System.Drawing.Font("Arial", 4);
-				//lblcus.ForeColor = System.Drawing.Color.Black;
+                //System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
+                //lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
+                //lblcus.Font = new System.Drawing.Font("Arial", 4);
+                //lblcus.ForeColor = System.Drawing.Color.Black;
 #if DEBUG
-				users[i].Controls.Add(addlabel("Skip",i,0));
+                users[i].Controls.Add(addlabel("Skip", i, 0));
 #endif
-				fss.Controls.Add(users[i]);
-				users[i].BringToFront();
-				System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
-				seatsfiled.Text = Convert.ToString(i);
-			}
+                fss.Controls.Add(users[i]);
+                users[i].BringToFront();
+                System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
+                seatsfiled.Text = Convert.ToString(i);
+            }
         }
 
         public void ChooseHall()
@@ -282,7 +410,7 @@ namespace CinemaSeatingSimulation
 
         public void UserGoToSeat()
         {
-            customer.goToSeat(this.amount, this.users, this.seatList2, this.custs, this.fss);
+            customer.goToSeat(amount, this.users, this.seatList2, this.custs, this.fss);
         }
 
         private int middleRow1()
@@ -303,26 +431,24 @@ namespace CinemaSeatingSimulation
             return (col / 2) + 2;
         }
 
-#if DEBUG
-		private System.Windows.Forms.Label addlabel(String given, int i,int j)
-		{
-			String condition = given;
-			System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
-			lbl.Font = new System.Drawing.Font("Arial", 4);
+        private System.Windows.Forms.Label addlabel(String given, int i, int j)
+        {
+            String condition = given;
+            System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
+            lbl.Font = new System.Drawing.Font("Arial", 4);
 
-			if (condition == "Seats")
-			{
-				lbl.Text = seatList2[i, j].SeatId;
-			}
-			else if (condition == "Customer" || condition == "Skip")
-			{
-				lbl.ForeColor = System.Drawing.Color.Black;
-				lbl.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-			}
-			else lbl.Text = "";
-				
-			return lbl;
-		}
-#endif
-	}
+            if (condition == "Seats")
+            {
+                lbl.Text = seatList2[i, j].SeatId;
+            }
+            else if (condition == "Customer" || condition == "Skip")
+            {
+                lbl.ForeColor = System.Drawing.Color.Black;
+                lbl.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
+            }
+            else lbl.Text = "";
+
+            return lbl;
+        }
+    }
 }
