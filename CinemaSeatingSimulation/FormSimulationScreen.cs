@@ -12,19 +12,28 @@ namespace CinemaSeatingSimulation
 {
     public partial class FormSimulationScreen : Form
     {
-        public FormSimulationScreen()
+        private Scenario scenarioTest;
+        public FormSimulationScreen(Scenario scenariotest)
         {
             InitializeComponent();
+            scenarioTest = scenariotest;
         }
         decimal[] agecategory;
-        Scenario scenarioTest = new Scenario();
-
         private void FormLayoutTry1_Load(object sender, EventArgs e)
         {
             scenarioTest.StartSim(this);
-            agecategory = scenarioTest.AssignCustomers(Convert.ToDecimal(FormSimulation.amount)); 
+
+            agecategory = scenarioTest.AssignCustomers(Convert.ToDecimal(Scenario.amount)); 
             Label Elder = ((FormSimulation)this.Owner).lblEldersAmount;
-            Elder.Text = Convert.ToString(Convert.ToString(agecategory[0]));
+            Label Student = ((FormSimulation)this.Owner).lblStudentAmount;
+            Label Adult = ((FormSimulation)this.Owner).lblAdultAmount;
+            Label Childen = ((FormSimulation)this.Owner).lblChildrenAmount;
+            Adult.Text = Convert.ToString(Convert.ToString(agecategory[0]));
+            Childen.Text = Convert.ToString(Convert.ToString(agecategory[1]));
+            Student.Text = Convert.ToString(Convert.ToString(agecategory[2]));
+            Elder.Text = Convert.ToString(Convert.ToString(agecategory[3]));
+
+
         }
 
         public void timerEmergency_Tick(object sender, EventArgs e)
@@ -41,6 +50,11 @@ namespace CinemaSeatingSimulation
         private void doorExit1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void timerSimulation_Skip()
+        {
+            scenarioTest.SkipSim();
         }
     }
 }

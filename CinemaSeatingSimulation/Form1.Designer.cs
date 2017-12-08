@@ -67,13 +67,13 @@
             this.panel134 = new System.Windows.Forms.Panel();
             this.lblChoosenLayout = new System.Windows.Forms.Label();
             this.gbStatus = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lblElders = new System.Windows.Forms.Label();
+            this.lblStudent = new System.Windows.Forms.Label();
+            this.lblChildren = new System.Windows.Forms.Label();
+            this.lblAdult = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lblEldersAmount = new System.Windows.Forms.Label();
-            this.lblInfantAmount = new System.Windows.Forms.Label();
+            this.lblStudentAmount = new System.Windows.Forms.Label();
             this.lblChildrenAmount = new System.Windows.Forms.Label();
             this.lblAdultAmount = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -84,6 +84,9 @@
             this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.timerBack = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelHeader.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.gbPanel.SuspendLayout();
@@ -126,7 +129,9 @@
             this.btnLoad.TabIndex = 160;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
+
             // 
             // lblTitle
             // 
@@ -294,6 +299,7 @@
             // btnSkip
             // 
             this.btnSkip.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSkip.Enabled = false;
             this.btnSkip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSkip.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSkip.ForeColor = System.Drawing.Color.White;
@@ -304,6 +310,7 @@
             this.btnSkip.TabIndex = 10;
             this.btnSkip.Text = "Skip";
             this.btnSkip.UseVisualStyleBackColor = false;
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
             // 
             // btnSimulate
             // 
@@ -392,6 +399,7 @@
             this.cbTime.Name = "cbTime";
             this.cbTime.Size = new System.Drawing.Size(175, 25);
             this.cbTime.TabIndex = 157;
+            this.cbTime.SelectedIndexChanged += new System.EventHandler(this.cbTime_SelectedIndexChanged);
             // 
             // cbAge
             // 
@@ -423,6 +431,7 @@
             this.cbGenre.Name = "cbGenre";
             this.cbGenre.Size = new System.Drawing.Size(175, 25);
             this.cbGenre.TabIndex = 155;
+            this.cbGenre.SelectedIndexChanged += new System.EventHandler(this.cbGenre_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -559,16 +568,17 @@
             this.lblChoosenLayout.Location = new System.Drawing.Point(6, 2);
             this.lblChoosenLayout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChoosenLayout.Name = "lblChoosenLayout";
-            this.lblChoosenLayout.Size = new System.Drawing.Size(0, 32);
+            this.lblChoosenLayout.Size = new System.Drawing.Size(35, 32);
             this.lblChoosenLayout.TabIndex = 152;
+            this.lblChoosenLayout.Text = "....";
             this.lblChoosenLayout.Click += new System.EventHandler(this.label15_Click);
             // 
             // gbStatus
             // 
-            this.gbStatus.Controls.Add(this.label11);
-            this.gbStatus.Controls.Add(this.label12);
-            this.gbStatus.Controls.Add(this.label21);
-            this.gbStatus.Controls.Add(this.label22);
+            this.gbStatus.Controls.Add(this.lblElders);
+            this.gbStatus.Controls.Add(this.lblStudent);
+            this.gbStatus.Controls.Add(this.lblChildren);
+            this.gbStatus.Controls.Add(this.lblAdult);
             this.gbStatus.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStatus.Location = new System.Drawing.Point(936, 380);
             this.gbStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -579,58 +589,58 @@
             this.gbStatus.TabStop = false;
             this.gbStatus.Text = "Status";
             // 
-            // label11
+            // lblElders
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 106);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 19);
-            this.label11.TabIndex = 157;
-            this.label11.Text = "Elders:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblElders.AutoSize = true;
+            this.lblElders.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElders.Location = new System.Drawing.Point(10, 106);
+            this.lblElders.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblElders.Name = "lblElders";
+            this.lblElders.Size = new System.Drawing.Size(48, 19);
+            this.lblElders.TabIndex = 157;
+            this.lblElders.Text = "Elders:";
+            this.lblElders.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label12
+            // lblStudent
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(10, 78);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 19);
-            this.label12.TabIndex = 156;
-            this.label12.Text = "Infant:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStudent.AutoSize = true;
+            this.lblStudent.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudent.Location = new System.Drawing.Point(10, 78);
+            this.lblStudent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStudent.Name = "lblStudent";
+            this.lblStudent.Size = new System.Drawing.Size(60, 19);
+            this.lblStudent.TabIndex = 156;
+            this.lblStudent.Text = "Student:";
+            this.lblStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label21
+            // lblChildren
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(10, 50);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(63, 19);
-            this.label21.TabIndex = 155;
-            this.label21.Text = "Children:";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblChildren.AutoSize = true;
+            this.lblChildren.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChildren.Location = new System.Drawing.Point(10, 50);
+            this.lblChildren.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChildren.Name = "lblChildren";
+            this.lblChildren.Size = new System.Drawing.Size(63, 19);
+            this.lblChildren.TabIndex = 155;
+            this.lblChildren.Text = "Children:";
+            this.lblChildren.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label22
+            // lblAdult
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(10, 25);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 19);
-            this.label22.TabIndex = 154;
-            this.label22.Text = "Adult:";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAdult.AutoSize = true;
+            this.lblAdult.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdult.Location = new System.Drawing.Point(10, 25);
+            this.lblAdult.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAdult.Name = "lblAdult";
+            this.lblAdult.Size = new System.Drawing.Size(45, 19);
+            this.lblAdult.TabIndex = 154;
+            this.lblAdult.Text = "Adult:";
+            this.lblAdult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.lblEldersAmount);
-            this.groupBox5.Controls.Add(this.lblInfantAmount);
+            this.groupBox5.Controls.Add(this.lblStudentAmount);
             this.groupBox5.Controls.Add(this.lblChildrenAmount);
             this.groupBox5.Controls.Add(this.lblAdultAmount);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -641,6 +651,7 @@
             this.groupBox5.Size = new System.Drawing.Size(36, 152);
             this.groupBox5.TabIndex = 158;
             this.groupBox5.TabStop = false;
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // lblEldersAmount
             // 
@@ -654,17 +665,17 @@
             this.lblEldersAmount.Text = "/";
             this.lblEldersAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblInfantAmount
+            // lblStudentAmount
             // 
-            this.lblInfantAmount.AutoSize = true;
-            this.lblInfantAmount.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfantAmount.Location = new System.Drawing.Point(10, 78);
-            this.lblInfantAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblInfantAmount.Name = "lblInfantAmount";
-            this.lblInfantAmount.Size = new System.Drawing.Size(14, 19);
-            this.lblInfantAmount.TabIndex = 156;
-            this.lblInfantAmount.Text = "/";
-            this.lblInfantAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStudentAmount.AutoSize = true;
+            this.lblStudentAmount.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentAmount.Location = new System.Drawing.Point(10, 78);
+            this.lblStudentAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStudentAmount.Name = "lblStudentAmount";
+            this.lblStudentAmount.Size = new System.Drawing.Size(14, 19);
+            this.lblStudentAmount.TabIndex = 156;
+            this.lblStudentAmount.Text = "/";
+            this.lblStudentAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblChildrenAmount
             // 
@@ -752,7 +763,12 @@
             // 
             // timerBack
             // 
+            this.timerBack.Interval = 5;
             this.timerBack.Tick += new System.EventHandler(this.timerBack_Tick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormSimulation
             // 
@@ -839,14 +855,11 @@
         private System.Windows.Forms.RadioButton rbB;
         private System.Windows.Forms.RadioButton rbA;
         private System.Windows.Forms.GroupBox gbStatus;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblElders;
+        private System.Windows.Forms.Label lblStudent;
+        private System.Windows.Forms.Label lblChildren;
+        private System.Windows.Forms.Label lblAdult;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label lblInfantAmount;
-        private System.Windows.Forms.Label lblChildrenAmount;
-        private System.Windows.Forms.Label lblAdultAmount;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cbTime;
@@ -865,6 +878,13 @@
         private System.Windows.Forms.Timer timerStart;
         private System.Windows.Forms.Timer timerBack;
         private System.Windows.Forms.Timer timer1;
+
+        public System.Windows.Forms.Label lblChildrenAmount;
+        public System.Windows.Forms.Label lblStudentAmount;
+        public System.Windows.Forms.Label lblAdultAmount;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+
     }
 }
 

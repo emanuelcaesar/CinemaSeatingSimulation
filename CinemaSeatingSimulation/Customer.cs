@@ -52,8 +52,46 @@ namespace CinemaSeatingSimulation
             set { seatCol = value; }
         }
 
-        public void goToSeat(int amount, List<System.Windows.Forms.Panel> users, Seat[,] seatList2, List<Customer> custs, FormSimulationScreen fss)
+        public void goToSeat(int amount, List<System.Windows.Forms.Panel> users, Seat[,] seatList2, List<Customer> custs, FormSimulationScreen fss)    
         {
+        //    for (int i = 0; i < amount; i++)
+        //    {
+        //        if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
+        //        {
+        //            users[i].Top++;
+        //        }
+        //        else
+        //        {
+        //            if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+        //                users[i].Left++;
+        //            else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
+        //            {
+        //                //timerSimulation.Stop();
+        //                while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+        //                {
+        //                    users[i].Top++;
+        //                    if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
+        //                    {
+        //                        users[i].BringToFront();
+        //                        seatCounter++;
+        //                        System.Windows.Forms.Label test = ((FormSimulation)fss.Owner).lblFilledSeats;
+        //                        test.Text = Convert.ToString(seatCounter);
+        //                        //timerSimulation.Stop();
+        //                        if (i == amount - 1)
+        //                        {
+        //                            FormSimulation.emergencyEnable = true;
+        //                        }
+        //                    }
+        //                }
+        //            }
+
+        //        }
+        //    }
+        //}
+
+        //public void FindSeat()
+
+        //{
             //for (int i = 0; i < amount; i++)
             //{
             //    if (users[i].Top < 50)
