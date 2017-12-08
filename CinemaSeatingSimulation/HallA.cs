@@ -22,8 +22,9 @@ namespace CinemaSeatingSimulation
             alp = "";
             seatAmount = row * col;
             seats = new Seat[row, col];
+			mapHall = new bool[587, 287];
 
-            doors = new Door[2];
+			doors = new Door[2];
             doorAmount = doors.Length;
 
             //Creating Seats Map
@@ -71,6 +72,7 @@ namespace CinemaSeatingSimulation
                     }
                     //seatList.Add(new Seat(alp+""+(j + 1), x, y, height, width, seatColor));
                     seats[i, j] = new Seat(alp + "" + (j + 1), x, y, height, width);
+					mapHall[x, y] = false;
                     x = x + 13;
                 }
                 x = 120;

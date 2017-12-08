@@ -14,6 +14,7 @@ namespace CinemaSeatingSimulation
         private int age;
         //string ageCategory;
         string options;
+		private bool[,] mapHall;
 
         private Seat[,] seatList2;
         private Door[] doors;
@@ -147,8 +148,8 @@ namespace CinemaSeatingSimulation
                         j = -1;
                     }
                 }
-                Console.WriteLine("custs: " + custs[i].SeatRow + "" + custs[i].SeatCol);
-                Console.WriteLine("Seat: " + seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId);
+                //Console.WriteLine("custs: " + custs[i].SeatRow + "" + custs[i].SeatCol);
+                //Console.WriteLine("Seat: " + seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId);
             }
         }
 

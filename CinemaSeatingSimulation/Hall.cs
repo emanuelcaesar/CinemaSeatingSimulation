@@ -17,6 +17,7 @@ namespace CinemaSeatingSimulation
             height, width,
             row, col;
 
+		protected bool[,] mapHall;
         protected Seat[,] seats;
         protected Door[] doors;
 

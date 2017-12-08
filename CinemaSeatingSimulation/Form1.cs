@@ -123,23 +123,23 @@ namespace CinemaSeatingSimulation
 
         private void radioButton6_Click(object sender, EventArgs e)
         {
-            //if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
-            //{
-            //    btnClicked = true;
-            //    scenariotest.SetHall(rbA.Text);
-            //    countCustomer();
-            //    ShowFormSimulationScreen();
-            //    btnSimulate.Enabled = true;
-            //    lblChoosenLayout.Text = "Layout " + rbA.Text;
+			if (!(cbGenre.Text == "" || cbAge.Text == "" || cbTime.Text == ""))
+			{
+				btnClicked = true;
+				scenariotest.SetHall(rbA.Text);
+				countCustomer();
+				ShowFormSimulationScreen();
+				btnSimulate.Enabled = true;
+				lblChoosenLayout.Text = "Layout " + rbA.Text;
 
-            //}
-            //else
-            //{
-            //    rbA.Checked = false;
-            //    MessageBox.Show("Please fill the scenario!");
+			}
+			else
+			{
+				rbA.Checked = false;
+				MessageBox.Show("Please fill the scenario!");
 
-            //}
-            btnSimulate.Enabled = true;
+			}
+			btnSimulate.Enabled = true;
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -246,6 +246,11 @@ namespace CinemaSeatingSimulation
 			timerStart.Stop();
 			timerBack.Stop();
 			formSimulation.timerSimulation_Skip();
+		}
+
+		private void panelHeader_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }

@@ -112,6 +112,7 @@
 			this.panelHeader.Name = "panelHeader";
 			this.panelHeader.Size = new System.Drawing.Size(866, 56);
 			this.panelHeader.TabIndex = 0;
+			this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
 			// 
 			// btnLoad
 			// 
