@@ -17,7 +17,7 @@ namespace CinemaSeatingSimulation
         private bool btnClicked = false;
         private FormSimulationScreen formSimulation;
         private Scenario scenariotest = new Scenario();
-        Customer cust = new Customer();
+        //Customer cust = new Customer();
         public static bool emergencyEnable;
         System.Drawing.Point initialLocation;
         //public static double amount;
@@ -316,45 +316,46 @@ namespace CinemaSeatingSimulation
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.InitialDirectory = @"C:\Documents";
-            //saveFileDialog1.CheckFileExists = true;
-            //saveFileDialog1.CheckPathExists = true;
-            saveFileDialog1.Title = "Browse Text Files";
-            saveFileDialog1.Filter = "sim files (.sim)|.txt|All files (.)|*.*";
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
-                {
-                    sw.WriteLine("Results of the Simulation");
-                    sw.WriteLine(cbAge.SelectedIndex);
-                    sw.WriteLine(cbGenre.SelectedIndex);
-                    sw.WriteLine(cbTime.SelectedIndex);
-
-                    sw.WriteLine(lblAdultAmount.Text);
-                    sw.WriteLine(lblChildrenAmount.Text);
-                    sw.WriteLine(lblStudentAmount.Text);
-                    sw.WriteLine(lblEldersAmount.Text);
-
-                    if (rbA.Checked)
-                        sw.WriteLine(rbA.Text);
-                    if (rbB.Checked)
-                        sw.WriteLine(rbB.Text);
-                    if (rbC.Checked)
-                        sw.WriteLine(rbC.Text);
+            string[] listOfSave = new string[11];
+            listOfSave[0] = "Results of the Simulation";
+            listOfSave[1] = Convert.ToString(cbAge.SelectedIndex);
+            listOfSave[2] = Convert.ToString(cbGenre.SelectedIndex);
+            listOfSave[3] = Convert.ToString(cbTime.SelectedIndex);
+            listOfSave[4] = lblAdultAmount.Text;
+            listOfSave[5] = lblChildrenAmount.Text;
+            listOfSave[6] = lblStudentAmount.Text;
+            listOfSave[7] = lblEldersAmount.Text;
+            listOfSave[8] = rbA.Text;
+            listOfSave[9] = rbB.Text;
+            listOfSave[10] = rbC.Text;
+            //List<RadioButton> radioButton = new List<RadioButton>();
+            Boolean[] radioButton = new Boolean[3];
+            radioButton[0] = rbA.Checked;
+            radioButton[1] = rbB.Checked;
+            radioButton[2] = rbC.Checked;
 
 
-                }
-
-            }
-            MessageBox.Show("Configuration saved!");
+            scenariotest.SaveScenario(saveFileDialog1, listOfSave, radioButton);
 
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
 
-            //xmlDocument.LoadXml()
+            openFileDialog1.InitialDirectory = @"C:\Documents";
+            openFileDialog1.Title = "Browse Text Files";
+            openFileDialog1.Filter = "sim files (*.sim)|*.txt|All files (*.*)|*.*";
+
+            List<ComboBox> cbList = new List<ComboBox>();
+            cbList.Add(cbGenre);
+            cbList.Add(cbAge);
+            cbList.Add(cbTime);
+            List<RadioButton> rbList = new List<RadioButton>();
+            rbList.Add(rbA);
+            rbList.Add(rbB);
+            rbList.Add(rbC);
+
+            scenariotest.LoadScenario(openFileDialog1, cbList, rbList);
 
         }
 

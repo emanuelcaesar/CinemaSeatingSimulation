@@ -8,7 +8,7 @@ namespace CinemaSeatingSimulation
 {
     public class Scenario
     {
-        System.Drawing.Image userlaras = (System.Drawing.Image)new System.Drawing.Bitmap(@"userlaras.png");
+        //System.Drawing.Image userlaras = (System.Drawing.Image)new System.Drawing.Bitmap(@"userlaras.png");
         private int scenarioID, ageRating;
         string genre;
         string time;
@@ -40,7 +40,7 @@ namespace CinemaSeatingSimulation
         private Door doorA;
         private Door doorB;
         Customer customer;
-        //private 
+        private decimal[] tempListofPeople; 
 
         decimal[] agecategory;
         FormSimulationScreen fss;
@@ -125,84 +125,181 @@ namespace CinemaSeatingSimulation
 
         public decimal[] AssignCustomers(decimal amount2) //2
         {
-            decimal[] tempListofPeople = new decimal[4];
-            if(age == "18+")
+            tempListofPeople = new decimal[4];
+            if (age == "18+")
             {
-                if (genre == "Horror")
+                tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                tempListofPeople[1] = Math.Round((35 * amount2) / 100);
+                tempListofPeople[2] = Math.Round((40 * amount2) / 100);
+                tempListofPeople[3] = Math.Round((5 * amount2) / 100);
+
+                if (time == "Morning (10:00)" || time == "Afternoon (14:00)")
                 {
-                    if (time == "Morning (10:00)")
+                    if (genre == "Horror")
                     {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((55 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((40 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((5 * amount2) / 100);
                     }
-                    else if (time == "Afternoon (14:00)")
+                    else if (genre == "Romance")
                     {
-                        tempListofPeople[0] = ((70 * amount2) / 100);
-                        tempListofPeople[2] = ((30 * amount2) / 100);
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((30 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((50 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((20 * amount2) / 100);
                     }
-                    else if (time == "Evening (21:00)")
+                    else if (genre == "Action")
                     {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((50 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((35 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((15 * amount2) / 100);
                     }
-                }
-                else if (genre == "Comedy")
-                {
-                    if (time == "Morning (10:00)")
+                    else if (genre == "Animatiom")
                     {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((50 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((25 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((25 * amount2) / 100);
                     }
-                    else if (time == "Afternoon (14:00)")
+                    else if (genre == "Comedy")
                     {
-                        tempListofPeople[0] = ((70 * amount2) / 100);
-                        tempListofPeople[2] = ((30 * amount2) / 100);
-                    }
-                    else if (time == "Evening (21:00)")
-                    {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
-                    }
-                }
-                else if (genre == "Romance")
-                {
-                    if (time == "Morning (10:00)")
-                    {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
-                    }
-                    else if (time == "Afternoon (14:00)")
-                    {
-                        tempListofPeople[0] = ((60 * amount2) / 100);
-                        tempListofPeople[2] = ((40 * amount2) / 100);
-                    }
-                    else if (time == "Evening (21:00)")
-                    {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
-                    }
-                }
-                else if (genre == "Action")
-                {
-                    if (time == "Morning (10:00)")
-                    {
-                        tempListofPeople[3] = ((100 * amount2) / 100);
-                    }
-                    else if (time == "Afternoon (14:00)")
-                    {
-                        tempListofPeople[0] = ((60 * amount2) / 100);
-                        tempListofPeople[3] = ((40 * amount2) / 100);
-                    }
-                    else if (time == "Evening (21:00)")
-                    {
-                        tempListofPeople[0] = ((100 * amount2) / 100);
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((40 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((40 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((20 * amount2) / 100);
                     }
                 }
 
+                else if (time == "Evening (18:00)" || time == "Night (21:00)")
+                {
+                    if (genre == "Comedy")
+                    {
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((45 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((50 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((5 * amount2) / 100);
+                    }
+                    else if (genre == "Romance")
+                    {
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((25 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((65 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((10 * amount2) / 100);
+                    }
+                    else if (genre == "Animation")
+                    {
+                        tempListofPeople[0] = Math.Round((0 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((60 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((35 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((5 * amount2) / 100);
+                    }
+                }
+                
             }
-            
+            else
+            {
+                if (time == "Morning (10:00)" || time == "Afternoon (14:00)")
+                {
+                    tempListofPeople[0] = Math.Round((30 * amount2) / 100);
+                    tempListofPeople[1] = Math.Round((20 * amount2) / 100);
+                    tempListofPeople[2] = Math.Round((20 * amount2) / 100);
+                    tempListofPeople[3] = Math.Round((30 * amount2) / 100);
+
+                    if (genre == "Animation")
+                    {
+                        tempListofPeople[0] = Math.Round((50 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((15 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((10 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((25 * amount2) / 100);
+                    }
+                    else if (genre == "Horror")
+                    {
+                        tempListofPeople[0] = Math.Round((22 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((27 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((28 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((23 * amount2) / 100);
+                    }
+                }
+
+                else if(time == "Evening (18:00)" || time == "Night(21:00)") 
+                    {
+                        tempListofPeople[0] = Math.Round((10 * amount2) / 100);
+                        tempListofPeople[1] = Math.Round((20 * amount2) / 100);
+                        tempListofPeople[2] = Math.Round((65 * amount2) / 100);
+                        tempListofPeople[3] = Math.Round((5 * amount2) / 100);
+
+                        if (genre == "Romance")
+                        {
+                            tempListofPeople[0] = Math.Round((5 * amount2) / 100);
+                            tempListofPeople[1] = Math.Round((10 * amount2) / 100);
+                            tempListofPeople[2] = Math.Round((75 * amount2) / 100);
+                            tempListofPeople[3] = Math.Round((10 * amount2) / 100);
+                        }
+                        else if (genre == "Animation")
+                        {
+                            tempListofPeople[0] = Math.Round((30 * amount2) / 100);
+                            tempListofPeople[1] = Math.Round((35 * amount2) / 100);
+                            tempListofPeople[2] = Math.Round((30 * amount2) / 100);
+                            tempListofPeople[3] = Math.Round((5 * amount2) / 100);
+                        }
+                        else if (genre == "Horror")
+                        {
+                            tempListofPeople[0] = Math.Round((10 * amount2) / 100);
+                            tempListofPeople[1] = Math.Round((25 * amount2) / 100);
+                            tempListofPeople[2] = Math.Round((60 * amount2) / 100);
+                            tempListofPeople[3] = Math.Round((5 * amount2) / 100);
+                        }
+                    }
+                
+            }
+            Console.WriteLine("tempListofPeople[0]: " +tempListofPeople[0]);
+            Console.WriteLine("tempListofPeople[1]: " + tempListofPeople[1]);
+            Console.WriteLine("tempListofPeople[2]: " + tempListofPeople[2]);
+            Console.WriteLine("tempListofPeople[3]: " + tempListofPeople[3]);
             return tempListofPeople;
         }
 
         public void AssignCustSeats() //3
         {
+            amount = Convert.ToInt32(tempListofPeople[0] + tempListofPeople[1] + tempListofPeople[2] + tempListofPeople[3]);
             for (int i = 0; i < amount; i++)
             {
-                customer = new Customer(i, amount, hall1);
+                bool valid = true;
+                //customer = new Customer(i, amount, hall1);
+
+                while (valid)
+                {
+                    int a = rand.Next(0, 4);
+                    Console.WriteLine("a: " + a);
+
+                    if (a == 0 && tempListofPeople[0] > 0)
+                    {
+                        customer = new Children(i, amount, hall1);
+                        tempListofPeople[0]--;
+                        valid = false;
+                    }
+                    else if (a == 1 && tempListofPeople[1] > 0)
+                    {
+                        customer = new Student(i, amount, hall1);
+                        tempListofPeople[1]--;
+                        valid = false;
+                    }
+                    else if (a == 2 && tempListofPeople[2] > 0)
+                    {
+                        customer = new Adult(i, amount, hall1);
+                        tempListofPeople[2]--;
+                        valid = false;
+                    }
+                    else if (a == 3 && tempListofPeople[3] > 0)
+                    {
+                        customer = new Elder(i, amount, hall1);
+                        tempListofPeople[3]--;
+                        valid = false;
+                    }
+                }
+
                 custs.Add(customer);
                 custs[i].FindSeat();
                 for (int j = 0; j < custs.Count(); j++)
@@ -228,7 +325,7 @@ namespace CinemaSeatingSimulation
             seatList2 = hall1.Seats();
             doors = hall1.Doors();
             amount = Convert.ToInt32(customerCount * seatList2.GetLength(1) * seatList2.GetLength(0));
-
+            AssignCustomers(amount);
             AssignCustSeats();
 
             for (int i = 0; i < hall1.GetRow(); i++)
@@ -270,17 +367,15 @@ namespace CinemaSeatingSimulation
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
-                users[i].BackColor = System.Drawing.Color.White;
-                users[i].BackgroundImage = userlaras;
+                //users[i].BackColor = System.Drawing.Color.White;
+                users[i].BackgroundImage = custs[i].UserPict;
                 users[i].Size = new System.Drawing.Size(9, 9);
+
 
                 //System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
                 //lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
                 //lblcus.Font = new System.Drawing.Font("Arial", 4);
                 //lblcus.ForeColor = System.Drawing.Color.Black;
-#if DEBUG
-                //users[i].Controls.Add(addlabel("Customer", i, 0));
-#endif
                 fss.Controls.Add(users[i]);
                 randSpace = rand.Next(11, 40);
                 doors[0].PosY -= randSpace;
@@ -444,6 +539,131 @@ namespace CinemaSeatingSimulation
             else lbl.Text = "";
 
             return lbl;
+        }
+
+        public void SaveScenario(System.Windows.Forms.SaveFileDialog saveFileDialog1, string[] listOfSave, Boolean[] radioButton)
+        {
+
+            saveFileDialog1.InitialDirectory = @"C:\Documents";
+            saveFileDialog1.Title = "Browse Text Files";
+            saveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(saveFileDialog1.FileName))
+                {
+                    sw.WriteLine(listOfSave[0]);
+                    sw.WriteLine(listOfSave[1]);
+                    sw.WriteLine(listOfSave[2]);
+                    sw.WriteLine(listOfSave[3]);
+
+                    sw.WriteLine(listOfSave[4]);
+                    sw.WriteLine(listOfSave[5]);
+                    sw.WriteLine(listOfSave[6]);
+                    sw.WriteLine(listOfSave[7]);
+
+                    if (radioButton[0])
+                        sw.WriteLine(listOfSave[8]);
+                    if (radioButton[1])
+                        sw.WriteLine(listOfSave[9]);
+                    if (radioButton[2])
+                        sw.WriteLine(listOfSave[10]);
+                }
+
+            }
+
+        }
+
+        public void LoadScenario(System.Windows.Forms.OpenFileDialog openFileDialog1, List<System.Windows.Forms.ComboBox> cbList, List<System.Windows.Forms.RadioButton> rbList)
+        {
+            openFileDialog1.InitialDirectory = @"C:\Documents";
+            openFileDialog1.Title = "Browse Text Files";
+            openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string[] lines;
+
+                List<string> list = new List<string>();
+                using (System.IO.StreamReader sr = new System.IO.StreamReader(openFileDialog1.FileName))
+                {
+                    string line;
+                    int counter = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        System.Console.WriteLine(line);
+                        counter++;
+                        System.Console.WriteLine(counter);
+                        if (counter == 2)
+                        {
+                            if (line == "0")
+                                cbList[0].SelectedIndex = 0;
+                            if (line == "1")
+                                cbList[0].SelectedIndex = 1;
+                            if (line == "2")
+                                cbList[0].SelectedIndex = 2;
+                            if (line == "3")
+                                cbList[0].SelectedIndex = 3;
+                            if (line == "4")
+                                cbList[0].SelectedIndex = 4;
+                        }
+
+                        if (counter == 3)
+                        {
+                            if (line == "0")
+                            {
+                                cbList[1].SelectedIndex = 0;
+                            }
+                            if (line == "1")
+                            {
+                                cbList[1].SelectedIndex = 1;
+                            }
+                            if (line == "2")
+                            {
+                                cbList[1].SelectedIndex = 2;
+                            }
+                        }
+
+                        if (counter == 4)
+                        {
+                            if (line == "0")
+                            {
+                                cbList[2].SelectedIndex = 0;
+                            }
+                            if (line == "1")
+                            {
+                                cbList[2].SelectedIndex = 1;
+                            }
+                            if (line == "2")
+                            {
+                                cbList[2].SelectedIndex = 2;
+                            }
+                            if (line == "3")
+                            {
+                                cbList[2].SelectedIndex = 3;
+                            }
+                        }
+                        if (counter == 9)
+                        {
+                            if (line == "A")
+                            {
+                                rbList[0].Checked = true;
+                            }
+                            if (line == "B")
+                            {
+                                rbList[1].Checked = true;
+                            }
+                            if (line == "C")
+                            {
+                                rbList[2].Checked = true;
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
         }
     }
 }

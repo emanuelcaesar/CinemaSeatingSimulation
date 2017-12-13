@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Customer
+    abstract class Customer
     {
-        private int customerID, speed, seatRow, seatCol, scenarioID, customerAmount, seatRowCust, seatColCust;
-        private string demographic;
-        private Hall hall;
-        private Seat[,] seats;
-        private Door[] doors;
-        private Random rand;
-        int seatCounter = 0;
+        protected int customerID, seatRow, seatCol, scenarioID, customerAmount, seatRowCust, seatColCust;
+        protected string demographic;
+        protected Hall hall;
+        protected Seat[,] seats;
+        protected Door[] doors;
+        protected Random rand;
+        protected int seatCounter = 0;
+        protected int speed = 1;
+        protected System.Drawing.Image userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userLaras.png");
+
 
         public Customer(int customerID, int customerAmount, Hall hallChosen)
         {
@@ -33,11 +36,11 @@ namespace CinemaSeatingSimulation
             seatColCust = seats.GetLength(1); // get length from the second column [,*]
 
             rand = new Random();
-            
+
         }
         public Customer()
         {
-            
+
         }
 
         public int SeatRow
@@ -58,18 +61,25 @@ namespace CinemaSeatingSimulation
             {
                 if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                 {
-                    users[i].Top++;
+                    if (i != 0 && users[i].Bottom >= users[i - 1].Top)
+                    {
+                        users[i].Top += 1;
+                    }
+                    else
+                    {
+                        users[i].Top += custs[i].Speed;
+                    }
                 }
                 else
                 {
                     if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                        users[i].Left++;
+                        users[i].Left += 1;
                     else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                     {
                         //timerSimulation.Stop();
                         while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                         {
-                            users[i].Top++;
+                            users[i].Top += 1;
                             if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                             {
                                 users[i].BringToFront();
@@ -157,24 +167,53 @@ namespace CinemaSeatingSimulation
         {
             return (seatColCust / 2) + 2;
         }
+        
+        public int Speed
+        {
+            get { return this.speed; }
+        }
+        public System.Drawing.Image UserPict
+        {
+            get { return this.userPict; }
+        }
     }
 
-    
 
-    //class Child : Customer
-    //{
 
-    //}
-    //class Adult : Customer
-    //{
-
-    //}
-    //class Seniors : Customer
-    //{
-
-    //}
-    //class Teens : Customer
-    //{
-
-    //}
+    class Children : Customer
+    {
+        public Children(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 7;
+            userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userChildren.png");
+        }
+    }
+    class Student : Customer
+    {
+        public Student(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 5;
+            userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userStudent.png");
+        }
+    }
+    class Adult : Customer
+    {
+        public Adult(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 3;
+            userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userAdult.png");
+        }
+    }
+    class Elder : Customer
+    {
+        public Elder(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 1;
+            userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userElder.png");
+        }
+    }
 }
