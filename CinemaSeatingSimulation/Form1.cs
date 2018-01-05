@@ -430,48 +430,7 @@ namespace CinemaSeatingSimulation
                             }
                         }
 
-                        //if (counter == 4) {
-                        //    //lblAdultAmount.Text = '5';
-                        //}
-                        //if (counter == 9) {
-                        //    if (line == "A")
-                        //    {
-                        //        rbA.Checked = true;
-                        //    }
-                        //    if (line == "B")
-                        //    {
-                        //        rbB.Checked = true;
-                        //    }
-                        //    if (line == "C")
-                        //    {
-                        //        rbC.Checked = true;
-                        //    }
-                        //}
-
-                        //if(counter==)
-                        //list.Add(line);
-                        //lines = list.ToArray();
-                        //cbAge.SelectedIndex = Convert.ToInt32(lines[1]);
-                        //cbGenre.SelectedIndex = Convert.ToInt32(lines[2]);
-                        //cbTime.SelectedIndex = Convert.ToInt32(lines[3]);
-                        //lblAdultAmount.Text = lines[4];
-                        //lblChildrenAmount.Text = lines[5];
-                        //lblInfantAmount.Text = lines[6];
-                        //lblEldersAmount.Text = lines[7];
-
-                        //if (lines[8] == "A") {
-                        //    rbA.Checked = true;
-                        //}
-                        //if (lines[8] == "B")
-                        //{
-                        //    rbB.Checked = true;
-                        //}
-                        //if (lines[8] == "C")
-                        //{
-                        //    rbC.Checked = true;
-                        //}
-
-                        //lblFilledSeats.Text = lines[9];
+                       
                     }
                 }
 
