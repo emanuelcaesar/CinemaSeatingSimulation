@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
-    class Customer
+    abstract class Customer
     {
-        private int customerID, speed, seatRow, seatCol, scenarioID, customerAmount, seatRowCust, seatColCust;
-        private string demographic;
-        private Hall hall;
-        private Seat[,] seats;
-        private Door[] doors;
-        private Random rand;
-        int seatCounter = 0;
+        protected int customerID, seatRow, seatCol, scenarioID, customerAmount, seatRowCust, seatColCust;
+        protected string demographic;
+        protected Hall hall;
+        protected Seat[,] seats;
+        protected Door[] doors;
+        protected Random rand;
+        protected int seatCounter = 0;
+        protected int speed = 1;
 
         public Customer(int customerID, int customerAmount, Hall hallChosen)
         {
@@ -58,18 +59,18 @@ namespace CinemaSeatingSimulation
             {
                 if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                 {
-                    users[i].Top++;
+                    users[i].Top+=speed;
                 }
                 else
                 {
                     if (users[i].Left < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
-                        users[i].Left++;
+                        users[i].Left += speed;
                     else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                     {
                         //timerSimulation.Stop();
                         while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                         {
-                            users[i].Top++;
+                            users[i].Top += speed;
                             if (users[i].Top == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                             {
                                 users[i].BringToFront();
@@ -80,6 +81,7 @@ namespace CinemaSeatingSimulation
                                 if (i == amount - 1)
                                 {
                                     FormSimulation.emergencyEnable = true;
+                                    //flag
                                 }
                             }
                         }
@@ -157,24 +159,46 @@ namespace CinemaSeatingSimulation
         {
             return (seatColCust / 2) + 2;
         }
+
+        public int Speed
+        {
+            get { return this.speed; }
+            set { speed = value; }
+        }
     }
 
-    
 
-    //class Child : Customer
-    //{
 
-    //}
-    //class Adult : Customer
-    //{
-
-    //}
-    //class Seniors : Customer
-    //{
-
-    //}
-    //class Teens : Customer
-    //{
-
-    //}
+    class Children : Customer
+    {
+        public Children(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 4;
+        }
+    }
+    class Student : Customer
+    {
+        public Student(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 3;
+        }
+    }
+    class Adult : Customer
+    {
+        public Adult(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 2;
+        }
+    }
+    class Elder : Customer
+    {
+        public Elder(int customerID, int customerAmount, Hall hallChosen)
+            : base(customerID, customerAmount, hallChosen)
+        {
+            speed = 1;
+        }
+    }
 }

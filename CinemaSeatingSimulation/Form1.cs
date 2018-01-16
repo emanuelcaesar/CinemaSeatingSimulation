@@ -17,7 +17,7 @@ namespace CinemaSeatingSimulation
         private bool btnClicked = false;
         private FormSimulationScreen formSimulation;
         private Scenario scenariotest = new Scenario();
-        Customer cust = new Customer();
+        //Customer cust = new Customer();
         public static bool emergencyEnable;
         //public static double amount;
 
@@ -63,6 +63,9 @@ namespace CinemaSeatingSimulation
             timerBack.Stop();
             formSimulation.timerSimulation.Enabled = true;
             timerStart.Start();
+
+            //timer2.Start();
+
         }
 
         private void ShowFormSimulationScreen()
@@ -260,9 +263,14 @@ namespace CinemaSeatingSimulation
             rbC.Enabled = value;
         }
 
+
+        int i = 0;
         private void timerStart_Tick(object sender, EventArgs e)
         {
             formSimulation.timerSimulation_Tick(sender, e);
+
+            i++;
+            label1.Text = i.ToString();
         }
 
         private void timerBack_Tick(object sender, EventArgs e)
@@ -472,6 +480,13 @@ namespace CinemaSeatingSimulation
             MessageBox.Show("Configuration loaded!");
         }
 
+        
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+        //    i++;
+        //    label1.Text = i.ToString(); 
+        }
     }
 
 }

@@ -33,9 +33,10 @@ namespace CinemaSeatingSimulation
             Label Student = ((FormSimulation)this.Owner).lblStudentAmount;
             Label Adult = ((FormSimulation)this.Owner).lblAdultAmount;
             Label Childen = ((FormSimulation)this.Owner).lblChildrenAmount;
-            Adult.Text = Convert.ToString(Convert.ToString(agecategory[0]));
-            Childen.Text = Convert.ToString(Convert.ToString(agecategory[1]));
-            Student.Text = Convert.ToString(Convert.ToString(agecategory[2]));
+          
+            Childen.Text = Convert.ToString(Convert.ToString(agecategory[0]));
+            Student.Text = Convert.ToString(Convert.ToString(agecategory[1]));
+            Adult.Text = Convert.ToString(Convert.ToString(agecategory[2]));
             Elder.Text = Convert.ToString(Convert.ToString(agecategory[3]));
 
         }
