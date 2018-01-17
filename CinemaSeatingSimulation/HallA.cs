@@ -78,7 +78,7 @@ namespace CinemaSeatingSimulation
             }
 
             doors[0] = new Door(25, 9, 5, 0);
-            doors[1] = new Door(25, 9, 500, 0);
+            doors[1] = new Door(25, 9, 5, 0);
         }
     }
 }

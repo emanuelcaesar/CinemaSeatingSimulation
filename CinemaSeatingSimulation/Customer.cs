@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaSeatingSimulation
 {
@@ -17,6 +14,8 @@ namespace CinemaSeatingSimulation
         protected int seatCounter = 0;
         protected int speed = 1;
         protected System.Drawing.Image userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userLaras.png");
+        FormSimulation fs;
+        FormSimulationScreen fss;
 
 
         public Customer(int customerID, int customerAmount, Hall hallChosen)
@@ -61,9 +60,9 @@ namespace CinemaSeatingSimulation
             {
                 if (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight)
                 {
-                    if (i != 0 && users[i].Bottom >= users[i - 1].Top)
+                    if (i != 0 && users[i].Bottom >= users[i - 1].Top && users[i].Left >= users[i - 1].Left)
                     {
-                        users[i].Top += 1;
+                        users[i].Top += 0;
                     }
                     else
                     {
@@ -76,7 +75,8 @@ namespace CinemaSeatingSimulation
                         users[i].Left += 1;
                     else if (users[i].Left == seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX)
                     {
-                        //timerSimulation.Stop();
+                        //fss.timerSimulation.Stop();
+                       
                         while (users[i].Top < seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY)
                         {
                             users[i].Top += 1;
@@ -86,10 +86,15 @@ namespace CinemaSeatingSimulation
                                 seatCounter++;
                                 System.Windows.Forms.Label test = ((FormSimulation)fss.Owner).lblFilledSeats;
                                 test.Text = Convert.ToString(seatCounter);
-                                //timerSimulation.Stop();
+                                
+                                //fss.timerSimulation.Stop();
+
                                 if (i == amount - 1)
                                 {
                                     FormSimulation.emergencyEnable = true;
+                                    System.Windows.Forms.Timer timerSim = ((FormSimulation)fss.Owner).timer1;
+                                    timerSim.Stop();
+                                    //flag end timer when customer all seated
                                 }
                             }
                         }
@@ -97,6 +102,8 @@ namespace CinemaSeatingSimulation
 
                 }
             }
+            
+
         }
 
         public void FindSeat()
@@ -185,7 +192,7 @@ namespace CinemaSeatingSimulation
         public Children(int customerID, int customerAmount, Hall hallChosen)
             : base(customerID, customerAmount, hallChosen)
         {
-            speed = 7;
+            speed = 2;
             userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userChildren.png");
         }
     }
@@ -194,7 +201,7 @@ namespace CinemaSeatingSimulation
         public Student(int customerID, int customerAmount, Hall hallChosen)
             : base(customerID, customerAmount, hallChosen)
         {
-            speed = 5;
+            speed = 2;
             userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userStudent.png");
         }
     }
@@ -203,7 +210,7 @@ namespace CinemaSeatingSimulation
         public Adult(int customerID, int customerAmount, Hall hallChosen)
             : base(customerID, customerAmount, hallChosen)
         {
-            speed = 3;
+            speed = 1;
             userPict = (System.Drawing.Image)new System.Drawing.Bitmap(@"userAdult.png");
         }
     }

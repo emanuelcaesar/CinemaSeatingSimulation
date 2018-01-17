@@ -317,9 +317,6 @@ namespace CinemaSeatingSimulation
 
         public void StartSim(FormSimulationScreen fss)
         {
-
-            //all the code from formload
-
             this.fss = fss;
             hall1.ConfigHall();
             seatList2 = hall1.Seats();
@@ -367,15 +364,8 @@ namespace CinemaSeatingSimulation
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point((doors[0].PosX + doors[0].DWidth) / 2, doors[0].PosY);
-                //users[i].BackColor = System.Drawing.Color.White;
                 users[i].BackgroundImage = custs[i].UserPict;
                 users[i].Size = new System.Drawing.Size(9, 9);
-
-
-                //System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
-                //lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
-                //lblcus.Font = new System.Drawing.Font("Arial", 4);
-                //lblcus.ForeColor = System.Drawing.Color.Black;
                 fss.Controls.Add(users[i]);
                 randSpace = rand.Next(11, 40);
                 doors[0].PosY -= randSpace;
@@ -388,79 +378,51 @@ namespace CinemaSeatingSimulation
             {
                 for (int j = 0; j < amount; j++)
                 {
-                    while ((seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX + seatList2[custs[i].SeatRow, custs[i].SeatCol].SWidth) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX)
-                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosX + seatList2[custs[j].SeatRow, custs[j].SeatCol].SWidth)
-                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY + seatList2[custs[i].SeatRow, custs[i].SeatCol].SHeight) >= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY)
-                                && (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY) <= (seatList2[custs[j].SeatRow, custs[j].SeatCol].PosY + seatList2[custs[j].SeatRow, custs[j].SeatCol].SHeight)
-                                && i != j)
+                    if (i != j && (users[i].Right == users[j].Left || users[i].Left == users[j].Right
+                        || users[i].Top == users[j].Bottom || users[i].Bottom == users[j].Top))
                     {
                         users[i].Top -= 0;
                         users[i].Left -= 0;
                     }
-                    
-                        if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
-                                custs[i].SeatCol].SHeight))
-                        {
-                            users[i].Top--;
-                        }
-                        else
-                        {
-                            if (users[i].Left > (doors[0].PosX + doors[0].DWidth) / 2)
-                            {
-                                users[i].Left--;
-                            }
-                            else
-                            {
-                                users[i].Top--;
-                                if (users[i].Top == 9)
-                                {
-                                    //colls[h].ill--;
-                                    z++;
-                                    users[i].SendToBack();
-                                }
-                                if (users[i].Top == -3)
-                                {
-                                    //rowList--;
-                                }
-                                if (z == amount)
-                                {
-                                    z++;
-                                    System.Windows.Forms.MessageBox.Show("Cinema is cleared");
-                                }
-                            }
-                        }
 
                 }
-                //if (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY == rows)
-                //{
-                //if (custs[i].SeatRow == h)
-                //{
-                //if (custs[i].SeatRow == rows)
-                //{
+                if (users[i].Top > (seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY - seatList2[custs[i].SeatRow,
+            custs[i].SeatCol].SHeight))
+                {
+                    users[i].Top--;
+                }
+                else
+                {
+                    if (users[i].Left > (doors[0].PosX + doors[0].DWidth) / 2)
+                    {
+                        users[i].Left--;
+                    }
+                    else
+                    {
+                        users[i].Top--;
+                        if (users[i].Top == 9)
+                        {
+                            z++;
+                            users[i].SendToBack();
+                        }
+                        if (users[i].Top == -3)
+                        {
 
-                //}
+                        }
+                        if (z == amount)
+                        {
+                            z++;
+                            System.Windows.Forms.MessageBox.Show("Cinema is cleared");
+                        }
+                    }
+                }
 
-                //if(rowList == 0)
-                //{
-                //    rows = custs[0].SeatRow;
-                //    for (int j = 0; j < amount; j++)
-                //    {
-                //        if (users[j].Top > 9)
-                //        {
-                //            if (custs[j].SeatRow == rows)
-                //            {
-                //                rowList++;
-                //            }
-                //            else if (custs[j].SeatRow < rows)
-                //            {
-                //                rows = custs[j].SeatRow;
-                //                rowList = 0;
-                //            }
-                //        }
-                //    }
-                //    i = -1;
-                //}
             }
+           
+
+
+
+
         }
 
         public void ResetSim()
@@ -475,9 +437,17 @@ namespace CinemaSeatingSimulation
                 System.Windows.Forms.Panel pnlUser = new System.Windows.Forms.Panel();
                 users.Add(pnlUser);
                 users[i].Location = new System.Drawing.Point(seatList2[custs[i].SeatRow, custs[i].SeatCol].PosX,
-                    seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
-                users[i].BackColor = System.Drawing.Color.White;
-                users[i].Size = new System.Drawing.Size(11, 11);
+                   seatList2[custs[i].SeatRow, custs[i].SeatCol].PosY);
+                users[i].BringToFront();
+                users[i].BackgroundImage = custs[i].UserPict;
+                users[i].Size = new System.Drawing.Size(9, 9);
+                fss.Controls.Add(users[i]);
+                users[i].BringToFront();
+                users[i].BackgroundImage = custs[i].UserPict;
+                randSpace = rand.Next(11, 40);
+                doors[0].PosY -= randSpace;
+
+                
 
                 //System.Windows.Forms.Label lblcus = new System.Windows.Forms.Label();
                 //lblcus.Text = seatList2[custs[i].SeatRow, custs[i].SeatCol].SeatId;
@@ -486,10 +456,12 @@ namespace CinemaSeatingSimulation
 #if DEBUG
                 users[i].Controls.Add(addlabel("Skip", i, 0));
 #endif
-                fss.Controls.Add(users[i]);
                 users[i].BringToFront();
+
                 System.Windows.Forms.Label seatsfiled = ((FormSimulation)fss.Owner).lblFilledSeats;
                 seatsfiled.Text = Convert.ToString(i);
+                pnlUser.Invalidate();
+                users[i].BackgroundImage = custs[i].UserPict;
             }
         }
 

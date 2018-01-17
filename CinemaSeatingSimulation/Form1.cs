@@ -69,6 +69,8 @@ namespace CinemaSeatingSimulation
             timerBack.Stop();
             formSimulation.timerSimulation.Enabled = true;
             timerStart.Start();
+            timer1.Start();
+
         }
 
         private void ShowFormSimulationScreen()
@@ -226,11 +228,6 @@ namespace CinemaSeatingSimulation
             }
             else
                 MessageBox.Show("Please choose correctly");
-
-
-
-
-
         }
 
         private void ResetAll()
@@ -266,9 +263,10 @@ namespace CinemaSeatingSimulation
             rbC.Enabled = value;
         }
 
+        int a = 0;
         private void timerStart_Tick(object sender, EventArgs e)
         {
-            formSimulation.timerSimulation_Tick(sender, e);
+           formSimulation.timerSimulation_Tick(sender, e);
         }
 
         private void timerBack_Tick(object sender, EventArgs e)
@@ -451,6 +449,26 @@ namespace CinemaSeatingSimulation
         private void button3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        int minute = 0;
+        int sec = 0;
+        int milsec = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = Convert.ToString(minute)+":"+ Convert.ToString(sec)+":"+ Convert.ToString(milsec);
+            if (milsec >= 59)
+            {
+                milsec = 0;
+                sec++;
+            }
+            if(sec >= 59)
+            {
+                sec = 0;
+                minute++;
+            }
+                
+            milsec++;
         }
     }
 

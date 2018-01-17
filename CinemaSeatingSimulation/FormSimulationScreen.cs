@@ -37,7 +37,7 @@ namespace CinemaSeatingSimulation
             Childen.Text = Convert.ToString(Convert.ToString(agecategory[1]));
             Student.Text = Convert.ToString(Convert.ToString(agecategory[2]));
             Elder.Text = Convert.ToString(Convert.ToString(agecategory[3]));
-
+            
         }
 
         public void timerEmergency_Tick(object sender, EventArgs e)
@@ -46,17 +46,18 @@ namespace CinemaSeatingSimulation
             
         }
         //scenarioTest.AssignCustomers(customer.getCustomerAmount);
+        
         public void timerSimulation_Tick(object sender, EventArgs e)
         {
+           
             scenarioTest.UserGoToSeat();
+           
         }
 
         public void timerSimulation_Skip()
         {
             scenarioTest.SkipSim();
+            
         }
-
-
-
     }
 }

@@ -39,10 +39,10 @@
             // pnlScreen
             // 
             this.pnlScreen.BackColor = System.Drawing.Color.Chartreuse;
-            this.pnlScreen.Location = new System.Drawing.Point(132, 6);
+            this.pnlScreen.Location = new System.Drawing.Point(99, 5);
             this.pnlScreen.Margin = new System.Windows.Forms.Padding(1);
             this.pnlScreen.Name = "pnlScreen";
-            this.pnlScreen.Size = new System.Drawing.Size(467, 9);
+            this.pnlScreen.Size = new System.Drawing.Size(350, 7);
             this.pnlScreen.TabIndex = 0;
             // 
             // timerSimulation
@@ -54,7 +54,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(27, 650);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1408, 22);
+            this.textBox1.Size = new System.Drawing.Size(1408, 20);
             this.textBox1.TabIndex = 6;
             // 
             // panel1
@@ -70,10 +70,10 @@
             // 
             // FormSimulationScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(734, 359);
+            this.ClientSize = new System.Drawing.Size(550, 292);
             this.Controls.Add(this.pnlScreen);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
